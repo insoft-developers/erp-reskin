@@ -1,0 +1,6 @@
+- Selalu gunakan bahasa indonesia
+- nama aplikasi saya randu
+- stack yang digunakan laravel
+- ada berebarapa halaman blade sudah menggunakan bantuan vue 3 cdn
+- proyek ini menggunakan jquery, sweetalert 2, notyf.js beberapa ada yang menggunakan tailwindcss 3 cdn
+- db yang di gunakan mysql

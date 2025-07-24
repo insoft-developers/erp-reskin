@@ -1,0 +1,128 @@
+.container .cart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    margin-bottom:-5px;
+    margin-left: -32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.2s ease;
+    z-index: 2;
+  }
+  
+  .container .cart span {
+    font-size: 25px;
+  }
+  
+  /* .container:hover .cart {
+    margin-left: -15px
+  } */
+  
+  .container .cart:active {
+    transform: scale(0.9);
+  }
+  
+  /* The "Added" text */
+  .container .added {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+  }
+  
+  /* .container:hover .added {
+    transform: translateY(0);
+  } */
+  
+  /* Add to cart icon */
+  .container .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    background: #ff5e62;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+  
+  .container:hover .icon {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .container .icon::before,
+  .container .icon::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+  }
+  
+  .container .icon::before {
+    width: 50%;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .container .icon::after {
+    width: 2px;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* Shake Animation */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.5s;
+  }
+  /* Send to cart animation */
+  @keyframes sendtocart {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(100vw - 50px), calc(-160vh + 20px));
+      opacity: 0;
+    }
+  }
+  
+  .sendtocart {
+    animation: sendtocart 1s forwards cubic-bezier(1.000, 0.440, 0.840, 0.165);
+  }
+  .add-to-cart {
+      z-index: 100;
+  }

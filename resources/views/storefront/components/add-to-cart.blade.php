@@ -1,0 +1,1 @@
+<a href="#" class="btn btn-sm btn-block btn-outline-primary add-to-cart" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" data-product-price="{{ $product->price }}" data-product-image="{{ $product->url }}" data-product-unit="{{ $product->unit }}">Tambah</a>

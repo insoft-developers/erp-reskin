@@ -1,0 +1,325 @@
+.btn.btn-intercom {
+    background-color: #4900ee;
+    color: white;
+}
+
+.btn.btn-intercom.btn-intercom-init {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 3px;
+    box-sizing: border-box;
+    -webkit-box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0.6);
+}
+
+.btn.btn-intercom.btn-intercom-init .btn-intercom-icon {
+    width: 42px;
+    height: 42px;
+    position: relative;
+    margin: auto;
+    top: 7.4px;
+    background-image: url(../img/icon/icon-open.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.btn-intercom-open {
+    animation: btnIntercomOpen 0.4s ease 1 normal forwards;
+}
+
+.btn-intercom-close {
+    animation: btnIntercomClose 0.4s ease 1 normal forwards;
+}
+
+@keyframes btnIntercomOpen {
+    25% {
+        background-image: url(../img/icon/icon-open.png);
+    }
+
+    100% {
+        width: 20px;
+        height: 20px;
+        top: 0px;
+        transform: rotate(180deg);
+        background-image: url(../img/icon/icon-close.png);
+    }
+}
+
+@keyframes btnIntercomClose {
+    0% {
+        width: 20px;
+        height: 20px;
+        top: 0px;
+        background-image: url(../img/icon/icon-close.png);
+        transform: rotate(180deg);
+    }
+
+    5% {
+        background-image: url(../img/icon/icon-close.png);
+    }
+
+    80% {
+        background-image: url(../img/icon/icon-open.png);
+    }
+
+    100% {
+        background-image: url(../img/icon/icon-open.png);
+    }
+}
+
+.popup-intercom {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: -50px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.popup-intercom-open {
+    bottom: 0px;
+    opacity: 1;
+}
+
+.popup-intercom-layout {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+.popup-intercom-layout::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 250px;
+    /* background-color: blue; */
+    background-image: url(../img/background/intercom.png),
+        linear-gradient(to left,
+            rgba(14, 42, 143, 0.8) 5%,
+            rgb(73, 0, 238, 0.9) 80%);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    z-index: 0;
+}
+
+.popup-intercom-layout .popup-intercom-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1;
+    padding-bottom: 110px;
+}
+
+.popup-intercom-header {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    padding: 25px 30px 0px 35px;
+    z-index: 1;
+}
+
+.popup-intercom-header .popup-intergom-logo {
+    margin-left: -4px;
+    height: 45px;
+}
+
+.popup-intercom-header .popup-intercom-title {
+    margin-top: 15px;
+    font-size: 25px;
+    color: white;
+}
+
+.popup-intercom-header .popup-intercom-subtitle {
+    margin-top: 5px;
+    font-size: 19px;
+    color: #e7e7e7;
+    font-weight: 300;
+}
+
+.popup-intercom-body {
+    position: relative;
+    margin-top: -40px;
+    width: 100%;
+    border: 0px dashed red;
+    z-index: 2;
+    padding: 0px 15px 0px 15px;
+}
+
+.popup-intercom-body .card {
+    border: 0px;
+    border-top: 2px solid #a6abfd;
+    -webkit-box-shadow: -2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: -2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+}
+
+.popup-intercom-body .card * {
+    border-radius: inherit;
+}
+
+.popup-intercom-body .card .card-img-top {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.popup-intercom-body .card .card-header {
+    border: 0px;
+    background-color: white;
+}
+
+.popup-intercom-body .card .card-header .card-title {
+    font-size: 17px;
+    margin: 0px;
+}
+
+.popup-intercom-body .card .card-header .card-subtitle {
+    font-size: 13px;
+}
+
+.popup-intercom-body .card .card-body {
+    padding: 0px 20px 0px 20px;
+}
+
+.popup-intercom-body .card .card-body .list-group .list-group-item {
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.popup-intercom-body .card .card-body .list-group .list-group-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.popup-intercom-body .card .card-body .list-group .list-group-item div {
+    padding-left: 10px;
+}
+
+.popup-intercom-body .card .card-body .list-group .list-group-item div .article-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0px 0px 4px 0px;
+}
+
+.popup-intercom-body .card .card-body .list-group .list-group-item div .article-description {
+    font-size: 11px;
+    font-weight: 300;
+    color: #777;
+}
+
+.popup-intercom-body .card .card-footer {
+    background-color: white;
+    border: 0px;
+    margin: 0px;
+    padding: 0px 20px 15px 20px;
+}
+
+/* Bootstrap+ */
+.avatar-groups {
+    margin-left: 8px;
+}
+
+.avatar-groups .avatar {
+    float: left;
+    margin-left: -10px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: red;
+    object-fit: cover;
+    border: 3px solid white;
+    box-sizing: border-box;
+}
+
+.popup-intercom-body label {
+    font-size: 12px;
+    color: #a6abfd;
+    margin: 0px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #cfcfcf;
+    border: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+@media (min-width: 992px) {
+    .btn.btn-intercom.btn-intercom-init {
+        -webkit-box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0);
+        -moz-box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0);
+        box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0);
+    }
+
+    .popup-intercom-layout .popup-intercom-box {
+        padding-bottom: 30px;
+    }
+
+    /* Popup Intercom */
+    .popup-intercom {
+        width: 372px;
+        height: 80%;
+        right: 35px;
+        bottom: 80px;
+    }
+
+    .popup-intercom-open {
+        bottom: 100px;
+        opacity: 1;
+    }
+
+    .popup-intercom-layout {
+        border-radius: 10px;
+        background-color: #fff;
+        -webkit-box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Scrollbar */
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #cfcfcf;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #666;
+    }
+}
