@@ -1,6 +1,6 @@
-@if ($view == 'jurnal')
+@if ($view == 'journal-list')
     <script>
-        inbalance_checkbox
+      
 
         $("#inbalance_checkbox").click(function() {
             var bulan = $("#bulan").val();
@@ -53,12 +53,6 @@
                 processing: true,
                 serverSide: true,
                 dom: 'Blfrtip',
-                columnDefs: [{
-                    target: 0,
-                    visible: false,
-                    searchable: false
-                }, ],
-
                 ajax: {
                     type: "POST",
                     url: "{{ route('journal.table') }}",
@@ -75,7 +69,9 @@
                 ],
                 columns: [{
                         data: 'id',
-                        name: 'id'
+                        name: 'id',
+                       
+                        searchable: false,
                     },
                     {
                         data: 'tanggal',

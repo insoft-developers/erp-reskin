@@ -1,4 +1,4 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
     <main class="nxl-container">

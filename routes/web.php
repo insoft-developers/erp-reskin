@@ -216,6 +216,7 @@ Route::group(['middleware' => 'mAuth'], function () {
     Route::get('feature-request/data/table', [FeatureRequestController::class, 'getDataTable'])->name('feature-request.datatable');
 
     Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/journal_list', [DashboardController::class, 'journal_list']);
     Route::resource('landing-page', LandingPageController::class);
     Route::get('/landing-page/{id}/destroy', [LandingPageController::class, 'destroy'])->name('landing-page.custom-destroy');
     Route::get('landing-pages/data', [LandingPageController::class, 'getData'])->name('landing-pages.data');

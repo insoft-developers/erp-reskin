@@ -300,9 +300,16 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $view = 'jurnal';
+        $view = 'dashboard';
+        return view('main.dashboard_new', compact('view'));
+    }
+
+
+    public function journal_list()
+    {
+        $view = 'journal-list';
         $list_transaksi = MlTransaction::orderBy('id', 'asc')->get();
-        return view('main.dashboard', compact('view', 'list_transaksi'));
+        return view('reskin.journal.journal_list', compact('view', 'list_transaksi'));
     }
 
     public function save_jurnal(Request $request)

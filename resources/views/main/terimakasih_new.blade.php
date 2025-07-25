@@ -6,7 +6,7 @@
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     @php
+    @php
         $setting = \App\Models\Setting::findorFail(1);
     @endphp
     <title>{{ $setting->site_name }} - {{ $setting->site_slogan }}</title>

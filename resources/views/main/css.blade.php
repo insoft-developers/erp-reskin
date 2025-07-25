@@ -1,6 +1,10 @@
 
 
 <style>
+
+    #table-jurnal_filter, #table-jurnal_length{
+        display: none;
+    }
     .select-month {
         width: 200px;
         margin-right: 10px;
