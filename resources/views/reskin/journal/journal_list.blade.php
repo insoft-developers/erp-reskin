@@ -13,7 +13,12 @@
                      <div class="card">
                          <div class="card-header">
                              <h4 class="card-title">Jurnal Akuntansi</h4>
-                             
+                             <button id="btn-reskin-tambah" onclick="tambah_jurnal_reguler()"
+                                    class="btn btn-soft-success pull-right">Input Jurnal</button>
+
+
+                                <button id="btn-reskin-tambah2" onclick="add_jurnal()" class="btn btn-soft-warning ">Jurnal
+                                    Cepat</button>
 
                          </div><!-- end card header -->
                          <div class="card-body">

@@ -42,7 +42,7 @@
                 success: function(data) {
 
                     if (data.success) {
-                        window.location = "{{ url('/') }}";
+                        window.location = "{{ url('/journal_list') }}";
                     } else {
                         show_error(data.message);
                     }

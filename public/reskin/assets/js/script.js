@@ -61,32 +61,32 @@ Template Name: Kanakku - Bootstrap Admin Template
 	}
 
 	// Datatable
-	if($('.datatable').length > 0) {
-		$('.datatable').DataTable({
-			"bFilter": true,
-			"sDom": 'fBtlpi',  
-			"ordering": true,
-			"language": {
-				search: ' ',
-				sLengthMenu: '_MENU_',
-				searchPlaceholder: "Search",
-				sLengthMenu: 'Row Per Page _MENU_ Entries',
-				info: "_START_ - _END_ of _TOTAL_ items",
-				paginate: {
-					next: '<i class="isax isax-arrow-right-1"></i>',
-					previous: '<i class="isax isax-arrow-left"></i> '
-				},
-			 },
-			"scrollX": false,         // Enable horizontal scrolling
-			"scrollCollapse": false,  // Adjust table size when the scroll is used
-			"responsive": false,
-			"autoWidth": false,
-			initComplete: (settings, json)=>{
-				$('.dataTables_filter').appendTo('#tableSearch');
-				$('.dataTables_filter').appendTo('.search-input');
-			},	
-		});
-	}	
+	// if($('.datatable').length > 0) {
+	// 	$('.datatable').DataTable({
+	// 		"bFilter": true,
+	// 		"sDom": 'fBtlpi',  
+	// 		"ordering": true,
+	// 		"language": {
+	// 			search: ' ',
+	// 			sLengthMenu: '_MENU_',
+	// 			searchPlaceholder: "Search",
+	// 			sLengthMenu: 'Row Per Page _MENU_ Entries',
+	// 			info: "_START_ - _END_ of _TOTAL_ items",
+	// 			paginate: {
+	// 				next: '<i class="isax isax-arrow-right-1"></i>',
+	// 				previous: '<i class="isax isax-arrow-left"></i> '
+	// 			},
+	// 		 },
+	// 		"scrollX": false,         // Enable horizontal scrolling
+	// 		"scrollCollapse": false,  // Adjust table size when the scroll is used
+	// 		"responsive": false,
+	// 		"autoWidth": false,
+	// 		initComplete: (settings, json)=>{
+	// 			$('.dataTables_filter').appendTo('#tableSearch');
+	// 			$('.dataTables_filter').appendTo('.search-input');
+	// 		},	
+	// 	});
+	// }	
 
 	// Datetimepicker
 	if($('.datetimepicker').length > 0 ){
@@ -137,16 +137,16 @@ Template Name: Kanakku - Bootstrap Admin Template
 	}
 
 	// Select 2	
-	if ($('.select2').length > 0) {
-	 	$(".select2").select2();
-	}
+	// if ($('.select2').length > 0) {
+	//  	$(".select2").select2();
+	// }
 	
-	if ($('.select').length > 0) {
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-	}
+	// if ($('.select').length > 0) {
+	// 	$('.select').select2({
+	// 		minimumResultsForSearch: -1,
+	// 		width: '100%'
+	// 	});
+	// }
 
 	// Select Image
 

@@ -1,7 +1,5 @@
 @if ($view == 'journal-list')
     <script>
-      
-
         $("#inbalance_checkbox").click(function() {
             var bulan = $("#bulan").val();
             var tahun = $("#tahun").val();
@@ -52,7 +50,18 @@
 
                 processing: true,
                 serverSide: true,
-                dom: 'Blfrtip',
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
+
                 ajax: {
                     type: "POST",
                     url: "{{ route('journal.table') }}",
@@ -70,7 +79,7 @@
                 columns: [{
                         data: 'id',
                         name: 'id',
-                       
+                        visible: true,
                         searchable: false,
                     },
                     {
@@ -100,7 +109,10 @@
         }
 
         $(document).ready(function() {
-            $(".s2").select2();
+            $(".s2").select2({
+                  dropdownParent: $('#modal-tambah') // sesuaikan ID modal kamu
+
+            });
             $("#nominal_text").keyup(function() {
                 pemisah_ribuan("#nominal_text", "#nominal");
             });
@@ -137,6 +149,7 @@
 
 
         function add_jurnal() {
+            quickUnloading();
             $("#modal-tambah").modal("show");
             reset_form();
         }
@@ -205,6 +218,7 @@
 
             $("#modal-tambah form").submit(function(e) {
                 e.preventDefault();
+                quickLoading();
                 $.ajax({
                     url: "{{ url('save_jurnal') }}",
                     type: "POST",
@@ -212,6 +226,7 @@
                     contentType: false,
                     processData: false,
                     success: function(data) {
+                        quickUnloading();
                         console.log(data);
                         if (data.success) {
                             $("#modal-tambah").modal("hide");
@@ -275,6 +290,17 @@
                     }
                 }
             })
+        }
+
+
+        function quickLoading() {
+            $("#btn-simpan-modal-quick-journal").text("Processing.....");
+            $("#btn-simpan-modal-quick-journal").attr('disabled', true);
+        }
+
+        function quickUnloading() {
+            $("#btn-simpan-modal-quick-journal").text("Simpan");
+            $("#btn-simpan-modal-quick-journal").removeAttr('disabled');
         }
     </script>
 @endif

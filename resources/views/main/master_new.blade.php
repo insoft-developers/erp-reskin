@@ -61,6 +61,8 @@
 
     <!-- Tabler Icon CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/plugins/tabler-icons/tabler-icons.min.css">
+     <!-- Datatable CSS -->
+    <link rel="stylesheet" href="{{ asset('reskin') }}/assets/css/dataTables.bootstrap5.min.css">
 
     <!-- Simplebar CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/plugins/simplebar/simplebar.min.css">

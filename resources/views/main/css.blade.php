@@ -1,10 +1,42 @@
-
-
 <style>
 
-    #table-jurnal_filter, #table-jurnal_length{
+    .spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+    .btn-debit-kredit{
+        position: absolute;
+    left: 15px;
+    bottom: 18px;
+    }
+    #btn-reskin-tambah {
+        margin-top: -23px;
+        margin-right: -27px;
+    }
+
+    #btn-reskin-tambah2 {
+        margin-top: -23px;
+        float: right;
+    }
+
+    .search-input {
         display: none;
     }
+
+    #table-jurnal_filter,
+    #table-jurnal_length {
+        display: none;
+    }
+
     .select-month {
         width: 200px;
         margin-right: 10px;
@@ -295,7 +327,7 @@
     }
 
     .card-header {
-        background-color: #2f467a !important;
+        background-color: #743bff !important;
 
     }
 

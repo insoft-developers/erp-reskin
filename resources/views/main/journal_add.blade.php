@@ -1,54 +1,22 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('/') }}">Jurnal</a></li>
-                        <li class="breadcrumb-item">Tambah Transaksi</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
+    <div class="page-wrapper">
+        <div class="content">
+            
+           
                 <div class="row">
                     <!-- [Leads] start -->
                     <div class="col-xxl-12">
                         <div class="card stretch stretch-full">
-<div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-    <h5 class="card-title" style="margin: 0;">Tambah Transaksi</h5>
-    <button onclick="add_item()" 
-        class="btn btn-sm btn-success" 
-        style="display: flex; align-items: center;">
-        <i class="fa fa-plus" style="margin-right: 5px;"></i> Tambah Akun Estimasi
-    </button>
-</div>
+                            <div class="card-header"
+                                style="display: flex; justify-content: space-between; align-items: center;">
+                                <h5 class="card-title" style="margin: 0;">Buat Jurnal Baru</h5>
+                                <button onclick="add_item()" class="btn btn-sm btn-success"
+                                    style="display: flex; align-items: center;">
+                                    <i class="fa fa-plus" style="margin-right: 5px;"></i> Tambah Akun Estimasi
+                                </button>
+                            </div>
 
                             <form id="form-tambah-jurnal" method="POST" action="" enctype="multipart/form-data">
                                 @csrf
@@ -194,12 +162,13 @@
                                             <input type="file" class="form-control" id="image" name="image"
                                                 accept=".jpg, .jpeg, .png">
                                         </div>
-<div class="mtop20"></div>
-<div class="row">
-    <div class="col-md-12">
-        <button style="float: left; margin-top: 20px;" class="btn btn-primary">Simpan</button>
-    </div>
-</div>
+                                        <div class="mtop20"></div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button style="float: left; margin-top: 20px;"
+                                                    class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </div>
 
 
                                         <div class="mtop30"></div>
@@ -215,8 +184,7 @@
                     <!-- [] start -->
                 </div>
 
-            </div>
-            <!-- [ Main Content ] end -->
+           
 
         </div>
     </main>
