@@ -1,4 +1,4 @@
-@extends('master')
+@extends('main.master_new')
 @section('topstyle')
     <script src="https://cdn.tailwindcss.com"></script>
 @endsection
@@ -25,8 +25,8 @@
 @endsection
 @section('content')
     <div id="app">
-        <main class="nxl-container init-check hidden">
-            <div class="nxl-content">
+        <div class="page-wrapper">
+            <div class="content">
                 <!-- [ page-header ] start -->
                 <div class="page-header">
                     <div class="page-header-left d-flex align-items-center">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-content">
+                <div class="content" style="background: whitesmoke;margin-bottom:20px;padding-bottom:20px;">
                     <div class="grid grid-cols-3 gap-[10px]">
                         <div
                             class="col-span-1 px-3 rounded-[10px] h-[100px] text-white font-bold items-center flex flex-col lg:flex-row justify-center lg:justify-between bg-gradient-to-r from-amber-500 to-amber-800">
@@ -387,7 +387,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 @endsection
 @section('js')

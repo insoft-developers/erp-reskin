@@ -1,4 +1,4 @@
-@extends('master', [
+@extends('main.master_new', [
     'use_tailwind' => true,
 ])
 @section('style')
@@ -34,11 +34,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 @endsection
+
+
 @section('content')
     <div id="app">
 
-        <main class="nxl-container">
-            <div class="nxl-content">
+        <div class="page-wrapper">
+            <div class="content">
                 <!-- [ page-header ] start -->
                 <div class="page-header">
                     <div class="page-header-left d-flex align-items-center">
@@ -47,7 +49,7 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item">POS (Point of Sales)</li>
-                            <li class="breadcrumb-item">Aplikasi Kasir Randu POS Versi Web</li>
+                            <li class="breadcrumb-item">Aplikasi Kasir POS Versi Web</li>
                         </ul>
                     </div>
                     <div class="page-header-right ms-auto"
@@ -62,14 +64,14 @@
 
 
                 </div>
-                <div class="main-content">
+                <div class="content" style="background: whitesmoke;">
                     {{-- Content Header --}}
                     <div class="grid grid-cols-12 gap-2 mb-2">
                         <div class="col-span-12 xl:col-span-8">
                             <div class="flex bg-white gap-2 p-2 max-h-[65px] align-items-center">
-                                <button type="button" class="btn btn-outline-info text-dark me-1 rounded-3"
+                                <button type="button" class="btn btn-lg btn-soft-info"
                                     @click="methods.onShowingModalSelectTable">
-                                    <i class="bi bi-grid-3x3-gap-fill me-2"></i> <span class="fs-7">Pilih Meja</span>
+                                    <i class="fa fa-th"></i> <span class="fs-7"></span>
                                 </button>
                                 <div class="input-group me-1">
                                     <select id="select2-pos" name="data" style="width: 100%">
@@ -77,8 +79,8 @@
                                     </select>
                                 </div>
                                 <button type="button" @click="methods.onShowingAddNewCustomerModal"
-                                    class="btn btn-outline-info text-dark rounded-3 me-1">
-                                    <i class="bi bi-card-heading"></i>
+                                    class="btn btn-lg btn-soft-success">
+                                    <i class="fa fa-user-plus"></i>
                                 </button>
                                 <div class="border h-[43.1076px] w-[250px] rounded-3 flex items-center justify-center">
                                     <input :disabled="data.petty_cash" type="date" v-model="data.value.custom_date">
@@ -130,17 +132,17 @@
                                             </select>
                                         </div>
                                         <div class="relative max-w-[300px] w-full">
-                                            <i class="bi bi-search absolute left-[14px] top-[14px]"></i>
+                                            <i class="fa fa-search absolute left-[14px] top-[14px]"></i>
                                             <input ref="searchInput" type="text"
                                                 class="form-control form-control-sm w-full pl-[40px]"
-                                                placeholder="Cari nama produk/layanan disini" v-model="data.searchQuery"
+                                                placeholder="Cari Produk" v-model="data.searchQuery"
                                                 @input="methods.onSearchInput" @blur="methods.unfocusSearchInput" />
                                             <small>Tekan CTRL + B untuk mode barcode</small>
                                         </div>
                                         <button type="button" @click="methods.focusSearchInput"
                                             class="rounded min-w-[47px] h-[47px] ml-2 flex items-center justify-center"
                                             :class="data.bg_barcode">
-                                            <i class="bi bi-upc-scan text-white text-xl"></i>
+                                            <i class="fa fa-qrcode"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -374,7 +376,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
 
         <div>
             {{-- Modal Open Shift --}}
@@ -436,7 +438,7 @@
                     <div class="modal-content">
                         <div class="modal-body w-full">
                             <div class="w-full bg-primary text-white p-3 rounded d-flex align-items-center mb-4">
-                                <h5 class="text-white m-0"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Pilih Meja</h5>
+                                <h5 class="text-white m-0"><i class="fa fa-th"></i>Pilih Meja</h5>
                             </div>
                             {{-- <h5 class="mb-4"><i class="bi bi-people-fill me-2"></i>Jumlah Meja</h5> --}}
                             <div class="d-flex justify-content-center align-items-center selected mb-3"></div>

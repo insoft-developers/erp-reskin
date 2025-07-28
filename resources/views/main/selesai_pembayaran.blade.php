@@ -1,4 +1,4 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('style')
     <style>
@@ -14,8 +14,8 @@
     </style>
 @endsection
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
+    <div class="page-wrapper">
+        <div class="content">
             <!-- [ page-header ] start -->
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content">
+            <div class="content" style="background: whitesmoke;">
                 <div class="row">
                     <div class="col-xxl-12">
                         <div class="row">
@@ -53,7 +53,7 @@
                                 style="height: calc(100vh - 180px)">
                                 <div class="d-flex flex-column text-center tengah">
                                     @if ($data->payment_status === 1)
-                                        <i class="bi bi-check-circle-fill text-success mb-3" style="font-size: 80px"></i>
+                                        <i class="fa fa-check-circle text-success mb-3" style="font-size: 80px"></i>
                                         <h3>Pembayaran Berhasil</h3>
                                     @else
                                         @if ($data->qris_code)
@@ -68,13 +68,13 @@
                                                 Silahkan scan barcode ini di device Anda<br />
                                                 menggunakan <b>QRIS</b> untuk melakukan pembayaran
                                             </div>
-                                            <i class="x1 bi bi-check-circle-fill text-success mb-3"
+                                            <i class="x1 fa fa-check-circle text-success mb-3"
                                                 style="font-size: 80px; display: none"></i>
                                             <h3 style="display: none" class="x1">Pembayaran Berhasil</h3>
                                         @else
-                                            <i class="x2 bi bi-clock-fill text-warning mb-3" style="font-size: 80px"></i>
+                                            <i class="x2 fa fa-clock-fill text-warning mb-3" style="font-size: 80px"></i>
                                             <h3 class="x2">Menunggu Proses Pembayaran</h3>
-                                            <i class="x1 bi bi-check-circle-fill text-success mb-3"
+                                            <i class="x1 fa fa-check-circle text-success mb-3"
                                                 style="font-size: 80px; display: none"></i>
                                             <h3 style="display: none" class="x1">Pembayaran Berhasil</h3>
                                         @endif
@@ -89,13 +89,13 @@
                                             <input disabled type="text" class="form-control border border-secondary"
                                                 placeholder="Kirim Struk Melalui Email" name="inputText">
                                             <button disabled class="btn btn-outline-secondary" type="submit"><i
-                                                    class="bi bi-caret-right-fill text-primary fs-3"></i></button>
+                                                    class="fa fa-chevron-circle-right text-primary fs-3"></i></button>
                                         </div>
                                     </form>
                                     <div class="d-flex justify-content-center align-items-center">
                                         <a href="/pos/print-receipt?reference={{ $reference }}" target="_blank"
                                             class="btn btn-outline-info text-dark rounded-3 me-2 p-3">
-                                            <i class="bi bi-printer"></i>
+                                            <i class="fa fa-print"></i>
                                         </a>
                                         <a href="/pos/index" class="btn w-100 p-3 text-white"
                                             style="background-color: #EB7302"><i class="bi bi-plus mse-2"></i>Mulai
@@ -108,7 +108,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 @endsection
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>

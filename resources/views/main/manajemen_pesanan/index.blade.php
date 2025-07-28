@@ -1,15 +1,15 @@
-@extends('master')
+@extends('main.master_new')
 @section('style')
     <style>
-        #landing-pages-table_wrapper .dataTables_scroll {
+        /* #landing-pages-table_wrapper .dataTables_scroll {
             overflow-y: auto;
-        }
+        } */
 
-        #landing-pages-table_wrapper .dataTables_scrollBody {
+        /* #landing-pages-table_wrapper .dataTables_scrollBody {
             max-height: 500px;
-            /* Sesuaikan dengan tinggi maksimum yang Anda inginkan */
+            
             overflow-y: scroll;
-        }
+        } */
 
         #order-detail-table {
             border: 1px solid #000;
@@ -74,13 +74,16 @@
         .text-right {
             text-align: right;
         }
+        .fs-15{
+            font-size: 14px !important;
+        }
     </style>
 @endsection
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <div class="page-header">
+    <div class="page-wrapper">
+        
+            {{-- <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
                         <h5 class="m-b-10"></h5>
@@ -105,16 +108,16 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="main-content">
+            <div class="content" style="background:whitesmoke;">
                 <div class="row">
                     <div class="col-xxl-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
                                 <h5 class="card-title">Manajemen Pesanan</h5>
                                 <div class="dropdown">
-                                    <button id="action-button" disabled class="btn btn-secondary dropdown-toggle"
+                                    <button style="float: right;" id="action-button" disabled class="btn btn-secondary dropdown-toggle"
                                         type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Bulk Action
                                     </button>
@@ -147,11 +150,11 @@
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <div class="dashboard-card bg-grid1">
-                                            <i class="bi bi-bag icon"></i>
+                                            <i class="bi bi-basket icon"></i>
                                             <div class="text-right mt-4">
                                                 <div id="omset_penjualan">-</div>
                                                 {{-- SUM COLUMN PAID --}}
-                                                <div class="fs-5">Omset Penjualan</div>
+                                                <div class="fs-15">Omset Penjualan</div>
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +164,7 @@
                                             <div class="text-right mt-4">
                                                 <div id="total_penjualan">-</div>
                                                 {{-- SUM ORDER TOTAL --}}
-                                                <div class="fs-5">Total Harga Produk Terjual</div>
+                                                <div class="fs-15">Total Harga Produk Terjual</div>
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +174,7 @@
                                             <div class="text-right mt-4">
                                                 <div id="total_ongkir">-</div>
                                                 {{-- SUM SHIPPING --}}
-                                                <div class="fs-5">Total Ongkir (+)</div>
+                                                <div class="fs-15">Total Ongkir (+)</div>
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +184,7 @@
                                             <div class="text-right mt-4">
                                                 <div id="total_diskon">-</div>
                                                 {{-- SUM DISKON --}}
-                                                <div class="fs-5">Total Diskon (-)</div>
+                                                <div class="fs-15">Total Diskon (-)</div>
                                             </div>
                                         </div>
                                     </div>
@@ -333,15 +336,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        
+    </div>
 
     <div class="modal fade" id="change-transaction-status-modal" tabindex="-1"
         aria-labelledby="change-transaction-status-label" aria-hidden="true">
         <form class="modal-dialog" id="transaction-status-form">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="change-transaction-status-label">Ubah Status Transaksi</h1>
+                    <h1 class="modal-title fs-15" id="change-transaction-status-label">Ubah Status Transaksi</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -369,7 +372,7 @@
         <form class="modal-dialog" id="payment-status-form">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="change-payment-status-label">Ubah Status Pembayaran</h1>
+                    <h1 class="modal-title fs-15" id="change-payment-status-label">Ubah Status Pembayaran</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -394,7 +397,7 @@
         <form class="modal-dialog" id="payment-method-form">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="payment-method-label">Ubah Metode Pembayaran</h1>
+                    <h1 class="modal-title fs-15" id="payment-method-label">Ubah Metode Pembayaran</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -419,7 +422,7 @@
         <form class="modal-dialog" id="sync-status-form">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="change-sync-status-label">Ubah Status Sinkronisasi</h1>
+                    <h1 class="modal-title fs-15" id="change-sync-status-label">Ubah Status Sinkronisasi</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -507,6 +510,17 @@
             var table = $('#landing-pages-table').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 dom: 'Blfrtip',
 
                 ajax: '{{ route('manajemen-data.data') }}',

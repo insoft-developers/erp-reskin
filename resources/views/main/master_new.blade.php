@@ -61,7 +61,7 @@
 
     <!-- Tabler Icon CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/plugins/tabler-icons/tabler-icons.min.css">
-     <!-- Datatable CSS -->
+    <!-- Datatable CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/css/dataTables.bootstrap5.min.css">
 
     <!-- Simplebar CSS -->
@@ -72,8 +72,21 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
 
     @include('main.css')
+
+    @yield('style')
+    
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css"
+        integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .material-icons {
             margin-top: 5px
@@ -90,6 +103,10 @@
         .modal-backdrop {
             width: 100%;
             height: 100%;
+        }
+
+        .fs-6 {
+            font-size: 14px !important;
         }
     </style>
 
@@ -110,9 +127,9 @@
     </div>
 
 
-   
 
-    
+
+
 
     <!-- jQuery -->
     <script src="{{ asset('reskin') }}/assets/js/jquery-3.7.1.min.js"></script>
@@ -137,14 +154,14 @@
     <!-- Datatable JS -->
     <script src="{{ asset('reskin') }}/assets/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('reskin') }}/assets/js/dataTables.bootstrap5.min.js"></script>
-     <script src="{{ asset('reskin') }}/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="{{ asset('reskin') }}/assets/plugins/select2/js/select2.min.js"></script>
 
     <!-- Custom JS -->
     <script src="{{ asset('reskin') }}/assets/js/script.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
+
     <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
@@ -153,12 +170,43 @@
 
     @include('main.js')
     @include('modal')
-  
 
-    
+    @include('components.intercom')
+    @yield('js')
+
+    <script>
+        function markAllAsRead() {
+            $.ajax({
+                type: "GET",
+                url: "{{ route('notification.markAllAsRead') }}",
+                success: function(response) {
+                    location.reload();
+                }
+            });
+        }
+
+        function alertPremiumMenu() {
+            Swal.fire('Warning',
+                    'Maaf hanya user premium yang bisa membuka Cabang dan menambahkan staff dalam aplikasi. Silahkan upgrade terlebih dahulu.',
+                    'warning')
+                .then((result) => {
+                    if (result.value) {
+                        window.location.href = '/premium';
+                    }
+                })
+        }
+
+
+        @if (isset($dataUser))
+            const balance = {{ $dataUser->balance }}
+        @else
+            const balance = 0
+        @endif
+        $('#balance').text(`Rp ${new Intl.NumberFormat().format(balance)}`)
+    </script>
 
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-   
+
 
     <script>
         Pusher.logToConsole = false;
@@ -211,7 +259,7 @@
         });
     </script>
 
-   
+
 
 
 

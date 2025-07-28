@@ -440,7 +440,7 @@
     }
 </style>
 
-<div id="app-intercom">
+<div id="app-intercom" style="display: none;">
     <div class="popup-intercom">
         <div ref="popupIntercomLayout" class="popup-intercom-layout">
             <div class="popup-intercom-box">
