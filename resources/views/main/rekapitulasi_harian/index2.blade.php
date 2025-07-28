@@ -1,11 +1,11 @@
-@extends(isset($userKey) ? 'master-preview' : 'master')
+@extends(isset($userKey) ? 'master-preview' : 'main.master_new')
 
 @section('content')
     @if (!$userKey)
-        <main class="nxl-container">
-            <div class="nxl-content">
+        <div class="page-wrapper">
+           
                 <!-- [ page-header ] start -->
-                <div class="page-header">
+                {{-- <div class="page-header">
                     <div class="page-header-left d-flex align-items-center">
                         <div class="page-header-title">
                             <h5 class="m-b-10"></h5>
@@ -35,10 +35,10 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- [ page-header ] end -->
                 <!-- [ Main Content ] start -->
-                <div class="main-content">
+                <div class="content" style="background: whitesmoke;">
                     <div class="row">
                         <!-- [Leads] start -->
                         <div class="col-xxl-12">
@@ -387,8 +387,8 @@
                 </div>
                 <!-- [ Main Content ] end -->
 
-            </div>
-        </main>
+            
+        </div>
     @else
         <div class="row">
             <!-- [Leads] start -->

@@ -216,18 +216,18 @@ class ManajemenPesananController extends Controller
                     $btn .= '<div class="d-flex">';
 
                     if ($row->payment_status != -1 && $row->payment_status != -2) {
-                        $btn .= '<a title="UnSync Jurnal" style="margin-right:3px;padding-top:10px;padding-bottom:10px;" href="javascript:void(0);" onclick="unsync(' . $row->id . ')" class="btn btn-primary rounded-pill" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
+                        $btn .= '<a title="UnSync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="unsync(' . $row->id . ')" class="btn  bg-primary-gradient btn-primary btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
                     }
 
                     if ($row->payment_status == 1) {
-                        $btn .= '<a title="Refund" style="margin-right:3px;" href="javascript:void(0);" onclick="refund(' . $row->id . ')" class="btn btn-danger rounded-pill" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-file-invoice-dollar"></i></a>';
+                        $btn .= '<a title="Refund" style="margin-right:3px;" href="javascript:void(0);" onclick="refund(' . $row->id . ')" class="btn  bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-file-invoice-dollar"></i></a>';
 
-                        $btn .= '<a title="Send transaction to void" style="margin-right:3px;" href="javascript:void(0);" onclick="voidd(' . $row->id . ')" class="btn btn-danger rounded-pill" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-cancel"></i></a>';
+                        $btn .= '<a title="Send transaction to void" style="margin-right:3px;" href="javascript:void(0);" onclick="voidd(' . $row->id . ')" class="btn  bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-cancel"></i></a>';
                     } elseif ($row->payment_status == -1) {
                     } else {
                         if ($row->payment_method == 'randu-wallet') {
                         } else {
-                            $btn .= '<a title="Update to PAID" style="margin-right:3px;" href="javascript:void(0);"  onclick="payData(' . $row->id . ')" class="btn btn-warning rounded-pill" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-dollar"></i></a>';
+                            $btn .= '<a title="Update to PAID" style="margin-right:3px;" href="javascript:void(0);"  onclick="payData(' . $row->id . ')" class="btn  bg-warning-gradient btn-warning btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-dollar"></i></a>';
                         }
                     }
                     $btn .= '</div>';
@@ -236,7 +236,7 @@ class ManajemenPesananController extends Controller
                     $btn = '';
                     $btn .= '<div class="d-flex">';
                     if ($row->payment_status != -2) {
-                        $btn .= '<a title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);"  onclick="syncData(' . $row->id . ')" class="btn btn-success rounded-pill" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
+                        $btn .= '<a title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);"  onclick="syncData(' . $row->id . ')" class="btn  bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
                     }
 
                     if ($row->payment_status == 1) {
@@ -247,7 +247,7 @@ class ManajemenPesananController extends Controller
                         }
                     } elseif ($row->payment_status == -1 || $row->payment_status == -2) {
                     } else {
-                        $btn .= '<a title="Update to PAID" style="margin-right:3px;" href="javascript:void(0);"  onclick="payData(' . $row->id . ')" class="btn btn-warning rounded-pill" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-dollar"></i></a>';
+                        $btn .= '<a title="Update to PAID" style="margin-right:3px;" href="javascript:void(0);"  onclick="payData(' . $row->id . ')" class="btn  bg-warning-gradient btn-warning btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-dollar"></i></a>';
                     }
 
                     $btn .= '</div>';

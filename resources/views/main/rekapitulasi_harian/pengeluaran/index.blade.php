@@ -14,7 +14,7 @@
                             <div class="card-header">
                                 <h5 class="card-title">Pengeluaran</h5>
 
-                                <button onclick="createData()" class="btn btn-primary">
+                                <button style="float:right;" onclick="createData()" class="btn btn-success">
                                     <i class="feather-plus"></i> Buat Baru
                                 </button>
                             </div>
@@ -230,6 +230,17 @@
             var table = $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
+                 "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,

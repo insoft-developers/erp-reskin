@@ -82,12 +82,12 @@ class PengeluaranController extends Controller
 
                 if ($data->sync_status == 1) {
                     return '<div class="d-flex">
-                            <a onclick="unsync('.$data->id.')" title="Unsync Jurnal" style="margin-right:3px;" href="javascript:void(0);" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>
-                            <a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></div>';
+                            <a onclick="unsync('.$data->id.')" title="Unsync Jurnal" style="margin-right:3px;" href="javascript:void(0);" class="btn bg-info-gradient btn-info btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>
+                            <a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></div>';
                 } else {
                     return '<div class="d-flex">
-                    <a onclick="syncData(' . $data->id . ')" title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>
-                    <a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></div>';
+                    <a onclick="syncData(' . $data->id . ')" title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);" class="btn  bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>
+                    <a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></div>';
                 }
             })
 
