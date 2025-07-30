@@ -72,7 +72,7 @@
                                 <div class="mtop30"></div>
 
                                 <div class="table-responsive">
-                                    <table class="table table-striped" id="data-table">
+                                    <table class="table table-striped" id="data-table" style="width:100%;">
                                         <thead>
                                             <tr>
                                                 <th>

@@ -1,13 +1,13 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
+    <div class="page-wrapper">
+        <div class="content">
 
-            <div class="page-header">
+            {{-- <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        {{-- <h5 class="m-b-10">Daftar Produk / Barang Jadi</h5> --}}
+                       
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Manajemen Produk</a></li>
@@ -33,24 +33,27 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="main-content">
+            <div class="content" style="background: whitesmoke;">
                 <div class="row">
 
                     <div class="col-xxl-12">
                         <div class="card stretch stretch-full">
-<div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-    <h5 class="card-title" style="margin: 0;">Daftar Produk / Barang Jadi</h5>
-    <div style="display: flex; gap: 10px;">
-        <button onclick="upload_product()" class="btn btn-sm btn-warning" style="display: flex; align-items: center;">
-            <i class="fa fa-file-excel"></i>&nbsp;&nbsp;Upload Masal Produk
-        </button>
-        <button onclick="add_product_module()" class="btn btn-sm btn-success" style="display: flex; align-items: center;">
-            <i class="feather-plus"></i>&nbsp;&nbsp;Tambah Produk Baru
-        </button>
-    </div>
-</div>
+                            <div class="card-header"
+                                style="display: flex; justify-content: space-between; align-items: center;">
+                                <h5 class="card-title" style="margin: 0;">Daftar Produk / Barang Jadi</h5>
+                                <div style="display: flex; gap: 10px;">
+                                    <button onclick="upload_product()" class="btn btn-sm btn-warning"
+                                        style="display: flex; align-items: center;">
+                                        <i class="fa fa-file-excel"></i>&nbsp;&nbsp;Upload Masal Produk
+                                    </button>
+                                    <button onclick="add_product_module()" class="btn btn-sm btn-success"
+                                        style="display: flex; align-items: center;">
+                                        <i class="feather-plus"></i>&nbsp;&nbsp;Tambah Produk Baru
+                                    </button>
+                                </div>
+                            </div>
 
                             <div class="card-body custom-card-action p-0">
                                 <div class="container mtop30 main-box">
@@ -132,4 +135,7 @@
 
 
         </div>
+    </div>
     @endsection
+
+

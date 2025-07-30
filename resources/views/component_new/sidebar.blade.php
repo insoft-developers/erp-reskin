@@ -240,10 +240,10 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Tambah Produk</a></li>
-                                    <li><a href="{{ url('/') }}">Daftar Produk</a>
+                                    <li><a onclick="add_product_module()" href="javascript:void(0);">Tambah Produk</a></li>
+                                    <li><a href="{{ url('product') }}">Daftar Produk</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Kategori Produk</a></li>
+                                    <li><a href="{{ url('product_category') }}">Kategori Produk</a></li>
 
                                 </ul>
                             </li>
