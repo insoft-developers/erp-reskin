@@ -44,7 +44,7 @@ class TransferStockMaterialController extends Controller
                 return $data->created_at->format('d F Y');
             })
             ->addColumn('action', function ($data) {
-                return '<div class="d-flex"><a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></div>';
+                return '<div class="d-flex"><a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></div>';
             })
             ->escapeColumns([])
             ->make(true);

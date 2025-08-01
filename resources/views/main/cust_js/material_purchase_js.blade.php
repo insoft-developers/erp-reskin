@@ -72,7 +72,7 @@
 
 
 
-            
+
             count_product_item();
         });
 
@@ -372,9 +372,9 @@
                 data.append('_method', 'POST');
                 data.append('file', $('#file')[0].files[0]);
                 data.append('_token', csrf_token);
-                
-                
-                
+
+
+
                 $.ajax({
                     url: "{{ url('material_purchase_upload') }}",
                     type: "POST",
@@ -423,6 +423,18 @@
         var table = $('#table-material-purchase').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                search: ' ',
+                sLengthMenu: '_MENU_',
+                searchPlaceholder: "Search",
+                sLengthMenu: 'Row Per Page _MENU_ Entries',
+                info: "_START_ - _END_ of _TOTAL_ items",
+                paginate: {
+                    next: '<i class="isax isax-arrow-right-1"></i>',
+                    previous: '<i class="isax isax-arrow-left"></i> '
+                },
+            },
+
             dom: 'Blfrtip',
             columnDefs: [{
                 target: 1,
@@ -657,7 +669,7 @@
 
 
         function download_template_upload() {
-           window.location = "{{ url('download_template_pembelian_material') }}";
+            window.location = "{{ url('download_template_pembelian_material') }}";
         }
     </script>
 @endif

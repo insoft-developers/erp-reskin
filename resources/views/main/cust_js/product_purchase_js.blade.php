@@ -69,13 +69,13 @@
                 }
             })
             count_product_item();
-            
+
         });
 
 
         $(document).ready(function() {
             $(".select-item").select2();
-             $.fn.modal.Constructor.prototype._enforceFocus = function () {};
+            $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 
             $("#payment_type").change(function() {
                 var nilai = $(this).val();
@@ -203,7 +203,7 @@
                     $(".select-item").select2({
                         dropdownParent: $("#modal-tambah .modal-content")
                     });
-                    $.fn.modal.Constructor.prototype._enforceFocus = function () {};
+                    $.fn.modal.Constructor.prototype._enforceFocus = function() {};
                     count_product_item();
 
                     $(".rb-input").attr("disabled", true);
@@ -333,7 +333,7 @@
         }
 
         $(document).ready(function() {
-            
+
 
             $("#modal-tambah form").submit(function(e) {
                 e.preventDefault();
@@ -425,7 +425,7 @@
             $(".select-item").select2({
                 dropdownParent: $("#modal-tambah .modal-content")
             });
-             $.fn.modal.Constructor.prototype._enforceFocus = function () {};
+            $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 
             $("#supplier_id").select2({
                 dropdownParent: $("#modal-tambah .modal-content")
@@ -437,6 +437,18 @@
         var table = $('#table-purchase').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                search: ' ',
+                sLengthMenu: '_MENU_',
+                searchPlaceholder: "Search",
+                sLengthMenu: 'Row Per Page _MENU_ Entries',
+                info: "_START_ - _END_ of _TOTAL_ items",
+                paginate: {
+                    next: '<i class="isax isax-arrow-right-1"></i>',
+                    previous: '<i class="isax isax-arrow-left"></i> '
+                },
+            },
+
             dom: 'Blfrtip',
             columnDefs: [{
                 target: 1,
@@ -540,7 +552,7 @@
                     });
                     $("#modal-tambah").appendTo("body").modal("show");
                     n = data.detail.length;
-                     $.fn.modal.Constructor.prototype._enforceFocus = function () {};
+                    $.fn.modal.Constructor.prototype._enforceFocus = function() {};
                 }
             })
         }

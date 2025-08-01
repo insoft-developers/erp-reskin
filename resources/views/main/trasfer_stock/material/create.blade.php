@@ -2,7 +2,7 @@
     @csrf
 
     <div class="modal-content">
-        <div class="modal-header" style="background-color: #2f467a;">
+        <div class="modal-header" style="background-color: #743bff;">
             <h5 class="modal-title" style="color:white;">Transfer Stok Bahan Baku</h5>
         </div>
         <div class="modal-body">
@@ -76,7 +76,7 @@
 
 <script>
     $('#material_from_id').select2({
-        dropdownParent: $('#formMaterialFrom'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Produk',
         ajax: {
@@ -104,7 +104,7 @@
     });
 
     $('#material_to_id').select2({
-        dropdownParent: $('#formMaterialTo'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Produk',
         ajax: {

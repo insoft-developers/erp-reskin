@@ -190,7 +190,7 @@ class ProductMainController extends Controller
             })
 
             ->addColumn('action', function ($data) {
-                return '<center><button onclick="detailData(' . $data->id . ')" title="Detail Data" style="width:70px;margin-bottom:5px;" class="btn btn-info btn-sm btn-custom"><i class="fa fa-list"></i></button><a href="' . url('product/' . $data->id . '/edit') . '"><button title="Edit Data" style="width:70px;margin-bottom:5px;" class="btn btn-warning btn-sm btn-custom"><i class="fa fa-edit"></i></button></a><button title="Delete Data" onclick="product_single_delete(' . $data->id . ')" style="width:70px;" class="btn btn-danger btn-sm btn-custom"><i class="fa fa-remove"></i></button></center>';
+                return '<center><button onclick="detailData(' . $data->id . ')" title="Detail Data" style="width:35px;margin-bottom:5px;" class="btn bg-info-gradient btn-info btn-effect"><i class="fa fa-list"></i></button><a href="' . url('product/' . $data->id . '/edit') . '"><button title="Edit Data" style="width:35px;margin-bottom:5px;" class="btn bg-warning-gradient btn-warning btn-effect"><i class="fa fa-edit"></i></button></a><button title="Delete Data" onclick="product_single_delete(' . $data->id . ')" style="width:35px;" class="btn bg-danger-gradient btn-danger btn-effect"><i class="fa fa-remove"></i></button></center>';
             })
             ->rawColumns(['action', 'product_image', 'category', 'price', 'cost', 'stock', 'product_value', 'pilih', 'margin', 'persen_margin', 'display', 'editable', 'buffered_stock', 'komposisi'])
             ->make(true);

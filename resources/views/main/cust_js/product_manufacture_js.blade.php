@@ -31,11 +31,11 @@
                             "_token": csrf_token
                         },
                         success: function(data) {
-                             if(data.success) {
-                                 $("#product-container").html(data.data);
-                                 count_total_transaction();
+                            if (data.success) {
+                                $("#product-container").html(data.data);
+                                count_total_transaction();
                             } else {
-                                 Swal.fire({
+                                Swal.fire({
                                     icon: "warning",
                                     title: "Peringatan",
                                     html: data.message,
@@ -141,6 +141,17 @@
         var table = $('#table-inter-purchase').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                search: ' ',
+                sLengthMenu: '_MENU_',
+                searchPlaceholder: "Search",
+                sLengthMenu: 'Row Per Page _MENU_ Entries',
+                info: "_START_ - _END_ of _TOTAL_ items",
+                paginate: {
+                    next: '<i class="isax isax-arrow-right-1"></i>',
+                    previous: '<i class="isax isax-arrow-left"></i> '
+                },
+            },
             dom: 'Blfrtip',
             columnDefs: [{
                 target: 1,

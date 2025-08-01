@@ -1,23 +1,33 @@
 <style>
+    .select2-selection__arrow {
+        display: none !important;
+    }
+
+    .avatar-text {
+        padding: 6px;
+        border-radius: 4px;
+        display: block;
+    }
 
     .spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #fff;
-  border-top: 3px solid #3498db;
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-    .btn-debit-kredit{
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
         position: absolute;
-    left: 15px;
-    bottom: 18px;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
     }
+
+    .btn-debit-kredit {
+        position: absolute;
+        left: 15px;
+        bottom: 18px;
+    }
+
     #btn-reskin-tambah {
         margin-top: -23px;
         margin-right: -27px;

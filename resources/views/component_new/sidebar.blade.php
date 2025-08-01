@@ -254,8 +254,8 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Daftar Bahan Baku</a></li>
-                                    <li><a href="{{ url('/') }}">Daftar Bahan 1/2 Jadi</a>
+                                    <li><a href="{{ url('main_material') }}">Daftar Bahan Baku</a></li>
+                                    <li><a href="{{ url('inter_product') }}">Daftar Bahan 1/2 Jadi</a>
                                     </li>
                                 </ul>
                             </li>
@@ -266,14 +266,14 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Pembelian Barang Jadi</a></li>
-                                    <li><a href="{{ url('/') }}">Buat Produk Manufaktur</a>
+                                    <li><a href="{{ url('product_purchase') }}">Pembelian Barang Jadi</a></li>
+                                    <li><a href="{{ url('product_manufacture') }}">Buat Produk Manufaktur</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Buat Produk 1/2 Jadi</a>
+                                    <li><a href="{{ url('inter_purchase') }}">Buat Produk 1/2 Jadi</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Pembelian Bahan Baku</a>
+                                    <li><a href="{{ url('material_purchase') }}">Pembelian Bahan Baku</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Daftar Supplier</a>
+                                    <li><a href="{{ url('main_supplier') }}">Daftar Supplier</a>
                                     </li>
                                 </ul>
                             </li>
@@ -284,10 +284,10 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Transfer Stok <br> Barang Jadi</a></li>
-                                    <li><a href="{{ url('/') }}">Transfer Stok <br> Bahan Baku</a>
+                                    <li><a href="{{ url('transfer-stock/product') }}">Transfer Stok <br> Barang Jadi</a></li>
+                                    <li><a href="{{ url('transfer-stock/material') }}">Transfer Stok <br> Bahan Baku</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Konversi Bahan/Produksi</a>
+                                    <li><a href="{{ url('converse') }}">Konversi Bahan/Produksi</a>
                                     </li>
 
                                 </ul>

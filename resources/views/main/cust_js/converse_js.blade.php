@@ -74,16 +74,18 @@
 
             html += '<div class="col-md-1 button-product-action">';
             html +=
-                '<center><a title="Tambah Produk" href="javascript:void(0);" onclick="tambah_item()" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center>';
+                '<center><a title="Tambah Produk" href="javascript:void(0);" onclick="tambah_item()" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center>';
             html +=
                 '<center><a style="margin-left:5px;" title="Hapus Produk" href="javascript:void(0);" onclick ="hapus_item(' +
                 n +
-                ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle = "dropdown" data-bs-auto-close = "outside"> <i class="fa fa-trash"></i></a></center>';
+                ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle = "dropdown" data-bs-auto-close = "outside"> <i class="fa fa-trash"></i></a></center>';
             html += '</div>';
 
             html += '</div>';
             $(".bariss").last().after(html);
-            $(".select-item").select2();
+            $(".select-item").select2({
+                dropdownParent: $('#modal-tambah'),
+            });
         }
 
 
@@ -191,11 +193,17 @@
         }
 
         $(document).ready(function() {
-            $("#product_id").select2();
-            $(".select-item").select2();
-            $("#cost_account").select2();
+            $("#product_id").select2({
+                dropdownParent: $('#modal-tambah'),
+            });
+            $(".select-item").select2({
+                dropdownParent: $('#modal-tambah'),
+            });
+            $("#cost_account").select2({
+                dropdownParent: $('#modal-tambah'),
+            });
 
-            $.fn.modal.Constructor.prototype._enforceFocus = function () {};
+            $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 
             $("#product_id").change(function() {
                 var selected = $(this).val();
@@ -313,6 +321,18 @@
         var table = $('#table-purchase').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                search: ' ',
+                sLengthMenu: '_MENU_',
+                searchPlaceholder: "Search",
+                sLengthMenu: 'Row Per Page _MENU_ Entries',
+                info: "_START_ - _END_ of _TOTAL_ items",
+                paginate: {
+                    next: '<i class="isax isax-arrow-right-1"></i>',
+                    previous: '<i class="isax isax-arrow-left"></i> '
+                },
+            },
+
             dom: 'Blfrtip',
             columnDefs: [{
                 target: 1,
@@ -595,30 +615,34 @@
 
 
         let nb = 1;
+
         function tambah_biaya() {
             nb++;
             var html = '';
-            html += '<div style="margin-top:10px;" class="row baris-biaya biaya-tambahan" id="baris_biaya_'+nb+'">';
+            html += '<div style="margin-top:10px;" class="row baris-biaya biaya-tambahan" id="baris_biaya_' + nb + '">';
             html += '<div class="col-md-7">';
             html += '<div class="form-group">';
             html +=
-                '<input type="text" class="form-control cust-control" id="nama_biaya_'+nb+'" placeholder="Nama Biaya" name="nama_biaya[]">';
+                '<input type="text" class="form-control cust-control" id="nama_biaya_' + nb +
+                '" placeholder="Nama Biaya" name="nama_biaya[]">';
             html += '</div>';
             html += '</div>';
             html += '<div class="col-md-3">';
             html += '<div class="form-group">';
             html +=
-                '<input onkeyup="biaya_onchange('+nb+')" type="text" class="form-control cust-control" id="jumlah_biaya_text_'+nb+'" placeholder="Jumlah Biaya">';
-            html += '<input class="jumlah-biaya" type="hidden" id="jumlah_biaya_'+nb+'" name="jumlah_biaya[]">';
+                '<input onkeyup="biaya_onchange(' + nb +
+                ')" type="text" class="form-control cust-control" id="jumlah_biaya_text_' + nb +
+                '" placeholder="Jumlah Biaya">';
+            html += '<input class="jumlah-biaya" type="hidden" id="jumlah_biaya_' + nb + '" name="jumlah_biaya[]">';
             html += '</div>';
             html += '</div>';
             html += '<div class="col-md-1 button-product-action">';
             html +=
-                '<center><a title="Tambah Biaya" href="javascript:void(0);" onclick="tambah_biaya()" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center>';
-                html +=
+                '<center><a title="Tambah Biaya" href="javascript:void(0);" onclick="tambah_biaya()" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center>';
+            html +=
                 '<center><a style="margin-left:5px;" title="Hapus Biaya" href="javascript:void(0);" onclick ="hapus_biaya(' +
                 nb +
-                ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle = "dropdown" data-bs-auto-close = "outside"> <i class="fa fa-trash"></i></a></center>';
+                ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle = "dropdown" data-bs-auto-close = "outside"> <i class="fa fa-trash"></i></a></center>';
 
             html += '</div>';
             html += '</div>';
@@ -627,12 +651,12 @@
 
 
         function hapus_biaya(id) {
-            $("#baris_biaya_"+id).remove();
+            $("#baris_biaya_" + id).remove();
             count_total_biaya();
         }
 
         function biaya_onchange(id) {
-            pemisah_ribuan("#jumlah_biaya_text_"+id, "#jumlah_biaya_"+id);
+            pemisah_ribuan("#jumlah_biaya_text_" + id, "#jumlah_biaya_" + id);
             count_total_biaya();
         }
 

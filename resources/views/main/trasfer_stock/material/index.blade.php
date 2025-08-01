@@ -1,42 +1,11 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('transfer-stock.material.index') }}">Transfer Stok Bahan Baku</a></li>
-                        <li class="breadcrumb-item">Transfer Stok Bahan Baku Builder</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
+    <div class="page-wrapper">
+       
+          
             <!-- [ Main Content ] start -->
-            <div class="main-content">
+            <div style="background: whitesmoke;" class="content">
                 <div class="row">
                     <!-- [Leads] start -->
                     <div class="col-xxl-12">
@@ -44,8 +13,8 @@
                             <div class="card-header">
                                 <h5 class="card-title">Transfer Stok Bahan Baku</h5>
 
-                                <button onclick="createData()" class="btn btn-primary">
-                                    <i class="feather-plus"></i> Buat Baru
+                                <button style="float: right;" onclick="createData()" class="btn btn-success">
+                                    <i class="fa fa-plus"></i> Buat Baru
                                 </button>
                             </div>
                             <div class="card-body custom-card-action p-3">
@@ -142,8 +111,8 @@
             </div>
             <!-- [ Main Content ] end -->
 
-        </div>
-    </main>
+        
+    </div>
 
     {{-- MODALS --}}
     <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="modal-ce">
@@ -223,6 +192,17 @@
             var table = $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,

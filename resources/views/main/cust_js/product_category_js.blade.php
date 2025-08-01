@@ -64,6 +64,17 @@
         var table = $('#table-product-category').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
             dom: 'Blfrtip',
             columnDefs: [{
                 target: 1,

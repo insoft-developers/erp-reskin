@@ -26,7 +26,7 @@
                 '" type="text" class="form-control cust-control" placeholder="Varian Group"></td>';
             html +=
                 '<td><center><a href="javascript:void(0);"onclick="add_varian_item(' + n +
-                ')" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="feather-plus"></i></a></center></td>';
+                ')" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center></td>';
             html += '</tr>';
             html += '<tr class="row_middle_' + n + ' baris_' + n + '">';
             html += '<td width="*"><input id="varian_name_' + varian_item_index +
@@ -126,7 +126,7 @@
                 html += '</th>';
 
                 html +=
-                    '<th><center><a href="javascript:void(0);" onclick="add_varian_group()" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="feather-plus"></i></a></center></a></th>';
+                    '<th><center><a href="javascript:void(0);" onclick="add_varian_group()" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center></a></th>';
                 html += '</tr>';
                 html += '</thead>';
                 html += '<tbody>';
@@ -135,7 +135,7 @@
                     '<td colspan="5"><input type="text" id="vg_1" onkeyup="onVarianChange(1)"  class="form-control cust-control" placeholder="Varian Group"></td>';
 
                 html +=
-                    '<td><center><a href="javascript:void(0);" onclick="add_varian_item(1)" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="feather-plus"></i></a></center></td>';
+                    '<td><center><a href="javascript:void(0);" onclick="add_varian_item(1)" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-plus"></i></a></center></td>';
                 html += '</tr>';
                 html += '<tr class="row_middle_1 baris_1">';
                 html +=

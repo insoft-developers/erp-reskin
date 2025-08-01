@@ -1,13 +1,12 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
+    <div class="page-wrapper">
         <div class="nxl-content">
 
-            <div class="page-header">
+            {{-- <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        {{-- <h5 class="m-b-10">Daftar Produk / Barang Jadi</h5> --}}
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Manajemen Produk</a></li>
@@ -34,9 +33,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="main-content">
+            <div class="content">
                 <div class="row">
 
                     <div class="col-xxl-12">
@@ -107,9 +106,14 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Harga Bisa Diubah Kasir:</label>
-                                                        <select name="is_editable" id="is_editable" class="form-control cust-control">
-                                                            <option value="0" {{ $product->is_editable == 0 ? 'selected' : '' }}>No</option>
-                                                            <option value="1" {{ $product->is_editable == 1 ? 'selected' : '' }}>Yes</option>
+                                                        <select name="is_editable" id="is_editable"
+                                                            class="form-control cust-control">
+                                                            <option value="0"
+                                                                {{ $product->is_editable == 0 ? 'selected' : '' }}>No
+                                                            </option>
+                                                            <option value="1"
+                                                                {{ $product->is_editable == 1 ? 'selected' : '' }}>Yes
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -370,7 +374,8 @@
                                                         @if ($product->created_by == 1 && $product->is_manufactured == 2)
                                                             <option <?php if ($product->buffered_stock == 0) {
                                                                 echo 'selected';
-                                                            } ?> value="0">No - Jangan Gunakan Stok
+                                                            } ?> value="0">No - Jangan Gunakan
+                                                                Stok
                                                             </option>
                                                         @elseif($product->created_by == 0 && $product->is_manufactured == 2)
                                                             <option <?php if ($product->buffered_stock == 1) {
@@ -380,7 +385,8 @@
                                                         @else
                                                             <option <?php if ($product->buffered_stock == 0) {
                                                                 echo 'selected';
-                                                            } ?> value="0">No - Jangan Gunakan Stok
+                                                            } ?> value="0">No - Jangan Gunakan
+                                                                Stok
                                                             </option>
                                                             <option <?php if ($product->buffered_stock == 1) {
                                                                 echo 'selected';
@@ -432,7 +438,7 @@
                                                         <a onclick="tambah_bahan()" id="tambah-bahan-text"
                                                             href="javascript:void(0);" style="color: green;">(+)
                                                             Tambah Bahan</a>
-                                                        
+
                                                         <div class="form-group" id="manual_hpp" style="display:none;">
                                                             <label>COGS (HPP)</label>
                                                             <input value="{{ ribuan($product->cost) }}"
@@ -442,8 +448,6 @@
                                                             <input type="hidden" id="cost" name="cost"
                                                                 value="{{ $product->cost }}">
                                                         </div>
-
-
                                                     @endif
                                                     @if ($product->is_manufactured == 1)
                                                         <a onclick="tambah_bahan()" style="display: none; color: green;"
@@ -453,17 +457,16 @@
                                                             <label>COGS (HPP)</label>
 
 
-                                                            @if($product->buffered_stock == 1)
-                                                            <input readonly value="{{ ribuan($product->cost) }}"
-                                                                onkeyup="onChangeCost()" type="text" id="costtext"
-                                                                class="form-control cust-control"
-                                                                placeholder="masukkan nilai hpp">
+                                                            @if ($product->buffered_stock == 1)
+                                                                <input readonly value="{{ ribuan($product->cost) }}"
+                                                                    onkeyup="onChangeCost()" type="text"
+                                                                    id="costtext" class="form-control cust-control"
+                                                                    placeholder="masukkan nilai hpp">
                                                             @else
-                                                            <input value="{{ ribuan($product->cost) }}"
-                                                                onkeyup="onChangeCost()" type="text" id="costtext"
-                                                                class="form-control cust-control"
-                                                                placeholder="masukkan nilai hpp">
-
+                                                                <input value="{{ ribuan($product->cost) }}"
+                                                                    onkeyup="onChangeCost()" type="text"
+                                                                    id="costtext" class="form-control cust-control"
+                                                                    placeholder="masukkan nilai hpp">
                                                             @endif
 
                                                             <input type="hidden" id="cost" name="cost"
@@ -646,15 +649,16 @@
                                                         @endif
                                                     </div>
                                                 </div>
-<div>
-    <button style="float: left; margin-bottom: 30px; margin-right: 8px;" type="submit"
-        class="btn btn-primary mtop30">Simpan</button>
-    <a href="{{ url('product') }}">
-        <button style="float: left; margin-bottom: 30px;" type="button" class="btn btn-danger mtop30">
-            Kembali Ke Daftar Produk
-        </button>
-    </a>
-</div>
+                                                <div>
+                                                    <button style="float: left; margin-bottom: 30px; margin-right: 8px;"
+                                                        type="submit" class="btn btn-primary mtop30">Simpan</button>
+                                                    <a href="{{ url('product') }}">
+                                                        <button style="float: left; margin-bottom: 30px;" type="button"
+                                                            class="btn btn-danger mtop30">
+                                                            Kembali Ke Daftar Produk
+                                                        </button>
+                                                    </a>
+                                                </div>
 
 
                                 </form>
@@ -670,4 +674,5 @@
 
 
         </div>
+    </div>
     @endsection

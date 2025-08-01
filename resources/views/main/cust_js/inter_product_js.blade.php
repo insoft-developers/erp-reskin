@@ -42,7 +42,7 @@
                     html += '<div class="col-md-1">';
                     html +=
                         '<center><a onclick="delete_composition_item(' + com_index +
-                        ')" href="javascript:void(0);" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></center>';
+                        ')" href="javascript:void(0);" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></center>';
                     html += '</div>';
                     html += '</div>';
 
@@ -126,6 +126,17 @@
         var table = $('#table-inter-product').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                search: ' ',
+                sLengthMenu: '_MENU_',
+                searchPlaceholder: "Search",
+                sLengthMenu: 'Row Per Page _MENU_ Entries',
+                info: "_START_ - _END_ of _TOTAL_ items",
+                paginate: {
+                    next: '<i class="isax isax-arrow-right-1"></i>',
+                    previous: '<i class="isax isax-arrow-left"></i> '
+                },
+            },
             dom: 'Blfrtip',
             columnDefs: [{
                 target: 1,

@@ -65,7 +65,7 @@ class MaterialMainController extends Controller
                 return number_format($data->stock, 2);
             })
             ->addColumn('action', function ($data) {
-                return '<center><a title="Edit Data" href="javascript:void(0);" onclick="editData(' . $data->id . ')" class="avatar-text avatar-md bg-warning text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-edit"></i></a><a title="Hapus Data" style="margin-top:5px;" href="javascript:void(0);" onclick="deleteData(' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></center>';
+                return '<center><a title="Edit Data" href="javascript:void(0);" onclick="editData(' . $data->id . ')" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-edit"></i></a><a title="Hapus Data" style="margin-top:5px;" href="javascript:void(0);" onclick="deleteData(' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a></center>';
             })
             ->rawColumns(['action', 'category_id', 'supplier_id', 'cost'])
             ->make(true);

@@ -1896,9 +1896,9 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <h5 class="text-white">Komposisi Produk</h5>
-                                                <center><a onclick="add_composition_item()"
+                                                <center><a style="float: right;" onclick="add_composition_item()"
                                                         href="javascript:void(0);"
-                                                        class="avatar-text avatar-md bg-success text-white"
+                                                        class="btn bg-success-gradient btn-success btn-effect"
                                                         data-bs-toggle="dropdown" data-bs-auto-close="outside"><i
                                                             class="fa fa-plus"></i></a></center>
                                             </div>
@@ -1939,7 +1939,7 @@
                                                             <div class="col-md-1">
                                                                 <center><a disabled="disabled"
                                                                         href="javascript:void(0);"
-                                                                        class="avatar-text avatar-md bg-danger text-white"
+                                                                        class="btn bg-danger-gradient btn-danger btn-effect"
                                                                         data-bs-toggle="dropdown"
                                                                         data-bs-auto-close="outside"><i
                                                                             class="fa fa-trash"></i></a></center>
@@ -2175,7 +2175,7 @@
                                     <div class="col-md-1 button-product-action" style="margin-top:24px;">
                                         <center><a title="Tambah Produk" href="javascript:void(0);"
                                                 onclick="tambah_item()"
-                                                class="avatar-text avatar-md bg-success text-white"
+                                                class="btn bg-success-gradient btn-success btn-effect"
                                                 data-bs-toggle="dropdown" data-bs-auto-close="outside"><i
                                                     class="fa fa-plus"></i></a></center>
 
@@ -2290,14 +2290,14 @@
                                             <div class="col-md-1 button-product-action">
                                                 <center><a title="Tambah Biaya" href="javascript:void(0);"
                                                         onclick="tambah_biaya()"
-                                                        class="avatar-text avatar-md bg-success text-white"
+                                                        class="btn bg-success-gradient btn-success btn-effect"
                                                         data-bs-toggle="dropdown" data-bs-auto-close="outside"><i
                                                             class="fa fa-plus"></i></a></center>
 
                                             </div>
                                         </div>
                                         <hr />
-                                        <div class="row">
+                                        <div class="row" style="margin-top:20px;">
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label>Total Biaya</label>

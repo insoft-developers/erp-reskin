@@ -45,6 +45,9 @@
 
     <!-- Tabler Icon CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/plugins/tabler-icons/tabler-icons.min.css">
+     <!-- Feather CSS -->
+    <link rel="stylesheet" href="{{ asset('reskin') }}/assets/plugins/icons/feather/feather.css">
+
 
     <!-- Daterangepikcer CSS -->
     <link rel="stylesheet" href="{{ asset('reskin') }}/assets/plugins/daterangepicker/daterangepicker.css">
@@ -259,11 +262,29 @@
         });
     </script>
 
-
-
-
-
-
+    <script>
+        function add_product_module() {
+            $.ajax({
+                url: "{{ url('open_product_add') }}",
+                type: "GET",
+                dataType: "JSON",
+                success: function(data) {
+                    if (data) {
+                        Swal.fire('Warning',
+                                'Silahkan membuat kategori produk terlebih dahulu.',
+                                'warning')
+                            .then((result) => {
+                                if (result.value) {
+                                    window.location.href = '/product_category';
+                                }
+                            })
+                    } else {
+                        window.location = "{{ url('product/create') }}";
+                    }
+                }
+            });
+        }
+    </script>
 
 </body>
 

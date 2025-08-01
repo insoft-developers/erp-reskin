@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page-wrapper">
-        <div class="content">
+        
 
             {{-- <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
@@ -134,7 +134,7 @@
             </div>
 
 
-        </div>
+        
     </div>
     @endsection
 
