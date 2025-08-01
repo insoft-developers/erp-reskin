@@ -4,46 +4,15 @@
 
 @endphp
 
-@extends(isset($userKey) ? 'master-preview' : 'master')
+@extends(isset($userKey) ? 'master-preview' : 'main.master_new')
 
 @section('content')
     @if (!$userKey)
-        <main class="nxl-container">
-            <div class="nxl-content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('report') }}">Laporan</a></li>
-                            <li class="breadcrumb-item">Jurnal</li>
-                        </ul>
-                    </div>
-                    <div class="page-header-right ms-auto">
-                        <div class="page-header-right-items">
-                            <div class="d-flex d-md-none">
-                                <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                    <i class="feather-arrow-left me-2"></i>
-                                    <span>Back</span>
-                                </a>
-                            </div>
-                            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                            </div>
-                        </div>
-                        <div class="d-md-none d-flex align-items-center">
-                            <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                                <i class="feather-align-right fs-20"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- [ page-header ] end -->
+        <div class="page-wrapper">
+           
+                
                 <!-- [ Main Content ] start -->
-                <div class="main-content">
+                <div style="background: whitesmoke;" class="content">
                     <div class="row">
                         <!-- [Leads] start -->
                         <div class="col-xxl-12">
@@ -60,7 +29,7 @@
 
                                         $akhir = strtotime($end);
                                     @endphp
-                                    <div class="button-export" style="display: flex;">
+                                    <div class="button-export" style="display: flex;float:right;">
                                         <button onclick="export_excel()" style="margin-right:8px";
                                             class="btn btn-sm btn-success">Export XLS</button>
                                         <button onclick="export_pdf()" class="btn btn-sm btn-danger">Export PDF</button>
@@ -360,8 +329,8 @@
                 </div>
                 <!-- [ Main Content ] end -->
 
-            </div>
-        </main>
+        
+        </div>
     @else
         <div class="row">
             <!-- [Leads] start -->

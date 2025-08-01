@@ -212,17 +212,19 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Laporan Penjualan</a></li>
-                                    <li><a href="{{ url('/') }}">Rekapitulasi Jurnal</a>
+                                    <li><a href="{{ route('laporan.penjualan.advance.index') }}">Laporan Penjualan</a></li>
+                                    <li><a href="{{ url('journal_report') }}">Rekapitulasi Jurnal</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Neraca Saldo</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Laba Rugi</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Neraca</a></li>
-                                    <li><a href="{{ url('/') }}">Rekapitulasi Harian</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Pajak</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Stok</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Absensi</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Kunjungan</a></li>
+                                    <li><a href="{{ url('general_ledger') }}">Buku Besar</a></li>
+                                    <li><a href="{{ url('trial_balance') }}">Neraca Saldo</a></li>
+                                    <li><a href="{{ url('profit_loss') }}">Laporan Laba Rugi</a></li>
+                                    <li><a href="{{ url('balance') }}">Laporan Neraca</a></li>
+                                    
+                                    <li><a href="{{ url('rekapitulasi-v2-harian') }}">Rekapitulasi Harian</a></li>
+                                    <li><a href="{{ route('laporan.pajak.index') }}">Laporan Pajak</a></li>
+                                    <li><a href="{{ route('laporan.stock.index') }}">Laporan Stok</a></li>
+                                    <li><a href="{{ route('laporan.absensi.index') }}">Laporan Absensi</a></li>
+                                    <li><a href="{{ route('visit.index') }}">Laporan Kunjungan</a></li>
                                 </ul>
                             </li>
                         </ul>

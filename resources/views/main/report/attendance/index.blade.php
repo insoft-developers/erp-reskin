@@ -1,42 +1,10 @@
-@extends(isset($userKey) ? 'master-preview' : 'master')
+@extends(isset($userKey) ? 'master-preview' : 'main.master_new')
 
 @section('content')
     @if (!$userKey)
-        <main class="nxl-container">
-            <div class="nxl-content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('report') }}">Laporan Absensi</a></li>
-                            <li class="breadcrumb-item">Laporan Absensi Builder</li>
-                        </ul>
-                    </div>
-                    <div class="page-header-right ms-auto">
-                        <div class="page-header-right-items">
-                            <div class="d-flex d-md-none">
-                                <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                    <i class="feather-arrow-left me-2"></i>
-                                    <span>Back</span>
-                                </a>
-                            </div>
-                            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-                            </div>
-                        </div>
-                        <div class="d-md-none d-flex align-items-center">
-                            <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                                <i class="feather-align-right fs-20"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- [ page-header ] end -->
-                <!-- [ Main Content ] start -->
-                <div class="main-content">
+        <div class="page-wrapper">
+            
+                <div style="background: whitesmoke;" class="content">
                     <div class="row">
                         <!-- [Leads] start -->
                         <div class="col-xxl-12">
@@ -56,10 +24,12 @@
                                         </div>
                                     @endif
 
-                                    <form class="row" action='{{ route('laporan.absensi.index') }}' method='GET' enctype='multipart/form-data'>
-                                        
+                                    <form class="row" action='{{ route('laporan.absensi.index') }}' method='GET'
+                                        enctype='multipart/form-data'>
+
                                         <div class="col-md-3 me-3">
-                                            <select id="yearFilter" name="year" class="form-control" aria-label="Pilih Tahun">
+                                            <select id="yearFilter" name="year" class="form-control"
+                                                aria-label="Pilih Tahun">
                                                 <option value="">Tampilkan Semua Tahun</option>
                                                 @foreach (tahun() as $thn)
                                                     <option value="{{ $thn }}"
@@ -69,7 +39,8 @@
                                             </select>
                                         </div>
                                         <div class="col-md-3">
-                                            <select id="monthFilter" class="form-control" name="month" aria-label="Pilih Bulan">
+                                            <select id="monthFilter" class="form-control" name="month"
+                                                aria-label="Pilih Bulan">
                                                 <option value="">Tampilkan Semua Bulan</option>
                                                 @foreach (bulan() as $key => $bln)
                                                     <option value="{{ $key }}"
@@ -96,13 +67,17 @@
                                     <div class="mtop30"></div>
 
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="data-table">
+                                        <table class="table table-striped table-nowrap" id="data-table">
                                             <thead>
                                                 <tr>
-                                                    <th rowspan="2" class="text-center" style="line-height: 4;">Karyawan</th>
-                                                    <th rowspan="2" class="text-center" style="line-height: 4;">Jabatan</th>
+                                                    <th rowspan="2" class="text-center" style="line-height: 4;">Karyawan
+                                                    </th>
+                                                    <th rowspan="2" class="text-center" style="line-height: 4;">Jabatan
+                                                    </th>
                                                     <th colspan="{{ $daysInMonth }}" class="text-center">Tanggal</th>
-                                                    <th rowspan="2" class="text-center" style="line-height: 0.1;"><p>Jumlah</p> <p>Hari Kerja</p></th>
+                                                    <th rowspan="2" class="text-center" style="line-height: 0.1;">
+                                                        Jumlah Hari Kerja
+                                                    </th>
                                                     <th colspan="5" class="text-center">Keterangan</th>
                                                 </tr>
                                                 <tr>
@@ -126,16 +101,20 @@
                                                     <tr>
                                                         <td>{{ $ml_account->fullname }}</td>
                                                         <td class="text-center">{{ $ml_account->position }}</td>
-                                                        
+
                                                         @foreach ($user as $attendance)
                                                             @if ($attendance['holiday'] == true)
-                                                                <td class="text-center text-white" style="--bs-table-accent-bg: red !important;">L</td>
+                                                                <td class="text-center text-white"
+                                                                    style="--bs-table-accent-bg: red !important;">L</td>
 
                                                                 @php
                                                                     $count_l++;
                                                                 @endphp
                                                             @else
-                                                                @if ((int)now()->format('d') < $attendance['date'] && $attendance['month'] == now()->format('m') && $attendance['year'] == now()->format('Y'))
+                                                                @if (
+                                                                    (int) now()->format('d') < $attendance['date'] &&
+                                                                        $attendance['month'] == now()->format('m') &&
+                                                                        $attendance['year'] == now()->format('Y'))
                                                                     <td>-</td>
                                                                 @else
                                                                     @if ($attendance['attendance'])
@@ -172,8 +151,8 @@
                         <!-- [Table] end -->
                     </div>
                 </div>
-            </div>
-        </main>
+            
+        </div>
     @else
         <div class="row">
             <!-- [Leads] start -->
@@ -196,14 +175,14 @@
                             </div>
                         @endif
 
-                        <form class="row" action='{{ route('laporan.absensi.index') }}' method='GET' enctype='multipart/form-data'>
-                                        
+                        <form class="row" action='{{ route('laporan.absensi.index') }}' method='GET'
+                            enctype='multipart/form-data'>
+
                             <div class="col-md-3 me-3">
                                 <select id="yearFilter" name="year" class="form-control" aria-label="Pilih Tahun">
                                     <option value="">Tampilkan Semua Tahun</option>
                                     @foreach (tahun() as $thn)
-                                        <option value="{{ $thn }}"
-                                            {{ now()->year == $thn ? 'selected' : '' }}>
+                                        <option value="{{ $thn }}" {{ now()->year == $thn ? 'selected' : '' }}>
                                             {{ $thn }}</option>
                                     @endforeach
                                 </select>
@@ -224,8 +203,8 @@
                                     {{-- <input type='date' class='form-control' name="date"
                                         value="{{ request('date') ?? now()->format('Y-m-d') }}" id='date'
                                         placeholder=''> --}}
-                                    <button type='submit' class='btn btn-primary me-2'><i
-                                            class="feather-filter"></i> Filter</button>
+                                    <button type='submit' class='btn btn-primary me-2'><i class="feather-filter"></i>
+                                        Filter</button>
                                     <button type="button" class="btn btn-success" id="export-btn"
                                         onclick="exportData()"><i class="feather-download"></i> Export
                                         Xls</button>
@@ -237,13 +216,15 @@
                         <div class="mtop30"></div>
 
                         <div class="table-responsive">
-                            <table class="table table-striped" id="data-table">
+                            <table class="table table-striped table-nowrap" id="data-table">
                                 <thead>
                                     <tr>
                                         <th rowspan="2" class="text-center" style="line-height: 4;">Karyawan</th>
                                         <th rowspan="2" class="text-center" style="line-height: 4;">Jabatan</th>
                                         <th colspan="{{ $daysInMonth }}" class="text-center">Tanggal</th>
-                                        <th rowspan="2" class="text-center" style="line-height: 0.1;"><p>Jumlah</p> <p>Hari Kerja</p></th>
+                                        <th rowspan="2" class="text-center" style="line-height: 0.1;">
+                                            JHK
+                                        </th>
                                         <th colspan="5" class="text-center">Keterangan</th>
                                     </tr>
                                     <tr>
@@ -267,16 +248,20 @@
                                         <tr>
                                             <td>{{ $ml_account->fullname }}</td>
                                             <td class="text-center">{{ $ml_account->position }}</td>
-                                            
+
                                             @foreach ($user as $attendance)
                                                 @if ($attendance['holiday'] == true)
-                                                    <td class="text-center text-white" style="--bs-table-accent-bg: red !important;">L</td>
+                                                    <td class="text-center text-white"
+                                                        style="--bs-table-accent-bg: red !important;">L</td>
 
                                                     @php
                                                         $count_l++;
                                                     @endphp
                                                 @else
-                                                    @if ((int)now()->format('d') < $attendance['date'] && $attendance['month'] == now()->format('m') && $attendance['year'] == now()->format('Y'))
+                                                    @if (
+                                                        (int) now()->format('d') < $attendance['date'] &&
+                                                            $attendance['month'] == now()->format('m') &&
+                                                            $attendance['year'] == now()->format('Y'))
                                                         <td>-</td>
                                                     @else
                                                         @if ($attendance['attendance'])
@@ -311,7 +296,8 @@
     @endif
 
     <!-- Modal untuk menampilkan attachment -->
-    <div class="modal fade" id="attachmentModal" tabindex="-1" aria-labelledby="attachmentModalLabel" aria-hidden="true">
+    <div class="modal fade" id="attachmentModal" tabindex="-1" aria-labelledby="attachmentModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #2f467a;">
@@ -494,7 +480,9 @@
             var month = $('#monthFilter').val();
             var year = $('#yearFilter').val();
 
-            var url = "{{ !$userKey ? route('laporan.absensi.export') : route('preview.laporan.absensi.export') }}?month="+month+"&year="+year
+            var url =
+                "{{ !$userKey ? route('laporan.absensi.export') : route('preview.laporan.absensi.export') }}?month=" +
+                month + "&year=" + year
 
             // Menggunakan window.location.href untuk mengunduh file
             window.open(url)

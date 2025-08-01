@@ -1,4 +1,4 @@
-@extends(isset($userKey) ? 'master-preview' : 'master')
+@extends(isset($userKey) ? 'master-preview' : 'main.master_new')
 
 @section('topstyle')
     <style>
@@ -47,6 +47,9 @@
         .text-right {
             text-align: right;
         }
+        .fs-15{
+            font-size: 16px !important;
+        }
 
         .spinner {
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -72,42 +75,10 @@
 
 @section('content')
     @if (!$userKey)
-        <main class="nxl-container" style="padding-bottom: 100px;">
-            <div class="nxl-content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('report') }}">Laporan</a></li>
-                            <li class="breadcrumb-item">Penjualan Per Product</li>
-                        </ul>
-                    </div>
-                    <div class="page-header-right ms-auto">
-                        <div class="page-header-right-items">
-                            <div class="d-flex d-md-none">
-                                <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                    <i class="feather-arrow-left me-2"></i>
-                                    <span>Back</span>
-                                </a>
-                            </div>
-                            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                            </div>
-                        </div>
-                        <div class="d-md-none d-flex align-items-center">
-                            <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                                <i class="feather-align-right fs-20"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- [ page-header ] end -->
-                <!-- [ Main Content ] start -->
-                <div class="main-content">
+        <div class="page-wrapper" style="padding-bottom: 100px;">
+           
+               
+                <div class="content" style="background: whitesmoke;">
                     <div class="row">
                         <!-- [Leads] start -->
                         <div class="col-xxl-12">
@@ -206,7 +177,7 @@
                                                 <div class="text-right mt-4">
                                                     <div id="omset_penjualan">-</div>
                                                     {{-- SUM COLUMN PAID --}}
-                                                    <div class="fs-5">Omset Penjualan</div>
+                                                    <div class="fs-15">Omset Penjualan</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,7 +187,7 @@
                                                 <i class="bi bi-bag icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="jumlah_terjual">-</div>
-                                                    <div class="fs-5">Jumlah Terjual</div>
+                                                    <div class="fs-15">Jumlah Terjual</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -226,7 +197,7 @@
                                                 <i class="bi bi-wallet2 icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="biaya">-</div>
-                                                    <div class="fs-5">Biaya Biaya</div>
+                                                    <div class="fs-15">Biaya Biaya</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,7 +208,7 @@
                                                 <div class="text-right mt-4">
                                                     <div id="total_ongkir">-</div>
                                                     {{-- SUM SHIPPING --}}
-                                                    <div class="fs-5">Total Ongkir (+)</div>
+                                                    <div class="fs-15">Total Ongkir (+)</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,7 +218,7 @@
                                             <i class="bi bi-cash-stack icon"></i>
                                             <div class="text-right mt-4">
                                                 <div id="total_harga_produk_terjual">-</div>
-                                                <div class="fs-5">Total Harga Produk Terjual</div>
+                                                <div class="fs-15">Total Harga Produk Terjual</div>
                                             </div>
                                         </div>
                                     </div> --}}
@@ -257,7 +228,7 @@
                                                 <i class="bi bi-cash-stack icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="total_harga_produk_terjual">-</div>
-                                                    <div class="fs-5">Total Pajak (+)</div>
+                                                    <div class="fs-15">Total Pajak (+)</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -268,7 +239,7 @@
                                                 <div class="text-right mt-4">
                                                     <div id="total_diskon">-</div>
                                                     {{-- SUM DISKON --}}
-                                                    <div class="fs-5">Total Diskon (-)</div>
+                                                    <div class="fs-15">Total Diskon (-)</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -279,7 +250,7 @@
                                                 <i class="bi bi-bar-chart icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="hpp">-</div>
-                                                    <div class="fs-5">Harga Pokok Penjualan</div>
+                                                    <div class="fs-15">Harga Pokok Penjualan</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +260,7 @@
                                                 <i class="bi bi-graph-up-arrow icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="laba_rugi_bersih">-</div>
-                                                    <div class="fs-5">Laba Rugi</div>
+                                                    <div class="fs-15">Laba Rugi</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -300,7 +271,7 @@
                                                 <i class="bi bi-x icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="roas">-</div>
-                                                    <div class="fs-5">ROAS</div>
+                                                    <div class="fs-15">ROAS</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -314,8 +285,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            
+        </div>
     @else
         <div class="row">
             <!-- [Leads] start -->
@@ -412,7 +383,7 @@
                                     <div class="text-right mt-4">
                                         <div id="omset_penjualan">-</div>
                                         {{-- SUM COLUMN PAID --}}
-                                        <div class="fs-5">Omset Penjualan</div>
+                                        <div class="fs-15">Omset Penjualan</div>
                                     </div>
                                 </div>
                             </div>
@@ -421,7 +392,7 @@
                                     <i class="bi bi-bag icon"></i>
                                     <div class="text-right mt-4">
                                         <div id="jumlah_terjual">-</div>
-                                        <div class="fs-5">Jumlah Terjual</div>
+                                        <div class="fs-15">Jumlah Terjual</div>
                                     </div>
                                 </div>
                             </div>
@@ -430,7 +401,7 @@
                                     <i class="bi bi-wallet2 icon"></i>
                                     <div class="text-right mt-4">
                                         <div id="biaya">-</div>
-                                        <div class="fs-5">Biaya Biaya</div>
+                                        <div class="fs-15">Biaya Biaya</div>
                                     </div>
                                 </div>
                             </div>
@@ -440,7 +411,7 @@
                                     <div class="text-right mt-4">
                                         <div id="total_ongkir">-</div>
                                         {{-- SUM SHIPPING --}}
-                                        <div class="fs-5">Total Ongkir (+)</div>
+                                        <div class="fs-15">Total Ongkir (+)</div>
                                     </div>
                                 </div>
                             </div>
@@ -450,7 +421,7 @@
                                             <i class="bi bi-cash-stack icon"></i>
                                             <div class="text-right mt-4">
                                                 <div id="total_harga_produk_terjual">-</div>
-                                                <div class="fs-5">Total Harga Produk Terjual</div>
+                                                <div class="fs-15">Total Harga Produk Terjual</div>
                                             </div>
                                         </div>
                                     </div> --}}
@@ -459,7 +430,7 @@
                                     <i class="bi bi-cash-stack icon"></i>
                                     <div class="text-right mt-4">
                                         <div id="total_harga_produk_terjual">-</div>
-                                        <div class="fs-5">Total Pajak (+)</div>
+                                        <div class="fs-15">Total Pajak (+)</div>
                                     </div>
                                 </div>
                             </div>
@@ -469,7 +440,7 @@
                                     <div class="text-right mt-4">
                                         <div id="total_diskon">-</div>
                                         {{-- SUM DISKON --}}
-                                        <div class="fs-5">Total Diskon (-)</div>
+                                        <div class="fs-15">Total Diskon (-)</div>
                                     </div>
                                 </div>
                             </div>
@@ -482,7 +453,7 @@
                                     <i class="bi bi-bar-chart icon"></i>
                                     <div class="text-right mt-4">
                                         <div id="hpp">-</div>
-                                        <div class="fs-5">Harga Pokok Penjualan</div>
+                                        <div class="fs-15">Harga Pokok Penjualan</div>
                                     </div>
                                 </div>
                             </div>
@@ -491,7 +462,7 @@
                                     <i class="bi bi-graph-up-arrow icon"></i>
                                     <div class="text-right mt-4">
                                         <div id="laba_rugi_bersih">-</div>
-                                        <div class="fs-5">Laba Rugi</div>
+                                        <div class="fs-15">Laba Rugi</div>
                                     </div>
                                 </div>
                             </div>
@@ -501,7 +472,7 @@
                                     <i class="bi bi-x icon"></i>
                                     <div class="text-right mt-4">
                                         <div id="roas">-</div>
-                                        <div class="fs-5">ROAS</div>
+                                        <div class="fs-15">ROAS</div>
                                     </div>
                                 </div>
                             </div>
@@ -569,14 +540,16 @@
 
             if (!is_free) {
                 // Load data from separate endpoints in parallel
-                loadBasicData(keyword, date, start_date, end_date, expense_category_id, staff_id, payment_method, flag_id, price_type);
+                loadBasicData(keyword, date, start_date, end_date, expense_category_id, staff_id, payment_method, flag_id,
+                    price_type);
                 loadExpensesData(date, start_date, end_date, staff_id, payment_method, flag_id, price_type);
                 loadSalesData(date, start_date, end_date, staff_id, payment_method, flag_id, price_type);
                 initTotalPenjualan(date, start_date, end_date, staff_id, payment_method, flag_id, price_type);
             }
         }
 
-        function loadBasicData(keyword = '', date = '', start_date = '', end_date = '', expense_category_id = '', staff_id = '', payment_method = '', flag_id = '', price_type = '') {
+        function loadBasicData(keyword = '', date = '', start_date = '', end_date = '', expense_category_id = '', staff_id =
+            '', payment_method = '', flag_id = '', price_type = '') {
             var filterData = {
                 'keyword': keyword,
                 'date': date,
@@ -590,20 +563,21 @@
             };
 
             $.ajax({
-                url: "{{ !$userKey ? route('laporan.penjualan.chart.basic') : url('/api/laporan/penjualan/chart-basic') . '?user_key=' . $userKey }}",
-                type: 'GET',
-                data: filterData,
-                dataType: 'json',
-            })
-            .done(function(data) {
-                $('#jumlah_terjual').text(data.jumlah_terjual);
-            })
-            .fail(function() {
-                $('#jumlah_terjual').text('-');
-            });
+                    url: "{{ !$userKey ? route('laporan.penjualan.chart.basic') : url('/api/laporan/penjualan/chart-basic') . '?user_key=' . $userKey }}",
+                    type: 'GET',
+                    data: filterData,
+                    dataType: 'json',
+                })
+                .done(function(data) {
+                    $('#jumlah_terjual').text(data.jumlah_terjual);
+                })
+                .fail(function() {
+                    $('#jumlah_terjual').text('-');
+                });
         }
 
-        function loadExpensesData(date = '', start_date = '', end_date = '', staff_id = '', payment_method = '', flag_id = '', price_type = '') {
+        function loadExpensesData(date = '', start_date = '', end_date = '', staff_id = '', payment_method = '', flag_id =
+            '', price_type = '') {
             var filterData = {
                 'date': date,
                 'start_date': start_date,
@@ -615,20 +589,21 @@
             };
 
             $.ajax({
-                url: "{{ !$userKey ? route('laporan.penjualan.chart.expenses') : url('/api/laporan/penjualan/chart-expenses') . '?user_key=' . $userKey }}",
-                type: 'GET',
-                data: filterData,
-                dataType: 'json',
-            })
-            .done(function(data) {
-                $('#biaya').text(data.biaya);
-            })
-            .fail(function() {
-                $('#biaya').text('-');
-            });
+                    url: "{{ !$userKey ? route('laporan.penjualan.chart.expenses') : url('/api/laporan/penjualan/chart-expenses') . '?user_key=' . $userKey }}",
+                    type: 'GET',
+                    data: filterData,
+                    dataType: 'json',
+                })
+                .done(function(data) {
+                    $('#biaya').text(data.biaya);
+                })
+                .fail(function() {
+                    $('#biaya').text('-');
+                });
         }
 
-        function loadSalesData(date = '', start_date = '', end_date = '', staff_id = '', payment_method = '', flag_id = '', price_type = '') {
+        function loadSalesData(date = '', start_date = '', end_date = '', staff_id = '', payment_method = '', flag_id = '',
+            price_type = '') {
             var filterData = {
                 'date': date,
                 'start_date': start_date,
@@ -640,26 +615,27 @@
             };
 
             $.ajax({
-                url: "{{ !$userKey ? route('laporan.penjualan.chart.sales') : url('/api/laporan/penjualan/chart-sales') . '?user_key=' . $userKey }}",
-                type: 'GET',
-                data: filterData,
-                dataType: 'json',
-            })
-            .done(function(data) {
-                $('#hpp').text(data.hpp);
-                $('#laba_rugi_bersih').text(data.laba_rugi_bersih);
-                $('#roas').text(data.roas);
-                $('#total_harga_produk_terjual').text(data.total_pajak);
-            })
-            .fail(function() {
-                $('#hpp').text('-');
-                $('#laba_rugi_bersih').text('-');
-                $('#roas').text('-');
-                $('#total_harga_produk_terjual').text('-');
-            });
+                    url: "{{ !$userKey ? route('laporan.penjualan.chart.sales') : url('/api/laporan/penjualan/chart-sales') . '?user_key=' . $userKey }}",
+                    type: 'GET',
+                    data: filterData,
+                    dataType: 'json',
+                })
+                .done(function(data) {
+                    $('#hpp').text(data.hpp);
+                    $('#laba_rugi_bersih').text(data.laba_rugi_bersih);
+                    $('#roas').text(data.roas);
+                    $('#total_harga_produk_terjual').text(data.total_pajak);
+                })
+                .fail(function() {
+                    $('#hpp').text('-');
+                    $('#laba_rugi_bersih').text('-');
+                    $('#roas').text('-');
+                    $('#total_harga_produk_terjual').text('-');
+                });
         }
 
-        function initTotalPenjualan(date = '', start_date = '', end_date = '', staff_id = '', payment_method = '', flag_id = '', price_type = '') {
+        function initTotalPenjualan(date = '', start_date = '', end_date = '', staff_id = '', payment_method = '', flag_id =
+            '', price_type = '') {
             var filterData = {
                 'selected_range': date,
                 'startDate': start_date,
@@ -671,22 +647,22 @@
             };
 
             $.ajax({
-                url: "{{ !$userKey ? url('manajemen-pesanan/cart') : url('/api/manajemen-pesanan/cart') . '?user_key=' . $userKey }}",
-                type: 'GET',
-                dataType: 'json',
-                data: filterData
-            })
-            .done(function(data) {
-                var result = data.data;
-                $('#omset_penjualan').text(result.omset_penjualan);
-                $('#total_ongkir').text(result.total_ongkir);
-                $('#total_diskon').text(result.total_diskon);
-            })
-            .fail(function() {
-                $('#omset_penjualan').text('-');
-                $('#total_ongkir').text('-');
-                $('#total_diskon').text('-');
-            });
+                    url: "{{ !$userKey ? url('manajemen-pesanan/cart') : url('/api/manajemen-pesanan/cart') . '?user_key=' . $userKey }}",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: filterData
+                })
+                .done(function(data) {
+                    var result = data.data;
+                    $('#omset_penjualan').text(result.omset_penjualan);
+                    $('#total_ongkir').text(result.total_ongkir);
+                    $('#total_diskon').text(result.total_diskon);
+                })
+                .fail(function() {
+                    $('#omset_penjualan').text('-');
+                    $('#total_ongkir').text('-');
+                    $('#total_diskon').text('-');
+                });
         }
 
         function exportExcelData() {

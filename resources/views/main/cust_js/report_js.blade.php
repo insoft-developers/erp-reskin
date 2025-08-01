@@ -1,4 +1,4 @@
-@if ($view == 'report')
+
     <script>
         function on_sales_report_click() {
             window.location = "{{ route('laporan.penjualan.index') }}";
@@ -52,4 +52,3 @@
             window.location = "{{ route('visit.index') }}";
         }
     </script>
-@endif

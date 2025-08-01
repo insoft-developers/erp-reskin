@@ -1,4 +1,9 @@
 <style>
+    .table-nowrap td,
+    .table-nowrap th {
+        white-space: nowrap !important;
+    }
+
     .select2-selection__arrow {
         display: none !important;
     }

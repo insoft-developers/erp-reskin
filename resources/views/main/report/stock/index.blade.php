@@ -1,4 +1,4 @@
-@extends(isset($userKey) ? 'master-preview' : 'master')
+@extends(isset($userKey) ? 'master-preview' : 'main.master_new')
 
 @section('topstyle')
     <style>
@@ -52,42 +52,9 @@
 
 @section('content')
     @if (!$userKey)
-        <main class="nxl-container">
-            <div class="nxl-content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('report') }}">Laporan</a></li>
-                            <li class="breadcrumb-item">Laporan Stock</li>
-                        </ul>
-                    </div>
-                    <div class="page-header-right ms-auto">
-                        <div class="page-header-right-items">
-                            <div class="d-flex d-md-none">
-                                <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                    <i class="feather-arrow-left me-2"></i>
-                                    <span>Back</span>
-                                </a>
-                            </div>
-                            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                            </div>
-                        </div>
-                        <div class="d-md-none d-flex align-items-center">
-                            <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                                <i class="feather-align-right fs-20"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- [ page-header ] end -->
-                <!-- [ Main Content ] start -->
-                <div class="main-content">
+        <div class="page-wrapper">
+            
+                <div style="background: whitesmoke;" class="content">
                     <div class="row">
                         <!-- [Leads] start -->
                         <div class="col-xxl-12">
@@ -169,7 +136,7 @@
                                     </div>
 
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="data-table-barang-jadi">
+                                        <table class="table table-striped table-nowrap" id="data-table-barang-jadi">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -211,7 +178,7 @@
                                     </div>
 
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="data-table-manufaktur">
+                                        <table class="table table-striped table-nowrap" id="data-table-manufaktur">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -255,7 +222,7 @@
                                     </div>
 
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="data-table-setengah-jadi">
+                                        <table class="table table-striped table-nowrap" id="data-table-setengah-jadi">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -297,7 +264,7 @@
                                     </div>
 
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="data-table-bahan-baku">
+                                        <table class="table table-striped table-nowrap" id="data-table-bahan-baku">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -322,8 +289,8 @@
                 </div>
                 <!-- [ Main Content ] end -->
 
-            </div>
-        </main>
+        
+        </div>
     @else
         <div class="row">
             <!-- [Leads] start -->
@@ -382,7 +349,7 @@
                     </div>
                     <div class="card-body custom-card-action p-3">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="data-table-barang-jadi">
+                            <table class="table table-striped table-nowrap" id="data-table-barang-jadi">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -408,7 +375,7 @@
                     </div>
                     <div class="card-body custom-card-action p-3">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="data-table-manufaktur">
+                            <table class="table table-striped table-nowrap" id="data-table-manufaktur">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -436,7 +403,7 @@
                     </div>
                     <div class="card-body custom-card-action p-3">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="data-table-setengah-jadi">
+                            <table class="table table-striped table-nowrap" id="data-table-setengah-jadi">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -462,7 +429,7 @@
                     </div>
                     <div class="card-body custom-card-action p-3">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="data-table-bahan-baku">
+                            <table class="table table-striped table-nowrap" id="data-table-bahan-baku">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -617,6 +584,19 @@
             var table = $('#data-table-barang-jadi').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
+
+
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,
@@ -660,6 +640,19 @@
             var table = $('#data-table-manufaktur').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
+
+
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,
@@ -702,6 +695,19 @@
             var table = $('#data-table-setengah-jadi').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
+
+
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,
@@ -744,6 +750,19 @@
             var table = $('#data-table-bahan-baku').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
+
+
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,

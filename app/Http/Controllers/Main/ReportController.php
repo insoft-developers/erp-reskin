@@ -170,7 +170,7 @@ class ReportController extends Controller
         $kolspan1 = 3 + $jumlah_periode * 2;
 
         $html = '';
-        $html .= '<table class="table table-bordered" id="table-profit-loss">';
+        $html .= '<table class="table table-bordered table-nowrap" id="table-profit-loss">';
         $html .= '<tr>';
         $html .= '<th rowspan="2"><center>Keterangan</center></th>';
         $display_month = $start;
@@ -622,7 +622,7 @@ class ReportController extends Controller
         }
 
         $html = '';
-        $html .= '<table class="table table-bordered" id="table-profit-loss">';
+        $html .= '<table class="table table-bordered table-nowrap" id="table-profit-loss">';
         $html .= '<tr>';
         $html .= '<th rowspan="2"><center>Keterangan</center></th>';
 
