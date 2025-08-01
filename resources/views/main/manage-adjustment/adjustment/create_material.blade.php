@@ -1,158 +1,127 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('adjustment.index') }}">Penyesuaian</a></li>
-                        <li class="breadcrumb-item">Penyesuaian Material Builder</li>
-                        <li class="breadcrumb-item">Buat Baru</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
+    <div class="page-wrapper">
+
+
+        <div class="content" style="background: whitesmoke;">
+            <div class="row">
+                <!-- [Leads] start -->
+                <div class="col-xxl-12">
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
                         </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
+                    @endif
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
                         </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
-                <div class="row">
-                    <!-- [Leads] start -->
-                    <div class="col-xxl-12">
-                        @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        <form method="POST" action="{{ route('adjustment.storeMaterial') }}"
-                            class="card stretch stretch-full" enctype="multipart/form-data">
-                            @csrf
-                            <div class="card-header">
-                                <h5 class="card-title">Penyesuaian Material</h5>
-                            </div>
-                            <div class="card-body custom-card-action p-4">
-                                <div class="row">
-                                    <div class="col">
-                                        <label class="form-label" for="date">Tanggal <span
-                                                class="text-danger">*</span></label>
-                                        <input type="date" class="form-control @error('date') is-invalid @enderror"
-                                            id="date" name="date" value="{{ old('date', now()->format('Y-m-d')) }}"
-                                            placeholder="">
-                                        </input>
-                                        @error('date')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-4">
-                                            <label class="form-label">Kategori Penyesuaian <span
-                                                    class="text-danger">*</span></label>
-                                            <select
-                                                class="form-control @error('category_adjustment_id') is-invalid @enderror"
-                                                id="categoryAdjustment" name="category_adjustment_id"
-                                                value="{{ old('category_adjustment_id') }}">
-                                            </select>
-                                            @error('category_adjustment_id')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-4" id="costGoodSoldForm">
-                                            <label class="form-label">Penyesuaian Untuk <span
-                                                    class="text-danger">*</span></label>
-                                            <select class="form-control @error('cost_good_sold_id') is-invalid @enderror"
-                                                id="costGoodSold" name="cost_good_sold_id"
-                                                value="{{ old('cost_good_sold_id') }}">
-                                                @foreach ($costGoodSold as $item)
-                                                    <option value="{{ $item['id'] }}" {{ ($item['name'] == 'Harga Pokok Penjualan') ? 'selected' : '' }}>{{ $item['code'] == 'prive' ? 'Prive / Transfer Stok' :  $item['name'] }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('cost_good_sold_id')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="form-label">Material <span class="text-danger">*</span></label>
-                                    <select class="form-control @error('md_material_id') is-invalid @enderror"
-                                        id="searchProduct" name="md_material_id" value="{{ old('md_material_id') }}">
-                                    </select>
-                                    @error('md_material_id')
+                    @endif
+                    <form method="POST" action="{{ route('adjustment.storeMaterial') }}" class="card stretch stretch-full"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-header">
+                            <h5 class="card-title">Penyesuaian Material</h5>
+                        </div>
+                        <div class="card-body custom-card-action p-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label" for="date">Tanggal <span
+                                            class="text-danger">*</span></label>
+                                    <input type="date" class="form-control @error('date') is-invalid @enderror"
+                                        id="date" name="date" value="{{ old('date', now()->format('Y-m-d')) }}"
+                                        placeholder="">
+                                    </input>
+                                    @error('date')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                <div class="col">
+                                    <div class="mb-4">
+                                        <label class="form-label">Kategori Penyesuaian <span
+                                                class="text-danger">*</span></label>
+                                        <select class="form-control @error('category_adjustment_id') is-invalid @enderror"
+                                            id="categoryAdjustment" name="category_adjustment_id"
+                                            value="{{ old('category_adjustment_id') }}">
+                                        </select>
+                                        @error('category_adjustment_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-4" id="costGoodSoldForm">
+                                        <label class="form-label">Penyesuaian Untuk <span
+                                                class="text-danger">*</span></label>
+                                        <select class="form-control @error('cost_good_sold_id') is-invalid @enderror"
+                                            id="costGoodSold" name="cost_good_sold_id"
+                                            value="{{ old('cost_good_sold_id') }}">
+                                            @foreach ($costGoodSold as $item)
+                                                <option value="{{ $item['id'] }}"
+                                                    {{ $item['name'] == 'Harga Pokok Penjualan' ? 'selected' : '' }}>
+                                                    {{ $item['code'] == 'prive' ? 'Prive / Transfer Stok' : $item['name'] }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('cost_good_sold_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
 
-
-                            <hr>
-
-                            <div class="table-responsive">
-                                <table class="table table-striped " id="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Produk</th>
-                                            <th>Jumlah</th>
-                                            <th>Tipe</th>
-                                            <th>Opsi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="contentTable">
-
-                                    </tbody>
-                                </table>
+                            <div class="mb-4">
+                                <label class="form-label">Material <span class="text-danger">*</span></label>
+                                <select class="form-control @error('md_material_id') is-invalid @enderror"
+                                    id="searchProduct" name="md_material_id" value="{{ old('md_material_id') }}">
+                                </select>
+                                @error('md_material_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
+                        </div>
 
 
-<div class="card-footer d-flex justify-content-start">
-    <a href="{{ route('adjustment.index') }}" class="btn btn-danger me-3">Kembali</a>
-    <button type="submit" class="btn btn-primary">
-        Simpan
-    </button>
-</div>
-</form>
-</div>
+                        <hr>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped " id="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Produk</th>
+                                        <th>Jumlah</th>
+                                        <th>Tipe</th>
+                                        <th>Opsi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contentTable">
+
+                                </tbody>
+                            </table>
+                        </div>
 
 
-                    <!-- [Recent Orders] end -->
-                    <!-- [] start -->
+                        <div class="card-footer d-flex justify-content-start">
+                            <a href="{{ route('adjustment.index') }}" class="btn btn-danger me-3">Kembali</a>
+                            <button type="submit" class="btn btn-primary">
+                                Simpan
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
+
+                <!-- [Recent Orders] end -->
+                <!-- [] start -->
             </div>
-            <!-- [ Main Content ] end -->
 
         </div>
-    </main>
+        <!-- [ Main Content ] end -->
+
+
+    </div>
 @endsection
 
 @section('js')
@@ -318,7 +287,7 @@
                         </select>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)"><i class="fa fa-trash"></i></button>
+                        <button type="button" class="btn bg-danger-gradient btn-danger btn-effect" onclick="deleteRow(this)"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>
                 `;

@@ -3,7 +3,7 @@
     @method('PUT')
 
     <div class="modal-content">
-        <div class="modal-header" style="background-color: #2f467a;">
+        <div class="modal-header" style="background-color: #743bff;">
             <h5 class="modal-title" style="color:white;">Edit Client</h5>
         </div>
         <div class="modal-body">

@@ -191,10 +191,10 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Data Pembeli</a></li>
-                                    <li><a href="{{ url('/') }}">Followup Upselling</a>
+                                    <li><a href="{{ url('crm/customer') }}">Data Pembeli</a></li>
+                                    <li><a href="{{ url('crm/followup') }}">Followup Upselling</a>
                                     </li>
-                                    <li><a href="{{ url('journal_add') }}">List Diskon</a></li>
+                                    <li><a href="{{ url('crm/discount') }}">List Diskon</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -300,29 +300,23 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Daftar Penyesuaian</a></li>
-                                    <li><a href="{{ url('/') }}">Penyesuaian Barang Jadi</a>
+                                    <li><a href="{{ url('adjustment') }}">Daftar Penyesuaian</a></li>
+                                    <li><a href="{{ url('adjustment/create') }}">Penyesuaian Barang Jadi</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Penyesuaian Barang 1/2 Jadi</a>
+                                    <li><a href="{{ url('adjustment/create/inter-product') }}">Penyesuaian Barang 1/2 Jadi</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Penyesuaian Bahan Baku</a>
+                                    <li><a href="{{ url('adjustment/create/material') }}">Penyesuaian Bahan Baku</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Kategori Penyesuaian</a>
+                                    <li><a href="{{ url('adjustment/category') }}">Kategori Penyesuaian</a>
                                     </li>
-                                    <li><a href="{{ url('/') }}">Stock Opname</a>
+                                    <li><a href="{{ url('adjustment/stock-opname') }}">Stock Opname</a>
                                     </li>
 
                                 </ul>
                             </li>
 
-
-
-
                         </ul>
                     </li>
-
-
-
                     <li>
                         <ul>
 

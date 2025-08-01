@@ -1,184 +1,149 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('invoice.invoice.index') }}">Invoice</a></li>
-                        <li class="breadcrumb-item">Invoice Builder</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+    <div class="page-wrapper">
 
 
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
-                <div class="row">
+        <div class="content" style="background: whitesmoke;">
+            <div class="row">
 
-                    <!-- [Leads] start -->
-                    <div class="col-xxl-12">
-                        <div class="card stretch stretch-full">
-                            <div class="card-body custom-card-action p-3">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <p class="mb-0">Total Paid Invoice: </p>
-                                        <h3 class="display-6" id="total_paid"></h3>
-                                    </div>
+                <!-- [Leads] start -->
+                <div class="col-xxl-12">
+                    <div class="card stretch stretch-full">
+                        <div class="card-body custom-card-action p-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="mb-0">Total Paid Invoice: </p>
+                                    <h3 class="display-6" id="total_paid"></h3>
+                                </div>
 
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col">
-                                                <button type="button" class="btn btn-warning w-100 me-2" id="change_paid"
-                                                    hidden>
-                                                    Ubah Paid
-                                                </button>
-                                            </div>
-                                            <div class="col">
-                                                <select id="status_filter" class="form-control w-100"
-                                                    aria-label="Pilih Status Pembayaran">
-                                                    <option value="">Semua Status</option>
-                                                    <option value="1">Paid</option>
-                                                    <option value="0">Unpaid</option>
-                                                </select>
-                                            </div>
-                                            <div class="col" id="filterPaymentMethod">
-                                                <select id="payment_method_filter" class="form-control w-100"
-                                                    aria-label="Pilih Metode Pembayaran">
-                                                    <option value="">Semua Metode</option>
-                                                    @foreach ($payment as $item)
-                                                        <option value="{{ $item['code'] }}">{{ $item['method'] }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <select id="year_filter" class="form-control w-100"
-                                                    aria-label="Pilih Tahun">
-                                                    <option value="">Tampilkan Semua Tahun</option>
-                                                    @foreach (tahun() as $thn)
-                                                        <option value="{{ $thn }}"
-                                                            {{ now()->year == $thn ? 'selected' : '' }}>
-                                                            {{ $thn }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <select id="month_filter" class="form-control w-100"
-                                                    aria-label="Pilih Bulan">
-                                                    <option value="">Tampilkan Semua Bulan</option>
-                                                    @foreach (bulan() as $key => $bln)
-                                                        <option value="{{ $key }}"
-                                                            {{ now()->month == $key ? 'selected' : '' }}>
-                                                            {{ $bln }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-warning w-100 me-2" id="change_paid"
+                                                hidden>
+                                                Ubah Paid
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <select id="status_filter" class="form-control w-100"
+                                                aria-label="Pilih Status Pembayaran">
+                                                <option value="">Semua Status</option>
+                                                <option value="1">Paid</option>
+                                                <option value="0">Unpaid</option>
+                                            </select>
+                                        </div>
+                                        <div class="col" id="filterPaymentMethod">
+                                            <select id="payment_method_filter" class="form-control w-100"
+                                                aria-label="Pilih Metode Pembayaran">
+                                                <option value="">Semua Metode</option>
+                                                @foreach ($payment as $item)
+                                                    <option value="{{ $item['code'] }}">{{ $item['method'] }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <select id="year_filter" class="form-control w-100" aria-label="Pilih Tahun">
+                                                <option value="">Tampilkan Semua Tahun</option>
+                                                @foreach (tahun() as $thn)
+                                                    <option value="{{ $thn }}"
+                                                        {{ now()->year == $thn ? 'selected' : '' }}>
+                                                        {{ $thn }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <select id="month_filter" class="form-control w-100" aria-label="Pilih Bulan">
+                                                <option value="">Tampilkan Semua Bulan</option>
+                                                @foreach (bulan() as $key => $bln)
+                                                    <option value="{{ $key }}"
+                                                        {{ now()->month == $key ? 'selected' : '' }}>
+                                                        {{ $bln }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- [Table] end -->
+                </div>
+                <!-- [Table] end -->
 
-                    <!-- [Leads] start -->
-                    <div class="col-xxl-12">
-                        <div class="card stretch stretch-full">
-                            <div class="card-header">
-                                <h5 class="card-title">Invoice</h5>
+                <!-- [Leads] start -->
+                <div class="col-xxl-12">
+                    <div class="card stretch stretch-full">
+                        <div class="card-header">
+                            <h5 class="card-title">Invoice</h5>
 
-                                <a href="{{ route('invoice.invoice.create') }}" class="btn btn-primary">
-                                    <i class="feather-plus"></i> Buat Baru
-                                </a>
+                            <a style="float: right;" href="{{ route('invoice.invoice.create') }}" class="btn btn-success">
+                                <i class="fa fa-plus"></i> Buat Baru
+                            </a>
+                        </div>
+                        <div class="card-body custom-card-action p-3">
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" id="searchData" placeholder="Cari disini.."
+                                        class="form-control cust-control">
+                                </div>
                             </div>
-                            <div class="card-body custom-card-action p-3">
-                                @if (session('error'))
-                                    <div class="alert alert-danger">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
-                                @if (session('success'))
-                                    <div class="alert alert-success">
-                                        {{ session('success') }}
-                                    </div>
-                                @endif
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" id="searchData" placeholder="Cari disini.."
-                                            class="form-control cust-control">
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive">
-                                    <table class="table table-striped" id="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    {{-- CHECKBOX SELECT ALL --}}
-                                                    <div class="custom-control custom-checkbox ms-1">
-                                                        <input class="custom-control-input" type="checkbox"
-                                                            id="checkAll" />
-                                                        <label class="custom-control-label" for="checkAll"></label>
-                                                    </div>
-                                                </th>
-                                                <th>Action</th>
-                                                <th>Copy Link</th>
-                                                <th>Pdf</th>
-                                                <th>Sync Jurnal</th>
-                                                <th>Status</th>
-                                                <th>Termin / DP</th>
-                                                <th>Nama Invoice</th>
-                                                <th>Kode Invoice</th>
-                                                <th>Total Rupiah</th>
-                                                <th>Nominal Invoice</th>
-                                                <th>Mata Uang</th>
-                                                <th>Kurs</th>
-                                                <th>Nama Client</th>
-                                                <th>Tanggal Dibuat</th>
-                                                <th>Jatuh Tempo</th>
-                                                <th>Metode</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
+                            <div class="table-responsive" style="marign-top:10px;">
+                                <table class="table table-striped" id="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                {{-- CHECKBOX SELECT ALL --}}
+                                                <div class="custom-control custom-checkbox ms-1">
+                                                    <input class="custom-control-input" type="checkbox" id="checkAll" />
+                                                    <label class="custom-control-label" for="checkAll"></label>
+                                                </div>
+                                            </th>
+                                            <th>Action</th>
+                                            <th>Copy Link</th>
+                                            <th>Pdf</th>
+                                            <th>Sync Jurnal</th>
+                                            <th>Status</th>
+                                            <th>Termin / DP</th>
+                                            <th>Nama Invoice</th>
+                                            <th>Kode Invoice</th>
+                                            <th>Total Rupiah</th>
+                                            <th>Nominal Invoice</th>
+                                            <th>Mata Uang</th>
+                                            <th>Kurs</th>
+                                            <th>Nama Client</th>
+                                            <th>Tanggal Dibuat</th>
+                                            <th>Jatuh Tempo</th>
+                                            <th>Metode</th>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-                    <!-- [Recent Orders] end -->
-                    <!-- [Table] start -->
-                    <!-- [Table] end -->
                 </div>
 
+                <!-- [Recent Orders] end -->
+                <!-- [Table] start -->
+                <!-- [Table] end -->
             </div>
-            <!-- [ Main Content ] end -->
 
         </div>
-    </main>
+        <!-- [ Main Content ] end -->
+
+
+    </div>
 
     {{-- MODALS --}}
     <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="modal-ce">
@@ -272,6 +237,17 @@
             var table = $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,

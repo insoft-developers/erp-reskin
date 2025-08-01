@@ -61,11 +61,11 @@ class InvoiceController extends Controller
             })
             ->addColumn('copy_link', function ($data) {
                 $html = '';
-                $html .= '<a href="javascript:void(0)" style="background-color: #385a9c !important;" class="btn-primary btn-sm me-2 copyLinkButton" data-url="' . route('invoice.preview', $data->id) . '" style="padding: 8px; font-size: 9px; border-radius: 4px;" title="Copy Invoice">
+                $html .= '<a href="javascript:void(0)" class="btn bg-primary-gradient btn-primary btn-effect me-2 copyLinkButton" data-url="' . route('invoice.preview', $data->id) . '" style="padding: 8px; font-size: 9px; border-radius: 4px;" title="Copy Invoice">
                         <i class="fa fa-copy"></i> Invoice Link
                     </a>';
                 if ($data->payment_url != null) {
-                    $html .= '<a href="javascript:void(0)" style="background-color: #385a9c !important;" class="btn-primary btn-sm me-2 copyLinkButton" data-url="' . $data->payment_url . '" style="padding: 8px; font-size: 9px; border-radius: 4px;" title="Copy Payment Link">
+                    $html .= '<a href="javascript:void(0)" style="class="btn bg-primary-gradient btn-primary btn-effect me-2 copyLinkButton" data-url="' . $data->payment_url . '" style="padding: 8px; font-size: 9px; border-radius: 4px;" title="Copy Payment Link">
                             <i class="fa fa-copy"></i> Payment Link
                         </a>';
                 }
@@ -73,7 +73,7 @@ class InvoiceController extends Controller
                 return $html;
             })
             ->addColumn('payment_url', function ($data) {
-                $html = '';
+               $html = '';
                 $html .= '<a href="' . route('invoice.export', $data->id) . '" target="_blank" class="btn-success btn-sm me-2" style="padding: 8px; font-size: 9px; border-radius: 4px;" title="Download Invoice">
                 <img src="' . asset('template/main/images/icon-download-pdf.png') . '" width="20px">
                 </a>';
@@ -82,8 +82,8 @@ class InvoiceController extends Controller
             ->addColumn('termin_action', function ($data) {
                 if ($data->status != 1) {
                     $btn = '<div class="d-flex">';
-                    $btn .= '<a title="Termin" style="margin-right:2px;" href="javascript:void(0);" onclick="payment(' . $data->id . ')" class="avatar-text avatar-md bg-warning text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside">DP</a>';
-                    $btn .= '<a title="History" style="margin-right:2px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="avatar-text avatar-md bg-primary text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-history"></i></a>';
+                    $btn .= '<a title="Termin" style="margin-right:2px;" href="javascript:void(0);" onclick="payment(' . $data->id . ')" class="btn bg-warning-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside">DP</a>';
+                    $btn .= '<a title="History" style="margin-right:2px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="btn bg-primary-gradient btn-primary btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-history"></i></a>';
                     $btn .= '</div>';
                 } else {
                     $btn = '-';
@@ -138,13 +138,13 @@ class InvoiceController extends Controller
                 $btn = '<div class="d-flex">';
 
                 if ($data->sync_status == 1) {
-                    $btn .= '<a title="Sync Jurnal" style="margin-right:2px;" href="javascript:void(0);" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
+                    $btn .= '<a title="Sync Jurnal" style="margin-right:2px;" href="javascript:void(0);" class="btn bg-success-gradient btn-success btn-effect text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
                 } else {
-                    $btn .= '<a title="Sync Jurnal" style="margin-right:2px;" href="javascript:void(0);" onclick="syncData(' . $data->id . ')" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
+                    $btn .= '<a title="Sync Jurnal" style="margin-right:2px;" href="javascript:void(0);" onclick="syncData(' . $data->id . ')" class="btn bg-success-gradient btn-success btn-effect text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
                 }
 
-                $btn .= '<a href="' . route('invoice.invoice.edit', $data->id) . '"  title="Ubah" style="margin-right:2px;" class="avatar-text avatar-md bg-warning text-white" data-bs-auto-close="outside"><i class="fa fa-edit"></i></a>';
-                $btn .= '<a title="Hapus" style="margin-right:2px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
+                $btn .= '<a href="' . route('invoice.invoice.edit', $data->id) . '"  title="Ubah" style="margin-right:2px;" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-auto-close="outside"><i class="fa fa-edit"></i></a>';
+                $btn .= '<a title="Hapus" style="margin-right:2px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
                 $btn .= '</div>';
                 return $btn;
             })

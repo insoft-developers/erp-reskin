@@ -80,11 +80,11 @@ class OpnameController extends Controller
                     $btn = '';
                     $btn .= '<div class="d-flex">';
                     if ($data->is_download == 1) {
-                        $btn .= '<a title="Unsync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="unsync(' . $data->id . ')" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
+                        $btn .= '<a title="Unsync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="unsync(' . $data->id . ')" class="btn bg-info-gradient btn-info btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
                     }
 
-                    $btn .= ' <a title="Unsync Journal" style="margin-right:3px;" href="javascript:void(0);" onclick="listData(' . $data->id . ')" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a>';
-                    $btn .= '<a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
+                    $btn .= ' <a title="Unsync Journal" style="margin-right:3px;" href="javascript:void(0);" onclick="listData(' . $data->id . ')" class="btn bg-info-gradient btn-info btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a>';
+                    $btn .= '<a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
                     $btn .= '</div>';
 
                     return $btn;
@@ -92,12 +92,12 @@ class OpnameController extends Controller
                     $btn = '';
                     $btn .= '<div class="d-flex">';
                     if ($data->is_download == 1) {
-                        $btn .= '<a title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="syncData(' . $data->id . ')" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
+                        $btn .= '<a title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="syncData(' . $data->id . ')" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
                     }
 
-                    $btn .= '<a title="List Produk" style="margin-right:3px;" href="javascript:void(0);" onclick="listData(' . $data->id . ')" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a>';
-                    $btn .= '<a title="Upload Stock Opname" style="margin-right:3px;" href="javascript:void(0);" onclick="uploadData(' . $data->id . ')" class="avatar-text avatar-md bg-warning text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-upload"></i></a>';
-                    $btn .= '<a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
+                    $btn .= '<a title="List Produk" style="margin-right:3px;" href="javascript:void(0);" onclick="listData(' . $data->id . ')" class="btn bg-info-gradient btn-info btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a>';
+                    $btn .= '<a title="Upload Stock Opname" style="margin-right:3px;" href="javascript:void(0);" onclick="uploadData(' . $data->id . ')" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-upload"></i></a>';
+                    $btn .= '<a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
                     $btn .= '</div>';
 
                     return $btn;

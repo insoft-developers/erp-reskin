@@ -40,8 +40,8 @@ class CategoryAdjustmentController extends Controller
             })
             ->addColumn('action', function ($data) {
                 $btn = '<div class="d-flex">';
-                $btn .= '<a href="javascript:void(0)" class="edit btn btn-warning btn-sm me-2"  onclick="editData(' . $data->id . ')">Ubah</a>';
-                $btn .= '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm" onclick="deleteData(event, ' . $data->id . ')">Hapus</a>';
+                $btn .= '<a href="javascript:void(0)" class="edit btn bg-warning-gradient btn-warning btn-effect me-2"  onclick="editData(' . $data->id . ')">Ubah</a>';
+                $btn .= '<a href="javascript:void(0)" class="delete btn bg-danger-gradient btn-danger btn-effect" onclick="deleteData(event, ' . $data->id . ')">Hapus</a>';
                 $btn .= '</div>';
                 return $btn;
             })

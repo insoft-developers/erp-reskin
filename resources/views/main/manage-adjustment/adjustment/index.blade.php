@@ -1,147 +1,118 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('adjustment.index') }}">Daftar Penyesuaian</a></li>
-                        <li class="breadcrumb-item">Penyesuaian Barang Dagang Builder</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
+    <div class="page-wrapper">
+
+
+
+        <!-- [ Main Content ] start -->
+        <div class="content" style="background: whitesmoke;">
+            <div class="row">
+                <!-- [Leads] start -->
+                <div class="col-xxl-12">
+                    <div class="card stretch stretch-full">
+                        <div class="card-header">
+                            <h5 class="card-title">Penyesuaian</h5>
                         </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                        <div class="card-body custom-card-action p-3">
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
 
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
-                <div class="row">
-                    <!-- [Leads] start -->
-                    <div class="col-xxl-12">
-                        <div class="card stretch stretch-full">
-                            <div class="card-header">
-                                <h5 class="card-title">Penyesuaian</h5>
-                            </div>
-                            <div class="card-body custom-card-action p-3">
-                                @if (session('error'))
-                                    <div class="alert alert-danger">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
-                                @if (session('success'))
-                                    <div class="alert alert-success">
-                                        {{ session('success') }}
-                                    </div>
-                                @endif
-
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <select class="form-control cust-control" id="categoryAdjustment"
-                                            name="category_adjustment_id">
-                                            <option value="">Pilih Kategori</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <select class="form-control cust-control" id="bulan" name="bulan">
-                                            <option value="">Pilih Bulan</option>
-                                            @foreach (bulan() as $id => $item)
-                                                <option value="{{ $id }}" {{ $id == date('m') ? 'selected' : '' }}>{{ $item }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <select class="form-control cust-control" id="tahun" name="tahun">
-                                            <option value="">Pilih Tahun</option>
-                                            @foreach (tahun() as $item)
-                                                <option value="{{ $item }}" {{ $item == date('Y') ? 'selected' : '' }}>{{ $item }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="mtop20"></div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" id="searchData" placeholder="Cari disini.."
-                                                class="form-control cust-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button type="button" class="btn btn-danger btn-insoft" id="delete-btn" hidden>
-                                            <i class="feather-trash-2"></i> Bulk Delete
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-success btn-insoft" id="sync-btn" hidden>
-                                            <i class="fa fa-sync"></i>&nbsp;&nbsp;Synchronize
-                                        </button>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select class="form-control cust-control" id="categoryAdjustment"
+                                        name="category_adjustment_id">
+                                        <option value="">Pilih Kategori</option>
+                                    </select>
                                 </div>
 
-
-                                <div class="mtop30"></div>
-
-                                <div class="table-responsive">
-                                    <table class="table table-striped" id="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    {{-- CHECKBOX SELECT ALL --}}
-                                                    <div class="custom-control custom-checkbox ms-1">
-                                                        <input class="custom-control-input" type="checkbox"
-                                                            id="checkAll" />
-                                                        <label class="custom-control-label" for="checkAll"></label>
-                                                    </div>
-                                                </th>
-                                                <th>Action</th>
-                                                <th>Sync Jurnal</th>
-
-                                                <th>Tanggal</th>
-                                                <th>Detail Order</th>
-                                                <th>Total Product</th>
-
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                <div class="col-md-3">
+                                    <select class="form-control cust-control" id="bulan" name="bulan">
+                                        <option value="">Pilih Bulan</option>
+                                        @foreach (bulan() as $id => $item)
+                                            <option value="{{ $id }}" {{ $id == date('m') ? 'selected' : '' }}>
+                                                {{ $item }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
+                                <div class="col-md-3">
+                                    <select class="form-control cust-control" id="tahun" name="tahun">
+                                        <option value="">Pilih Tahun</option>
+                                        @foreach (tahun() as $item)
+                                            <option value="{{ $item }}" {{ $item == date('Y') ? 'selected' : '' }}>
+                                                {{ $item }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="mtop20"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="searchData" placeholder="Cari disini.."
+                                            class="form-control cust-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-danger btn-insoft" id="delete-btn" hidden>
+                                        <i class="feather-trash-2"></i> Bulk Delete
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-success btn-insoft" id="sync-btn" hidden>
+                                        <i class="fa fa-sync"></i>&nbsp;&nbsp;Synchronize
+                                    </button>
+                                </div>
                             </div>
+
+
+                            <div class="mtop30"></div>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                {{-- CHECKBOX SELECT ALL --}}
+                                                <div class="custom-control custom-checkbox ms-1">
+                                                    <input class="custom-control-input" type="checkbox" id="checkAll" />
+                                                    <label class="custom-control-label" for="checkAll"></label>
+                                                </div>
+                                            </th>
+                                            <th>Action</th>
+                                            <th>Sync Jurnal</th>
+
+                                            <th>Tanggal</th>
+                                            <th>Detail Order</th>
+                                            <th>Total Product</th>
+
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
-
-                    <!-- [Recent Orders] end -->
-                    <!-- [Table] start -->
-                    <!-- [Table] end -->
                 </div>
 
+                <!-- [Recent Orders] end -->
+                <!-- [Table] start -->
+                <!-- [Table] end -->
             </div>
-            <!-- [ Main Content ] end -->
 
         </div>
-    </main>
+        <!-- [ Main Content ] end -->
+
+
+    </div>
 
     {{-- MODALS --}}
     <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="modal-ce">
@@ -293,6 +264,17 @@
             var table = $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 dom: 'Blfrtip',
                 columnDefs: [{
                     target: 0,
