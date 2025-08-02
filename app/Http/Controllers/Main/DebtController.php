@@ -119,18 +119,18 @@ class DebtController extends Controller
             ->addColumn('action', function ($data) {
                 $btn = '<div class="d-flex">';
                 if ($data->sync_status == 1) {
-                    $btn .= '<a onclick="unsync(' . $data->id . ')" title="Unsync Jurnal" style="margin-right:2px;" href="javascript:void(0);" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
+                    $btn .= '<a onclick="unsync(' . $data->id . ')" title="Unsync Jurnal" style="margin-right:2px;" href="javascript:void(0);" class="btn bg-info-gradient btn-info btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
                 } else {
-                    $btn .= '<a title="Sync Jurnal" style="margin-right:2px;" href="javascript:void(0);" onclick="syncData(' . $data->id . ')" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
+                    $btn .= '<a title="Sync Jurnal" style="margin-right:2px;" href="javascript:void(0);" onclick="syncData(' . $data->id . ')" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a>';
                 }
 
-                $btn .= '<a title="Hapus" style="margin-right:2px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
+                $btn .= '<a title="Hapus" style="margin-right:2px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
                 if ($data->balance() > 0) {
-                    $btn .= '<a title="Bayar" style="margin-right:2px;" href="javascript:void(0);" onclick="payment(' . $data->id . ')" class="avatar-text avatar-md bg-warning text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-dollar"></i></a>';
+                    $btn .= '<a title="Bayar" style="margin-right:2px;" href="javascript:void(0);" onclick="payment(' . $data->id . ')" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-dollar"></i></a>';
                 } else {
-                    $btn .= '<a title="Lunas" style="margin-right:2px;" href="javascript:void(0);" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-check"></i></a>';
+                    $btn .= '<a title="Lunas" style="margin-right:2px;" href="javascript:void(0);" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-check"></i></a>';
                 }
-                $btn .= '<a title="History" style="margin-right:2px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="avatar-text avatar-md bg-primary text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-history"></i></a>';
+                $btn .= '<a title="History" style="margin-right:2px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="btn bg-primary-gradient btn-primary btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-history"></i></a>';
                 $btn .= '</div>';
                 return $btn;
             })

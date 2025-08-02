@@ -330,14 +330,14 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Daftar Utang</a></li>
-                                    <li><a href="{{ url('/') }}">Daftar Piutang</a>
+                                    <li><a href="{{ url('utang') }}">Daftar Utang</a></li>
+                                    <li><a href="{{ url('piutang') }}">Daftar Piutang</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li class="submenu">
-                                <a href="javascript:void(0);">
+                            <li>
+                                <a href="{{ url('penyusutan') }}">
                                     <i class="isax isax-shapes5"></i><span>Penyusutan</span>
                                 </a>
 
@@ -350,8 +350,8 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Daftar Pengeluaran</a></li>
-                                    <li><a href="{{ url('/') }}">Kategori Pengeluaran</a>
+                                    <li><a href="{{ url('expense') }}">Daftar Pengeluaran</a></li>
+                                    <li><a href="{{ url('expense/category') }}">Kategori Pengeluaran</a>
                                     </li>
                                 </ul>
                             </li>
@@ -373,8 +373,8 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">QR Meja Reservasi</a></li>
-                                    <li><a href="{{ url('/') }}">Cetak QR Meja</a>
+                                    <li><a href="{{ url('qr-code') }}">QR Meja Reservasi</a></li>
+                                    <li><a href="{{ url('print-qr-code') }}">Cetak QR Meja</a>
                                     </li>
                                 </ul>
                             </li>

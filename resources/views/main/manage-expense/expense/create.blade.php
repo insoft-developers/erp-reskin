@@ -2,7 +2,7 @@
     @csrf
 
     <div class="modal-content">
-        <div class="modal-header" style="background-color: #2f467a;">
+        <div class="modal-header" style="background-color: #743bff;">
             <h5 class="modal-title" style="color:white;">Pengeluaran Baru</h5>
         </div>
         <div class="modal-body">
@@ -78,7 +78,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $('#category').select2({
-        dropdownParent: $('#formSelectKategori'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Kategori',
         ajax: {
@@ -106,7 +106,7 @@
     });
 
     $('#dari').select2({
-        dropdownParent: $('#formSelectDari'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Akun Rekening',
         ajax: {
@@ -134,7 +134,7 @@
     });
 
     $('#untuk').select2({
-        dropdownParent: $('#formSelectUntuk'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Akun Rekening',
         ajax: {

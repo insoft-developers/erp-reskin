@@ -2,7 +2,7 @@
     @csrf
 
     <div class="modal-content">
-        <div class="modal-header" style="background-color: #2f467a;">
+        <div class="modal-header" style="background-color: #743bff;">
             <h5 class="modal-title" style="color:white;">Piutang Baru</h5>
         </div>
         <div class="modal-body">
@@ -108,7 +108,7 @@
 
 <script>
     $('#type_category_create').select2({
-        dropdownParent: $('#formSelectType'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Kategori',
         ajax: {
@@ -144,7 +144,7 @@
     })
 
     $('#sub_type').select2({
-        dropdownParent: $('#formSelectSubType'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Sub Kategori',
         ajax: {
@@ -173,7 +173,7 @@
     });
 
     $('#receivable_from').select2({
-        dropdownParent: $('#formSelectReceivabledFrom'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Piutang Dari',
         ajax: {
@@ -203,7 +203,7 @@
     });
 
     $('#save_to').select2({
-        dropdownParent: $('#formSelectSaveTo'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Simpan Ke',
         ajax: {

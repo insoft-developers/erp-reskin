@@ -1,8 +1,17 @@
+<style>
+.select2-container {
+  z-index: 99 !important; 
+  position: relative;
+
+}
+</style>
+
+
 <form method="POST" id="formCreate" action="{{ route('penyusutan.store') }}" enctype="multipart/form-data">
     @csrf
 
     <div class="modal-content">
-        <div class="modal-header" style="background-color: #2f467a;">
+        <div class="modal-header" style="background-color: #743bff;">
             <h5 class="modal-title" style="color:white;">Penyusutan Baru</h5>
         </div>
         <div class="modal-body">
@@ -181,12 +190,16 @@
 
 <script>
     $(document).ready(function() {
-        $("#buying_with_account").select2();
+        $("#buying_with_account").select2(
+            {
+                dropdownParent: $('#modal-ce')
+            }
+        );
     });
 
 
     $('#ml_fixed_asset_id').select2({
-        dropdownParent: $('#formSelectKategoriPenyusutan'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Kategori Penyusutan',
         ajax: {
@@ -214,7 +227,7 @@
     });
 
     $('#ml_accumulated_depreciation_id').select2({
-        dropdownParent: $('#formSelectAkumulasiPenyusutan'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Akumulasi Penyusutan',
         ajax: {
@@ -242,7 +255,7 @@
     });
 
     $('#ml_admin_general_fee_id').select2({
-        dropdownParent: $('#formSelectBebanPenyusutan'),
+        dropdownParent: $('#modal-ce'),
         theme: 'bootstrap-5',
         placeholder: 'Pilih Beban Penyusutan',
         ajax: {

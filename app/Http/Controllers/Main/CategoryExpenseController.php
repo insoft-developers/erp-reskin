@@ -50,8 +50,8 @@ class CategoryExpenseController extends Controller
             })
             ->addColumn('action', function ($data) {
                 $btn = '<div class="d-flex">';
-                $btn .= '<a href="' . route('expense.category.edit', $data->id) . '" class="edit btn btn-warning btn-sm me-2">Ubah</a>';
-                $btn .= '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm" onclick="deleteData(event, ' . $data->id . ')">Hapus</a>';
+                $btn .= '<a href="' . route('expense.category.edit', $data->id) . '" class="edit btn bg-warning-gradient btn-warning btn-effect me-2">Ubah</a>';
+                $btn .= '<a href="javascript:void(0)" class="delete btn bg-danger-gradient btn-danger btn-effect" onclick="deleteData(event, ' . $data->id . ')">Hapus</a>';
                 $btn .= '</div>';
                 return $btn;
             })

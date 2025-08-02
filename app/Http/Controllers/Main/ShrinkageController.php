@@ -108,20 +108,20 @@ class ShrinkageController extends Controller
                 if ($data->sync_status == 1) {
                     $html = '';
                     $html .= '<div class="d-flex">';
-                    $html .= '<a onclick="unsync(' . $data->id . ')" title="Unsync Jurnal" style="margin-right:3px;" href="javascript:void(0);" class="avatar-text avatar-md bg-info text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
+                    $html .= '<a onclick="unsync(' . $data->id . ')" title="Unsync Jurnal" style="margin-right:3px;" href="javascript:void(0);" class="btn bg-info-gradient btn-info btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-scissors"></i></a>';
 
-                    $html .= '<a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
+                    $html .= '<a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a>';
 
                     if ($data->is_lost != 1) {
-                        $html .= '<a title="Simulasi" style="margin-right:3px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="avatar-text avatar-md bg-primary text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a>';
-                        $html .= '<a title="kurangi asset" style="margin-right:3px;" href="javascript:void(0);" onclick="kurangi_asset(' . $data->id . ')" class="avatar-text avatar-md bg-warning text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-fill-drip"></i></a>';
+                        $html .= '<a title="Simulasi" style="margin-right:3px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="btn bg-primary-gradient btn-primary btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a>';
+                        $html .= '<a title="kurangi asset" style="margin-right:3px;" href="javascript:void(0);" onclick="kurangi_asset(' . $data->id . ')" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-fill-drip"></i></a>';
                     }
 
                     $html .= '</div>';
 
                     return $html;
                 } else {
-                    return '<div class="d-flex"><a title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="sync(' . $data->id . ')" class="avatar-text avatar-md bg-success text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a><a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="avatar-text avatar-md bg-danger text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a><a title="Simulasi" style="margin-right:3px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="avatar-text avatar-md bg-primary text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a></div>';
+                    return '<div class="d-flex"><a title="Sync Jurnal" style="margin-right:3px;" href="javascript:void(0);" onclick="sync(' . $data->id . ')" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-sync"></i></a><a title="Hapus Data" style="margin-right:3px;" href="javascript:void(0);" onclick="deleteData(event, ' . $data->id . ')" class="btn bg-danger-gradient btn-danger btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-trash"></i></a><a title="Simulasi" style="margin-right:3px;" href="javascript:void(0);" onclick="detail(' . $data->id . ')" class="btn bg-primary-gradient btn-primary btn-effect" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="fa fa-list"></i></a></div>';
                 }
             })
             ->escapeColumns([])
