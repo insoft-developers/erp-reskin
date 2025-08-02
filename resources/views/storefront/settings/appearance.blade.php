@@ -1,11 +1,11 @@
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
             Pengaturan Tampilan
         </button>
     </h2>
 
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingTwo">
         <div class="accordion-body">
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-md-12 mtop20">
                     <div class="alert alert-success">
-                        Randu sudah menyediakan template Banner dari Canva supaya desain bannermu keren, Download disini <a
+                        Kami sudah menyediakan template Banner dari Canva supaya desain bannermu keren, Download disini <a
                                                         href="https://www.canva.com/design/DAGO6MlXUFY/YJrb_6o9tcvg7q2TLwobRA/view?utm_content=DAGO6MlXUFY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" style="color: blue;"
                                                         target="_blank">Template Banner Canva</a>
                     </div>

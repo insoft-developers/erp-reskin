@@ -170,7 +170,7 @@ class WalletLogsController extends Controller
 
                 $canceledCondition = Carbon::parse($row->payment_start_at)->addMinutes(10)->isPast();
                 if (!$canceledCondition && $row->status === 0 && $row->payment_return_url) {
-                    $btn .= '<a href="' . $row->payment_return_url . '" target="_blank" class="btn btn-success btn-sm mt-1" style="text-transform: none">Payment</a>';
+                    $btn .= '<a href="' . $row->payment_return_url . '" target="_blank" class="btn bg-success-gradient btn-success btn-effect mt-1" style="text-transform: none">Payment</a>';
                 }
 
                 $btn .= '</div>';

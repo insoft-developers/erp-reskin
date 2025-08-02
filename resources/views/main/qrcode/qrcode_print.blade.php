@@ -1,4 +1,4 @@
-@extends('master')
+@extends('main.master_new')
 @section('style')
 <style>
     .image-container {
@@ -62,16 +62,9 @@
 </style>
 @endsection
 @section('content')
-<main class="nxl-container">
-    <div class="nxl-content">
-        <div class="page-header">
-            <div class="page-header-left d-flex align-items-center">
-                <div class="page-header-title">
-                    <h5 class="m-b-10"> Qrcode > Print QR Code </h5>
-                </div>
-            </div>
-        </div>
-        <div class="main-content">
+<div class="page-wrapper">
+    
+        <div style="background: whitesmoke;" class="content">
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="card stretch stretch-full">
@@ -107,8 +100,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    
+</div>
 @endsection
 
 @section('js')

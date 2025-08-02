@@ -1,10 +1,10 @@
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+        <button class="accordion-button collapsed" type="button" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
             Pengaturan Pengiriman
         </button>
     </h2>
-    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+    <div id="panelsStayOpen-collapseFour" class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingFour">
         <div class="accordion-body">
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">

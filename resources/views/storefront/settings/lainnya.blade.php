@@ -1,10 +1,10 @@
 <div class="accordion-item mb-3">
     <h2 class="accordion-header" id="panelsStayOpen-headingFive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+        <button class="accordion-button collapsed" type="button" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
             Pengaturan Checkout Lewat WhatsApp
         </button>
     </h2>
-    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+    <div id="panelsStayOpen-collapseFive" class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingFive">
         <div class="accordion-body">
             <div class="mb-3 row">
                 <div class="form-check shipping" data-method="Chekout-whatsapp">

@@ -379,14 +379,14 @@
                                 </ul>
                             </li>
 
-                            <li class="submenu">
-                                <a href="javascript:void(0);">
+                            <li>
+                                <a href="{{ url('wallet-logs') }}">
                                     <i class="isax isax-shapes5"></i><span>Dompet Digital</span>
                                 </a>
 
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);">
+                            <li>
+                                <a href="{{ url('landing-page') }}">
                                     <i class="isax isax-shapes5"></i><span>Landing Page</span>
                                 </a>
 
@@ -399,10 +399,10 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Lihat Toko Online</a></li>
-                                    <li><a href="{{ url('/') }}">Pengaturan Toko Online</a>
+                                    <li><a href="{{ route('storefront', session('username')) }}">Lihat Toko Online</a></li>
+                                    <li><a href="{{ route('storefront-setting') }}">Pengaturan Toko Online</a>
                                     </li>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Pembayaran</a></li>
+                                    <li><a href="{{ url('payment-method-setting') }}">Pengaturan Pembayaran</a></li>
                                 </ul>
                             </li>
 

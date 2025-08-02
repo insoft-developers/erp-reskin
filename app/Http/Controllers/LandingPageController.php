@@ -54,7 +54,7 @@ class LandingPageController extends Controller
                 return $row->id;
             })
             ->addColumn('product', function ($row) {
-                return $row->product->name;
+                return $row->product->name ?? '-';
             })
             ->addColumn('title', function ($row) {
                 return $row->title;
@@ -67,9 +67,9 @@ class LandingPageController extends Controller
             })
             ->addColumn('action', function ($row) {
                 $btn = '<div class="d-flex">';
-                $btn = $btn . '<a href="' . route('landing-page.custom-show', ['id' => $row->id, 'slug' => $row->slug]) . '" target="_blank" class="edit btn btn-success btn-sm me-2">Lihat</a>';
-                $btn = $btn . '<a href="' . route('landing-page.edit', ['landing_page' => $row->id]) . '" class="edit btn btn-warning btn-sm me-2">Ubah</a>';
-                $btn = $btn . '<a href="' . route('landing-page.custom-destroy', ['id' => $row->id]) . '" class="delete btn btn-danger btn-sm">Hapus</a>';
+                $btn = $btn . '<a href="' . route('landing-page.custom-show', ['id' => $row->id, 'slug' => $row->slug]) . '" target="_blank" class="edit btn bg-success-gradient btn-success btn-effect me-2">Lihat</a>';
+                $btn = $btn . '<a href="' . route('landing-page.edit', ['landing_page' => $row->id]) . '" class="edit btn bg-warning-gradient btn-warning btn-effect me-2">Ubah</a>';
+                $btn = $btn . '<a href="' . route('landing-page.custom-destroy', ['id' => $row->id]) . '" class="delete btn bg-danger-gradient btn-danger btn-effect">Hapus</a>';
                 $btn = $btn . '</div>';
                 return $btn;
             })

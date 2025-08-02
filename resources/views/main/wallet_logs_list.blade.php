@@ -1,232 +1,199 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('wallet-logs') }}">Riwayat Transaksi</a></li>
-                        <li class="breadcrumb-item">Lihat Riwayat</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
+    <div class="page-wrapper">
+
+
+        <div style="background: whitesmoke;" class="content">
+            <div class="row">
+                <!-- [Leads] start -->
+                <div class="col-xxl-12">
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
                         </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper"> </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
-                <div class="row">
-                    <!-- [Leads] start -->
-                    <div class="col-xxl-12">
-                        @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="card stretch-card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p class="mb-0">Total Transaksi Withdrawal: </p>
-                                                <h3 class="display-6" id="sumOmset1">@currency($sum1)</h3>
-                                            </div>
-
-                                            <div class="d-flex justify-content-end w-50">
-                                                <div class="me-3" style="min-width: 250px">
-                                                    <select id="yearFilter1" class="form-select w-100"
-                                                        aria-label="Pilih Tahun">
-                                                        <option value="0">Tampilkan Semua Tahun</option>
-                                                        @foreach ($tahun as $thn)
-                                                            <option value="{{ $thn }}">{{ $thn }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div style="min-width: 250px">
-                                                    <select id="monthFilter1" class="form-select w-100"
-                                                        aria-label="Pilih Bulan" disabled>
-                                                        <option value="0">Tampilkan Semua Bulan</option>
-                                                        @foreach ($bulan as $key => $bln)
-                                                            <option value="{{ $key + 1 }}">{{ $bln }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="card stretch-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Total Transaksi Withdrawal: </p>
+                                            <h3 class="display-6" id="sumOmset1">@currency($sum1)</h3>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="card stretch-card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p class="mb-0">Total Transaksi Randu Wallet (Complete): </p>
-                                                <h3 class="display-6" id="sumOmset2">@currency($sum2)</h3>
-                                            </div>
 
-                                            <div class="d-flex justify-content-end w-50">
-                                                <div class="me-3" style="min-width: 250px">
-                                                    <select id="yearFilter2" class="form-select w-100"
-                                                        aria-label="Pilih Tahun">
-                                                        <option value="0">Tampilkan Semua Tahun</option>
-                                                        @foreach ($tahun as $thn)
-                                                            <option value="{{ $thn }}">{{ $thn }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div style="min-width: 250px">
-                                                    <select id="monthFilter2" class="form-select w-100"
-                                                        aria-label="Pilih Bulan" disabled>
-                                                        <option value="0">Tampilkan Semua Bulan</option>
-                                                        @foreach ($bulan as $key => $bln)
-                                                            <option value="{{ $key + 1 }}">{{ $bln }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                        <div class="d-flex justify-content-end w-50">
+                                            <div class="me-3" style="min-width: 250px">
+                                                <select id="yearFilter1" class="form-select w-100" aria-label="Pilih Tahun">
+                                                    <option value="0">Tampilkan Semua Tahun</option>
+                                                    @foreach ($tahun as $thn)
+                                                        <option value="{{ $thn }}">{{ $thn }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="card stretch-card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p class="mb-0">Total Transaksi Randu Wallet (Process): </p>
-                                                <h3 class="display-6" id="sumOmset3">@currency($sum3)</h3>
-                                            </div>
-
-                                            <div class="d-flex justify-content-end w-50">
-                                                <div class="me-3" style="min-width: 250px">
-                                                    <select id="yearFilter3" class="form-select w-100"
-                                                        aria-label="Pilih Tahun">
-                                                        <option value="0">Tampilkan Semua Tahun</option>
-                                                        @foreach ($tahun as $thn)
-                                                            <option value="{{ $thn }}">{{ $thn }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div style="min-width: 250px">
-                                                    <select id="monthFilter3" class="form-select w-100"
-                                                        aria-label="Pilih Bulan" disabled>
-                                                        <option value="0">Tampilkan Semua Bulan</option>
-                                                        @foreach ($bulan as $key => $bln)
-                                                            <option value="{{ $key + 1 }}">{{ $bln }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="card stretch-card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p class="mb-0">Total Transaksi Randu Wallet (Waiting): </p>
-                                                <h3 class="display-6" id="sumOmset4">@currency($sum4)</h3>
-                                            </div>
-
-                                            <div class="d-flex justify-content-end w-50">
-                                                <div class="me-3" style="min-width: 250px">
-                                                    <select id="yearFilter4" class="form-select w-100"
-                                                        aria-label="Pilih Tahun">
-                                                        <option value="0">Tampilkan Semua Tahun</option>
-                                                        @foreach ($tahun as $thn)
-                                                            <option value="{{ $thn }}">{{ $thn }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div style="min-width: 250px">
-                                                    <select id="monthFilter4" class="form-select w-100"
-                                                        aria-label="Pilih Bulan" disabled>
-                                                        <option value="0">Tampilkan Semua Bulan</option>
-                                                        @foreach ($bulan as $key => $bln)
-                                                            <option value="{{ $key + 1 }}">{{ $bln }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                            <div style="min-width: 250px">
+                                                <select id="monthFilter1" class="form-select w-100" aria-label="Pilih Bulan"
+                                                    disabled>
+                                                    <option value="0">Tampilkan Semua Bulan</option>
+                                                    @foreach ($bulan as $key => $bln)
+                                                        <option value="{{ $key + 1 }}">{{ $bln }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card stretch stretch-full">
-                            <div class="card-header">
-                                <h5 class="card-title">Riwayat Transaksi</h5>
-                                <div class="d-flex gap-2">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modal-withdraw">
-                                        Withdraw
-                                    </button>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#modal-topup">
-                                        Topup
-                                    </button>
+                        <div class="col-12 col-md-6">
+                            <div class="card stretch-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Total Transaksi Randu Wallet (Complete): </p>
+                                            <h3 class="display-6" id="sumOmset2">@currency($sum2)</h3>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end w-50">
+                                            <div class="me-3" style="min-width: 250px">
+                                                <select id="yearFilter2" class="form-select w-100" aria-label="Pilih Tahun">
+                                                    <option value="0">Tampilkan Semua Tahun</option>
+                                                    @foreach ($tahun as $thn)
+                                                        <option value="{{ $thn }}">{{ $thn }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div style="min-width: 250px">
+                                                <select id="monthFilter2" class="form-select w-100" aria-label="Pilih Bulan"
+                                                    disabled>
+                                                    <option value="0">Tampilkan Semua Bulan</option>
+                                                    @foreach ($bulan as $key => $bln)
+                                                        <option value="{{ $key + 1 }}">{{ $bln }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card-body custom-card-action p-0">
-                                <div class="main-box">
-                                    <div class="mtop40"></div>
-                                    <div class="table-responsive">
-                                        <table id="wallet-logs-table" class="table table-striped mb-0 table-bordered">
-                                            <thead>
-                                                <tr class="border-b">
-                                                    <th width="10%">No</th>
-                                                    <th width="30%">Kode Transaksi</th>
-                                                    <th width="30%">Catatan</th>
-                                                    <th width="30%">Jumlah Transaksi</th>
-                                                    <th width="20%">Tipe</th>
-                                                    <th width="20%">Tanggal Diperbaharui</th>
-                                                    <th width="20%">Tanggal Dibuat</th>
-                                                    <th width="0%">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card stretch-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Total Transaksi Randu Wallet (Process): </p>
+                                            <h3 class="display-6" id="sumOmset3">@currency($sum3)</h3>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end w-50">
+                                            <div class="me-3" style="min-width: 250px">
+                                                <select id="yearFilter3" class="form-select w-100" aria-label="Pilih Tahun">
+                                                    <option value="0">Tampilkan Semua Tahun</option>
+                                                    @foreach ($tahun as $thn)
+                                                        <option value="{{ $thn }}">{{ $thn }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div style="min-width: 250px">
+                                                <select id="monthFilter3" class="form-select w-100" aria-label="Pilih Bulan"
+                                                    disabled>
+                                                    <option value="0">Tampilkan Semua Bulan</option>
+                                                    @foreach ($bulan as $key => $bln)
+                                                        <option value="{{ $key + 1 }}">{{ $bln }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mtop30"></div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card stretch-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Total Transaksi Randu Wallet (Waiting): </p>
+                                            <h3 class="display-6" id="sumOmset4">@currency($sum4)</h3>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end w-50">
+                                            <div class="me-3" style="min-width: 250px">
+                                                <select id="yearFilter4" class="form-select w-100" aria-label="Pilih Tahun">
+                                                    <option value="0">Tampilkan Semua Tahun</option>
+                                                    @foreach ($tahun as $thn)
+                                                        <option value="{{ $thn }}">{{ $thn }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div style="min-width: 250px">
+                                                <select id="monthFilter4" class="form-select w-100" aria-label="Pilih Bulan"
+                                                    disabled>
+                                                    <option value="0">Tampilkan Semua Bulan</option>
+                                                    @foreach ($bulan as $key => $bln)
+                                                        <option value="{{ $key + 1 }}">{{ $bln }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card stretch stretch-full">
+                        <div class="card-header">
+                            <h5 class="card-title">Riwayat Transaksi</h5>
+                            <div class="d-flex gap-2" style="float: right;">
+                                <button type="button" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-toggle="modal"
+                                    data-bs-target="#modal-withdraw">
+                                    Withdraw
+                                </button>
+                                <button type="button" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="modal"
+                                    data-bs-target="#modal-topup">
+                                    Topup
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body custom-card-action p-0">
+                            <div class="main-box">
+                                <div class="mtop40"></div>
+                                <div class="table-responsive">
+                                    <table id="wallet-logs-table" class="table table-striped mb-0 table-bordered">
+                                        <thead>
+                                            <tr class="border-b">
+                                                <th width="10%">No</th>
+                                                <th width="30%">Kode Transaksi</th>
+                                                <th width="30%">Catatan</th>
+                                                <th width="30%">Jumlah Transaksi</th>
+                                                <th width="20%">Tipe</th>
+                                                <th width="20%">Tanggal Diperbaharui</th>
+                                                <th width="20%">Tanggal Dibuat</th>
+                                                <th width="0%">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="mtop30"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="modal-topup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -321,6 +288,17 @@
             var table = $('#wallet-logs-table').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 ajax: '{{ route('wallet-logs.data') }}',
                 columns: [{
                         data: null, // This will be replaced by rowCallback

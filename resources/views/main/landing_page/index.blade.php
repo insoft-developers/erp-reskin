@@ -1,42 +1,9 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('landing-page.index') }}">Landing Page</a></li>
-                        <li class="breadcrumb-item">Landing Page Builder</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
+    <div class="page-wrapper">
+        
+            <div style="background: whitesmoke;" class="content">
                 <div class="row">
                     <!-- [Leads] start -->
                     <div class="col-xxl-12">
@@ -44,7 +11,7 @@
                             <div class="card-header">
                                 <h5 class="card-title">Landing Page</h5>
 
-                                <a href="{{ route('landing-page.create') }}" class="btn btn-primary">Buat Baru</a>
+                                <a style="float: right;" href="{{ route('landing-page.create') }}" class="btn btn-success">Buat Baru</a>
                             </div>
                             <div class="card-body custom-card-action p-3">
                                 @if (session('error'))
@@ -83,8 +50,8 @@
             </div>
             <!-- [ Main Content ] end -->
 
-        </div>
-    </main>
+    
+    </div>
 @endsection
 @section('js')
     <script type="text/javascript">
@@ -92,6 +59,17 @@
             $('#landing-pages-table').DataTable({
                 processing: true,
                 serverSide: true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
                 ajax: '{{ route('landing-pages.data') }}',
                 columns: [{
                         data: 'DT_RowIndex',
