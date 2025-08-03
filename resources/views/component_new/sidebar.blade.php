@@ -412,10 +412,10 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Laporan Kunjungan</a></li>
-                                    <li><a href="{{ url('/') }}">Laporan Absensi Bulanan</a>
+                                    <li><a href="{{ url('report/visit') }}">Laporan Kunjungan</a></li>
+                                    <li><a href="{{ url('laporan/absensi') }}">Laporan Absensi Bulanan</a>
                                     </li>
-                                    <li><a href="{{ url('journal_add') }}">Laporan Absensi Harian</a></li>
+                                    <li><a href="{{ url('laporan/absensi-by-date') }}">Laporan Absensi Harian</a></li>
                                 </ul>
                             </li>
 
@@ -426,7 +426,7 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Data Staff & Karyawan</a></li>
+                                    <li><a href="{{ url('staff') }}">Data Staff & Karyawan</a></li>
 
                                 </ul>
                             </li>
@@ -447,7 +447,7 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Perusahaan</a></li>
+                                    <li><a href="{{ url('company_setting') }}">Pengaturan Perusahaan</a></li>
                                     <li><a href="{{ url('/') }}">Pengaturan Kode Rekening</a>
                                     </li>
                                     <li><a href="{{ url('journal_add') }}">Pengaturan Kas Kecil</a></li>

@@ -31,14 +31,15 @@
         <div class="header-right ms-auto">
             <div class="d-flex align-items-center">
 
-<div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
-    <a href="{{ route('storefront', session('username')) }}" class="text-warning d-flex align-items-center" target="_blank" rel="noopener noreferrer">
-        <i class="feather-shopping-bag" style="margin-right: 5px;"></i> Lihat Toko Online
-    </a>
-    <a href="{{ url('/wallet-logs') }}" class="text-success d-flex align-items-center">
-        <i class="feather-credit-card" style="margin-right: 5px;"></i> <span id="balance">Rp 0</span>
-    </a>
-</div>
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <a href="{{ route('storefront', session('username')) }}"
+                        class="text-warning d-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                        <i class="feather-shopping-bag" style="margin-right: 5px;"></i> Lihat Toko Online
+                    </a>
+                    <a href="{{ url('/wallet-logs') }}" class="text-success d-flex align-items-center">
+                        <i class="feather-credit-card" style="margin-right: 5px;"></i> <span id="balance">Rp 0</span>
+                    </a>
+                </div>
 
 
                 <div class="dropdown nxl-h-item">
@@ -136,11 +137,11 @@
                 <span>Pengaturan Akun</span>
             </a>
             @if (session('role') != 'staff')
-            <div class="dropdown-divider"></div>
-            <a href="{{ url('/setting') }}" class="dropdown-item">
-                <i class="feather-settings"></i>
-                <span>Pengaturan Aplikasi</span>
-            </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ url('/setting') }}" class="dropdown-item">
+                    <i class="feather-settings"></i>
+                    <span>Pengaturan Aplikasi</span>
+                </a>
             @endif
             <div class="dropdown-divider"></div>
             <a href="{{ url('frontend_logout') }}" class="dropdown-item">

@@ -67,7 +67,7 @@ class StaffController extends Controller
                 return '<center>'.Carbon::parse($data->start_date)->format('d-m-Y').'</center>';
             })
             ->addColumn('action', function($data){
-                return '<center><a href="'.route('staff.edit',['staff' => $data->id]).'"><button style="width:70px;margin-bottom:5px;" class="btn btn-warning btn-sm">Sunting</button></a><button onclick="staff_delete('.$data->id.')" style="width:70px;" class="btn btn-danger btn-sm">Hapus</button></center>';  
+                return '<center><a href="'.route('staff.edit',['staff' => $data->id]).'"><button style="width:70px;margin-bottom:5px;" class="btn bg-warning-gradient btn-warning btn-effect">Edit</button></a><button onclick="staff_delete('.$data->id.')" style="width:70px;" class="btn bg-danger-gradient btn-danger btn-effect">Hapus</button></center>';  
             })
         ->rawColumns(['start_date','action'])
         ->make(true);

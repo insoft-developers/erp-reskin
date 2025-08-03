@@ -12,7 +12,8 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-layout="single
+">
 
 <head>
 

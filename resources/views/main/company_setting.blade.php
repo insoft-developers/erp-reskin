@@ -1,42 +1,9 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('setting') }}">Pengaturan</a></li>
-                        <li class="breadcrumb-item">Pengaturan Perusahaan</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
+    <div class="page-wrapper">
+        
+            <div style="background: whitesmoke;" class="content">
                 <div class="row">
                     <!-- [Leads] start -->
                     <div class="col-xxl-12">
@@ -72,18 +39,17 @@
                                             <div class="col-md-12 mtop20">
                                                 <div class="form-group">
                                                     @if ($data != null && $data->logo != null)
-                                                    <div class="mb-3">
-                                                        <img src="{{ asset('storage/' . $data->logo) }}" width="100px" />
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <img src="{{ asset('storage/' . $data->logo) }}"
+                                                                width="100px" />
+                                                        </div>
                                                     @endif
-                                                    
+
                                                     <label>Logo Perusahaan</label>
-                                                    <input name="logo"
-                                                        value="{{ $data == null ? '' : $data->logo }}"
+                                                    <input name="logo" value="{{ $data == null ? '' : $data->logo }}"
                                                         type="file" class="form-control cust-control">
                                                     @if ($errors->has('logo'))
-                                                        <span
-                                                            class="help-block">{{ $errors->first('logo') }}</span>
+                                                        <span class="help-block">{{ $errors->first('logo') }}</span>
                                                     @endif
                                                 </div>
                                             </div>
@@ -106,8 +72,8 @@
                                                     <label>Nama Perusahaan</label>
                                                     <input name="company_name"
                                                         value="{{ $data == null ? '' : $data->branch_name }}" type="text"
-                                                        class="form-control cust-control" placeholder="Contoh: PT Randu Bertumbuh Digital"
-                                                        required>
+                                                        class="form-control cust-control"
+                                                        placeholder="Contoh: PT Randu Bertumbuh Digital" required>
                                                     @if ($errors->has('company_name'))
                                                         <span class="help-block">{{ $errors->first('company_name') }}</span>
                                                     @endif
@@ -120,7 +86,8 @@
                                                     <input name="tax" type="text"
                                                         value="{{ $data == null ? '' : $data->tax }}"
                                                         class="form-control cust-control"
-                                                        placeholder="Isi Dengan Total Pajak Yang Dibayar Konsumen/Klien" required>
+                                                        placeholder="Isi Dengan Total Pajak Yang Dibayar Konsumen/Klien"
+                                                        required>
                                                     @if ($errors->has('tax'))
                                                         <span class="help-block">{{ $errors->first('tax') }}</span>
                                                     @endif
@@ -155,7 +122,8 @@
                                                 <div class="form-group">
                                                     <label>NPWP Perusahaan (Optional)</label>
                                                     <input name="npwp" value="{{ $data == null ? '' : $data->npwp }}"
-                                                        type="text" class="form-control cust-control" placeholder="Nomor Pokok Wajib Pajak">
+                                                        type="text" class="form-control cust-control"
+                                                        placeholder="Nomor Pokok Wajib Pajak">
                                                     @if ($errors->has('npwp'))
                                                         <span class="help-block">{{ $errors->first('npwp') }}</span>
                                                     @endif
@@ -177,7 +145,8 @@
 
                                             <div class="col-md-12 mtop20">
                                                 <div class="alert alert-success">
-                                                    Data Rekening Bank yang digunakan untuk pencairan Saldo Randu Wallet, Hanya dapat diubah sekali, jika ingin
+                                                    Data Rekening Bank yang digunakan untuk pencairan Saldo Randu Wallet,
+                                                    Hanya dapat diubah sekali, jika ingin
                                                     mengganti data bank silahkan hubungi customer service di <a
                                                         href="https://help.randu.co.id" style="color: blue;"
                                                         target="_blank">https://help.randu.co.id</a>
@@ -266,7 +235,8 @@
                                             <div class="col-md-4 mb-3">
                                                 <div class="form-group">
                                                     <label for="customer-city">Kota/Kabupaten: </label>
-                                                    <select id="customer-city" name="city_id" class="form-control" required>
+                                                    <select id="customer-city" name="city_id" class="form-control"
+                                                        required>
                                                         <option value="{{ $data->city_id }}" selected>
                                                             {{ $data->city->city_name ?? null }}</option>
                                                     </select>
@@ -287,7 +257,8 @@
                                                 <div class="form-group">
                                                     <label>Alamat Lengkap</label>
                                                     <textarea name="address" style="height: 120px;" class="form-control cust-control"
-                                                        placeholder="Contoh: Jalan Sapudi No 4, Kelurahan Gubeng, Kecamatan Gubeng, Kota Surabaya, Jawa Timur, Indonesia 60281" required>{{ $data == null ? '' : $data->business_address }}</textarea>
+                                                        placeholder="Contoh: Jalan Sapudi No 4, Kelurahan Gubeng, Kecamatan Gubeng, Kota Surabaya, Jawa Timur, Indonesia 60281"
+                                                        required>{{ $data == null ? '' : $data->business_address }}</textarea>
                                                     @if ($errors->has('address'))
                                                         <span class="help-block">{{ $errors->first('address') }}</span>
                                                     @endif
@@ -301,9 +272,9 @@
                                                 <div class="form-group">
                                                     <label>Nama Cabang</label>
                                                     <input name="branches_name"
-                                                        value="{{ $cabang == null ? 'Cabang Pusat' : $cabang->name }}" type="text"
-                                                        class="form-control cust-control" placeholder="Nama Cabang Perusahaan"
-                                                        required>
+                                                        value="{{ $cabang == null ? 'Cabang Pusat' : $cabang->name }}"
+                                                        type="text" class="form-control cust-control"
+                                                        placeholder="Nama Cabang Perusahaan" required>
                                                     @if ($errors->has('branches_name'))
                                                         <span
                                                             class="help-block">{{ $errors->first('branches_name') }}</span>
@@ -354,11 +325,12 @@
                                             </div>
 
                                         </div>
-<div class="row mtop40">
-    <div class="col-md-12">
-        <button class="btn btn-primary" style="float: left;">Simpan Perubahan</button>
-    </div>
-</div>
+                                        <div class="row mtop40">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-primary" style="float: left;">Simpan
+                                                    Perubahan</button>
+                                            </div>
+                                        </div>
 
 
                                     </form>
@@ -377,8 +349,8 @@
             </div>
             <!-- [ Main Content ] end -->
 
-        </div>
-    </main>
+    
+    </div>
 @endsection
 
 @section('js')
@@ -394,7 +366,7 @@
         $('#customer-province').select2({
             dropdownParent: $("#editBusinessGroup"),
             ajax: {
-                url: '{{url('')}}/v1/administrative/provinces',
+                url: '{{ url('') }}/v1/administrative/provinces',
                 dataType: 'json',
                 delay: 250,
                 data: function(params) {
@@ -433,7 +405,7 @@
             $('#customer-city').select2({
                 dropdownParent: $("#editBusinessGroup"),
                 ajax: {
-                    url: '{{url('')}}/v1/administrative/cities?province_id=' + prov_id,
+                    url: '{{ url('') }}/v1/administrative/cities?province_id=' + prov_id,
                     dataType: 'json',
                     delay: 250,
                     data: function(params) {
@@ -468,7 +440,7 @@
             $('#customer-district').select2({
                 dropdownParent: $("#editBusinessGroup"),
                 ajax: {
-                    url: '{{url('')}}/v1/administrative/districts?city_id=' + city_id,
+                    url: '{{ url('') }}/v1/administrative/districts?city_id=' + city_id,
                     dataType: 'json',
                     delay: 250,
                     data: function(params) {

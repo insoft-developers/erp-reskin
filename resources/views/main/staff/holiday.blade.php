@@ -1,10 +1,10 @@
 <div class="accordion-item mb-3">
-    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-        <button class="accordion-button collapsed btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed btn btn-primary" type="button" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
             Pengaturan hari Libur
         </button>
     </h2>
-    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+    <div class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingFour">
         <div class="accordion-body">
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">

@@ -484,12 +484,12 @@
                                 <div class="accordion-item mb-3">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                                         <button class="accordion-button collapsed btn btn-primary" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour"
+                                            data-bs-target="#panelsStayOpen-collapseFour"
                                             aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
                                             Pengaturan hari Libur
                                         </button>
                                     </h2>
-                                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+                                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse show"
                                         aria-labelledby="panelsStayOpen-headingFour">
                                         <div class="accordion-body">
                                             <div class="mb-3 row">
