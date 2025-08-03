@@ -127,7 +127,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Jurnal</span>
+                                    <i class="isax isax-coin-15"></i><span>Jurnal</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -148,7 +148,7 @@
                             <li class="menu-title"><span>Purchases</span></li>
                             <li>
                                 <a href="{{ url('pos/index') }}">
-                                    <i class="isax isax-element-45"></i><span>POS</span>
+                                    <i class="isax isax-bag-tick-25"></i><span>POS</span>
 
                                 </a>
 
@@ -163,7 +163,7 @@
                             </li>
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Rekapitulasi Harian</span>
+                                    <i class="isax isax-document-forward5"></i><span>Rekapitulasi Harian</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -175,7 +175,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-category-25"></i><span>Invoice Generator</span>
+                                    <i class="isax isax-receipt-item5"></i><span>Invoice Generator</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -187,7 +187,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>CRM Pelanggan</span>
+                                    <i class="isax isax-profile-2user5"></i><span>CRM Pelanggan</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -208,7 +208,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Laporan</span>
+                                    <i class="isax isax-chart-35"></i><span>Laporan</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -233,7 +233,7 @@
                         <ul>
                             <li>
                                 <a href="{{ url('feature-request') }}">
-                                    <i class="isax isax-element-45"></i><span>Permintaan Fitur Baru</span>
+                                    <i class="isax isax-star-15"></i><span>Permintaan Fitur Baru</span>
 
                                 </a>
 
@@ -249,7 +249,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Manajemen Produk</span>
+                                    <i class="isax isax-password-check5"></i><span>Manajemen Produk</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -263,7 +263,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Produk Manufaktur</span>
+                                    <i class="isax isax-card-tick-15"></i><span>Produk Manufaktur</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -275,7 +275,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Pembelian &<br>Produksi</span>
+                                    <i class="isax isax-moneys5"></i><span>Pembelian &<br>Produksi</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -293,7 +293,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Transfer Stok</span>
+                                    <i class="isax isax-lifebuoy5"></i><span>Transfer Stok</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -309,7 +309,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Penyesuaian</span>
+                                    <i class="isax isax-convert-card5"></i><span>Penyesuaian</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -337,7 +337,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Utang dan Piutang</span>
+                                    <i class="isax isax-document-text5"></i><span>Utang dan Piutang</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -349,7 +349,7 @@
 
                             <li>
                                 <a href="{{ url('penyusutan') }}">
-                                    <i class="isax isax-shapes5"></i><span>Penyusutan</span>
+                                    <i class="isax isax-book5"></i><span>Penyusutan</span>
                                 </a>
 
                             </li>
@@ -357,7 +357,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Pengeluaran</span>
+                                    <i class="isax isax-money-send5"></i><span>Pengeluaran</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -380,7 +380,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>QR Meja</span>
+                                    <i class="isax isax-barcode5"></i><span>QR Meja</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -392,13 +392,13 @@
 
                             <li>
                                 <a href="{{ url('wallet-logs') }}">
-                                    <i class="isax isax-shapes5"></i><span>Dompet Digital</span>
+                                    <i class="isax isax-empty-wallet5"></i><span>Dompet Digital</span>
                                 </a>
 
                             </li>
                             <li>
                                 <a href="{{ url('landing-page') }}">
-                                    <i class="isax isax-shapes5"></i><span>Landing Page</span>
+                                    <i class="isax isax-designtools5"></i><span>Landing Page</span>
                                 </a>
 
                             </li>
@@ -406,7 +406,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Toko Online</span>
+                                    <i class="isax isax-shop5"></i><span>Toko Online</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -419,7 +419,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Absensi Staff</span>
+                                    <i class="isax isax-finger-scan5"></i><span>Absensi Staff</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -433,7 +433,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Manajemen Staff</span>
+                                    <i class="isax isax-profile-2user5"></i><span>Manajemen Staff</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -454,7 +454,7 @@
 
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Pengaturan Aplikasi</span>
+                                    <i class="isax isax-setting5"></i><span>Pengaturan Aplikasi</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -479,7 +479,7 @@
                         <ul>
                             <li>
                                 <a href="{{ url('premium') }}">
-                                    <i class="isax isax-element-45"></i><span>Go Premium</span>
+                                    <i class="isax isax-ticket-25"></i><span>Go Premium</span>
 
                                 </a>
 
@@ -491,7 +491,7 @@
                         <ul>
                             <li class="submenu">
                                 <a href="javascript:void(0);">
-                                    <i class="isax isax-shapes5"></i><span>Katalog Saya</span>
+                                    <i class="isax isax-card5"></i><span>Katalog Saya</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
@@ -508,7 +508,7 @@
                         <ul>
                             <li>
                                 <a href="{{ url('dashboard') }}">
-                                    <i class="isax isax-element-45"></i><span>Bantuan</span>
+                                    <i class="isax isax-message-question5"></i><span>Bantuan</span>
 
                                 </a>
 
@@ -520,7 +520,7 @@
                         <ul>
                             <li>
                                 <a href="{{ route('notification.index') }}">
-                                    <i class="isax isax-element-45"></i><span>Notifikasi</span>
+                                    <i class="isax isax-message-notif5"></i><span>Notifikasi</span>
 
                                 </a>
 
