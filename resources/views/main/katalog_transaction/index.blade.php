@@ -1,129 +1,97 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('katalog-randu.index') }}">Transaksi</a></li>
-                        <li class="breadcrumb-item">Transaksi Builder</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
+    <div class="page-wrapper">
+       
+           
+        <div style="background: whitesmoke;" class="content">
+            <div class="row">
+                <!-- [Leads] start -->
+                <div class="col-xxl-12">
+                    <div class="card stretch stretch-full">
+                        <div class="card-header">
+                            <h5 class="card-title">Transaksi</h5>
                         </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
-                <div class="row">
-                    <!-- [Leads] start -->
-                    <div class="col-xxl-12">
-                        <div class="card stretch stretch-full">
-                            <div class="card-header">
-                                <h5 class="card-title">Transaksi</h5>
+                        <div class="card-body custom-card-action p-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <div class="form-group">
+                                        <label for="start_date" class="form-label">Start Date</label>
+                                        <input type="date" name="start_date" id="start_date" onchange="filter()" value="{{ now()->startOfMonth()->format('Y-m-d') }}" class="form-control cust-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <div class="form-group">
+                                        <label for="end_date" class="form-label">End Date</label>
+                                        <input type="date" name="end_date" id="end_date" onchange="filter()" value="{{ date('Y-m-d') }}" class="form-control cust-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <div class="form-group">
+                                        <label for="status_transaction" class="form-label">Status Transaksi</label>
+                                        <select name="status_transaction" id="status_transaction" onchange="filter()" class="form-select cust-control">
+                                            <option value="" selected>Semua</option>
+                                            <option value="0">Proses</option>
+                                            <option value="1">Dikirim</option>
+                                            <option value="2">Selesai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <div class="form-group">
+                                        <label for="status_payment" class="form-label">Status Pembayaran</label>
+                                        <select name="status_payment" id="status_payment" onchange="filter()" class="form-select cust-control">
+                                            <option value="" selected>Semua</option>
+                                            <option value="0">Unpaid</option>
+                                            <option value="1">Paid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <div class="form-group">
+                                        <label for="searchData" class="form-label">Cari</label>
+                                        <input type="text" id="searchData" placeholder="Cari disini.."
+                                            class="form-control cust-control">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body custom-card-action p-3">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label for="start_date" class="form-label">Start Date</label>
-                                            <input type="date" name="start_date" id="start_date" onchange="filter()" value="{{ now()->startOfMonth()->format('Y-m-d') }}" class="form-control cust-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label for="end_date" class="form-label">End Date</label>
-                                            <input type="date" name="end_date" id="end_date" onchange="filter()" value="{{ date('Y-m-d') }}" class="form-control cust-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label for="status_transaction" class="form-label">Status Transaksi</label>
-                                            <select name="status_transaction" id="status_transaction" onchange="filter()" class="form-select cust-control">
-                                                <option value="" selected>Semua</option>
-                                                <option value="0">Proses</option>
-                                                <option value="1">Dikirim</option>
-                                                <option value="2">Selesai</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label for="status_payment" class="form-label">Status Pembayaran</label>
-                                            <select name="status_payment" id="status_payment" onchange="filter()" class="form-select cust-control">
-                                                <option value="" selected>Semua</option>
-                                                <option value="0">Unpaid</option>
-                                                <option value="1">Paid</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 mb-2">
-                                        <div class="form-group">
-                                            <label for="searchData" class="form-label">Cari</label>
-                                            <input type="text" id="searchData" placeholder="Cari disini.."
-                                                class="form-control cust-control">
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="table-responsive">
-                                    <table class="table table-striped" id="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Reference</th>
-                                                <th>Referal</th>
-                                                <th>Name</th>
-                                                <th>Status Transaksi</th>
-                                                <th>Status Pembayaran</th>
-                                                <th>Detail Product</th>
-                                                <th>Provinsi</th>
-                                                <th>Kota</th>
-                                                <th>Kecamatan</th>
-                                                <th>Alamat</th>
-                                                <th>Jasa Kirim</th>
-                                                <th>Ongkos Kirim</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Reference</th>
+                                            <th>Referal</th>
+                                            <th>Name</th>
+                                            <th>Status Transaksi</th>
+                                            <th>Status Pembayaran</th>
+                                            <th>Detail Product</th>
+                                            <th>Provinsi</th>
+                                            <th>Kota</th>
+                                            <th>Kecamatan</th>
+                                            <th>Alamat</th>
+                                            <th>Jasa Kirim</th>
+                                            <th>Ongkos Kirim</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-                    <!-- [Recent Orders] end -->
-                    <!-- [Table] start -->
-                    <!-- [Table] end -->
                 </div>
 
+                <!-- [Recent Orders] end -->
+                <!-- [Table] start -->
+                <!-- [Table] end -->
             </div>
-            <!-- [ Main Content ] end -->
 
         </div>
-    </main>
+        <!-- [ Main Content ] end -->
+
+        
+    </div>
 
     {{-- MODALS --}}
     <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="modal-ce">
@@ -160,6 +128,18 @@
             var table = $('#data-table').DataTable({
                 processing:true,
                 serverSide:true,
+                "language": {
+                    search: ' ',
+                    sLengthMenu: '_MENU_',
+                    searchPlaceholder: "Search",
+                    sLengthMenu: 'Row Per Page _MENU_ Entries',
+                    info: "_START_ - _END_ of _TOTAL_ items",
+                    paginate: {
+                        next: '<i class="isax isax-arrow-right-1"></i>',
+                        previous: '<i class="isax isax-arrow-left"></i> '
+                    },
+                },
+
                 dom: 'Blfrtip',
                 columnDefs: [
                     {

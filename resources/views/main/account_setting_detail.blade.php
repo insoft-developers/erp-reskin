@@ -1,53 +1,19 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('setting') }}">Pengaturan</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('account_setting') }}">Pengaturan Kode Rekening</a></li>
-                        <li class="breadcrumb-item">{{ $title }}</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
+    <div class="page-wrapper">
+           
+            <div style="background: whitesmoke;" class="content">
                 <div class="row">
                     <!-- [Leads] start -->
                     <div class="col-xxl-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
                                 <h5 class="card-title">{{ $title }}</h5>
-                                <a href="javascript:void(0);" onclick="add_item()"
-                                    class="avatar-text avatar-md bg-default text-white pull-right;"
+                                <a style="float: right;" href="javascript:void(0);" onclick="add_item()"
+                                    class="btn bg-success-gradient btn-success btn-effect"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                                    <i class="feather-plus bg-dark"></i>
+                                    <i class="fa fa-plus"></i>
                                 </a>
                             </div>
                             <div class="card-body custom-card-action p-0">
@@ -117,6 +83,6 @@
             </div>
             <!-- [ Main Content ] end -->
 
-        </div>
-    </main>
+        
+    </div>
 @endsection

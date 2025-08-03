@@ -229,6 +229,17 @@
                             </li>
                         </ul>
                     </li>
+                     <li>
+                        <ul>
+                            <li>
+                                <a href="{{ url('feature-request') }}">
+                                    <i class="isax isax-element-45"></i><span>Permintaan Fitur Baru</span>
+
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
 
 
                     <li>
@@ -448,16 +459,16 @@
                                 </a>
                                 <ul>
                                     <li><a href="{{ url('company_setting') }}">Pengaturan Perusahaan</a></li>
-                                    <li><a href="{{ url('/') }}">Pengaturan Kode Rekening</a>
+                                    <li><a href="{{ url('account_setting') }}">Pengaturan Kode Rekening</a>
                                     </li>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Kas Kecil</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Generate Saldo Awal</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Hapus Saldo Awal</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Pembayaran</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Printer</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Akun</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Pengaturan Toko Online</a></li>
-                                    <li><a href="{{ url('journal_add') }}">Reset Akun</a></li>
+                                    <li><a href="{{ url('petty_cash') }}">Pengaturan Kas Kecil</a></li>
+                                    <li><a href="{{ url('generate_opening_balance') }}">Generate Saldo Awal</a></li>
+                                    <li><a href="{{ url('initial_delete') }}">Hapus Saldo Awal</a></li>
+                                    <li><a href="{{ url('payment-method-setting') }}">Pengaturan Pembayaran</a></li>
+                                    <li><a href="{{ url('printer-setting') }}">Pengaturan Printer</a></li>
+                                    <li><a href="{{ url('account-profile-settings') }}">Pengaturan Akun</a></li>
+                                    <li><a href="{{ url('storefront/setting') }}">Pengaturan Toko Online</a></li>
+                                    <li><a href="{{ url('setting') }}">Reset Akun</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -467,7 +478,7 @@
                     <li>
                         <ul>
                             <li>
-                                <a href="{{ url('dashboard') }}">
+                                <a href="{{ url('premium') }}">
                                     <i class="isax isax-element-45"></i><span>Go Premium</span>
 
                                 </a>
@@ -484,8 +495,8 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="{{ url('journal_add') }}">Lihat Katalog</a></li>
-                                    <li><a href="{{ url('/') }}">History Transaksi</a>
+                                    <li><a href="{{ url('katalog-randu') }}">Lihat Katalog</a></li>
+                                    <li><a href="{{ url('katalog-randu/transaction') }}">History Transaksi</a>
                                     </li>
 
                                 </ul>
@@ -508,7 +519,7 @@
                     <li>
                         <ul>
                             <li>
-                                <a href="{{ url('dashboard') }}">
+                                <a href="{{ route('notification.index') }}">
                                     <i class="isax isax-element-45"></i><span>Notifikasi</span>
 
                                 </a>

@@ -1,114 +1,25 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('setting') }}">Pengaturan</a></li>
-                        <li class="breadcrumb-item">Pengaturan Perusahaan</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
+    <div class="page-wrapper">
+       
+            <div style="background: whitesmoke;" class="content">
                 <div class="row">
                     <!-- [Leads] start -->
                     <div class="col-xxl-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Pengaturan</h5>
+                                <h5 class="card-title">Reset Akun</h5>
 
 
                             </div>
                             <div class="card-body custom-card-action p-0">
                                 <div class="container mtop30 main-box">
                                     <table class="table table-hover">
-                                        <tr onclick="on_company_setting_click()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                                                        Perusahaan</span></strong><br><span
-                                                    class="report-menu-subtitle">Pengaturan Profil Perusahaan</span></td>
-                                        </tr>
-<tr onclick="on_initial_capital()" style="display: none;">
-    <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                Modal Awal</span></strong><br><span
-            class="report-menu-subtitle">Atur Modal Awal Perusahaan</span></td>
-</tr>
-
-                                        <tr onclick="on_account_setting_click()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                                                        Kode Rekening</span></strong><br><span
-                                                    class="report-menu-subtitle">Daftar Kode Rekening Akuntansi</span></td>
-                                        </tr>
-                                        <tr onclick="on_petty_cash_click()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                                                        Kas Kecil</span></strong><br><span
-                                                    class="report-menu-subtitle">Pengaturan Kas Kecil/Kembalian Kasir</span>
-                                            </td></a>
-                                        </tr>
-                                        <tr onclick="on_opening_balance_click()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Generate
-                                                        Saldo Awal</span></strong><br><span
-                                                    class="report-menu-subtitle">Buat Saldo Awal Akuntansi</span></td></a>
-                                        </tr>
-                                        <tr onclick="on_delete_initial_click()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Hapus Saldo
-                                                        Awal</span></strong><br><span class="report-menu-subtitle">Hapus
-                                                    Saldo Awal Akuntansi</span></td></a>
-                                        </tr>
-                                        <tr onclick="on_payment_method_setting()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                                                        Pembayaran
-                                                    </span></strong><br><span class="report-menu-subtitle">Pengaturan
-                                                    Pembayaran</span></td></a>
-                                        </tr>
-                                        <tr onclick="on_printer_setting_setting()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                                                        Printer Kasir
-                                                    </span></strong><br><span class="report-menu-subtitle">Pengaturan Cetak
-                                                    Struk Untuk Kasir POS</span></td></a>
-                                        </tr>
-                                        <tr onclick="redirect_to_account_settings_page()">
-                                            <td class="menu-report-row"><strong><span class="report-menu-title">Pengaturan
-                                                        Akun</span></strong><br>
-                                                <span class="report-menu-subtitle">Ganti Nama & Password Akun</span>
-                                            </td></a>
-                                        </tr>
-                                        <tr onclick="redirect_to_storefront_settings()">
-                                            <td class="menu-report-row">
-                                                <strong><span class="report-menu-title">Pengaturan Toko
-                                                        Online</span></strong><br>
-                                                <span class="report-menu-subtitle">Setting Thema, Banner, Pengiriman</span>
-                                            </td>
-                                        </tr>
+                                        
                                         <tr onclick="alert_reset_account()">
                                             <td class="menu-report-row">
-                                                <strong><span class="report-menu-title">Reset Account</span></strong><br>
+                                                <strong><span class="report-menu-title">Reset Account Sekarang</span></strong><br>
                                                 <span class="report-menu-subtitle">Melakukan reset akun, mulai dari
                                                     penghapusan semua data transaksi</span>
                                             </td>
@@ -128,10 +39,10 @@
                 </div>
 
             </div>
-            <!-- [ Main Content ] end -->
+          
 
-        </div>
-    </main>
+        
+    </div>
 
 
     <div class="modal fade" id="resetAccountModal" tabindex="-1" aria-labelledby="resetAccountModalLabel"

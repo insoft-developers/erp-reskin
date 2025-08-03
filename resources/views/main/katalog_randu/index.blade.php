@@ -1,4 +1,4 @@
-@extends('master')
+@extends('main.master_new')
 
 @section('style')
 <style>
@@ -58,40 +58,9 @@
 @endsection
 
 @section('content')
-    <main class="nxl-container">
-        <div class="nxl-content">
-            <!-- [ page-header ] start -->
-            <div class="page-header">
-                <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10"></h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('katalog-randu.index') }}">Katalog Randu</a></li>
-                        <li class="breadcrumb-item">Daftar Katalog Randu</li>
-                    </ul>
-                </div>
-                <div class="page-header-right ms-auto">
-                    <div class="page-header-right-items">
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                        </div>
-                    </div>
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- [ page-header ] end -->
-            <!-- [ Main Content ] start -->
-            <div class="main-content">
+    <div class="page-wrapper">
+        
+            <div style="background: whitesmoke;" class="content">
                 <form action="{{ route('katalog-randu.index') }}" method="get" class="row">
                     <div class="col-md-6 mb-3">
                         <input type="text" name="search" id="search" class="form-control" placeholder="Cari Katalog">
@@ -146,8 +115,8 @@
             </div>
             <!-- [ Main Content ] end -->
 
-        </div>
-    </main>
+    
+    </div>
 
     {{-- MODALS SHOW --}}
     <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="modal-ce">

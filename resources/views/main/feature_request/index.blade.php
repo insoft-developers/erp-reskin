@@ -1,4 +1,4 @@
-@extends('master', [
+@extends('main.master_new', [
     'use_tailwind' => true,
 ])
 @section('style')
@@ -37,108 +37,97 @@
 @section('content')
     <div id="app">
 
-        <main class="nxl-container">
-            <div class="nxl-content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item">Feature Request</li>
-                            <li class="breadcrumb-item">Saran Fitur Baru</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="page-wrapper">
 
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card stretch stretch-full">
-                                <div class="card-header">
-                                    <h5 class="card-title">Saran Fitur Baru</h5>
-                                </div>
-                                <div class="card-body">
-                                    <form @submit.prevent="handleSubmit" class="row">
-    <div class="mb-3 col-12">
-        <label for="judulFitur" class="form-label">Judul Fitur</label>
-        <input type="text" class="form-control" id="judulFitur"
-            v-model="form.judulFitur" placeholder="Masukkan Judul Fitur">
-    </div>
-    <div class="mb-3 col-12">
-        <label for="kategori" class="form-label">Kategori</label>
-        <select class="form-select" id="kategori" v-model="form.kategori">
-            <option selected>Pilih Kategori</option>
-        </select>
-    </div>
-    <div class="mb-3 col-12">
-        <label for="detail" class="form-label">Detail</label>
-        <textarea class="form-control" id="detail" v-model="form.detail" rows="3" placeholder="Masukkan Detail"></textarea>
-    </div>
-    <div class="mb-3 col-12">
-        <label class="form-label">Foto / Gambar</label>
+            <div class="content" style="background: whitesmoke;">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Saran Fitur Baru</h5>
+                            </div>
+                            <div class="card-body">
+                                <form @submit.prevent="handleSubmit" class="row">
+                                    <div class="mb-3 col-12">
+                                        <label for="judulFitur" class="form-label">Judul Fitur</label>
+                                        <input type="text" class="form-control" id="judulFitur" v-model="form.judulFitur"
+                                            placeholder="Masukkan Judul Fitur">
+                                    </div>
+                                    <div class="mb-3 col-12">
+                                        <label for="kategori" class="form-label">Kategori</label>
+                                        <select class="form-select" id="kategori" v-model="form.kategori">
+                                            <option selected>Pilih Kategori</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-12">
+                                        <label for="detail" class="form-label">Detail</label>
+                                        <textarea class="form-control" id="detail" v-model="form.detail" rows="3" placeholder="Masukkan Detail"></textarea>
+                                    </div>
+                                    <div class="mb-3 col-12">
+                                        <label class="form-label">Foto / Gambar</label>
 
-        <div class="mt-2 d-flex flex-wrap unready d-none" style="gap: 5px;">
-            <div v-for="(image, index) in form.foto" :key="index"
-                class="image-preview" @click="openImage(image)"
-                style="width: 50px; height: 50px; overflow: hidden; cursor: pointer;">
-                <img :src="image.url" alt="Preview"
-                    style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-        </div>
-
-        <div>
-            <input type="file" class="form-control" id="foto"
-                @change="handleFileUpload($event)" multiple>
-        </div>
-
-<div class="d-flex flex-wrap gap-2 justify-content-start mt-3">
-    <!-- Tombol Submit -->
-    <button type="submit" class="btn btn-warning d-inline-flex align-items-center gap-1">
-        <i class="bx bx-send"></i> 
-        <span class="d-none d-sm-inline">Buat Permintaan Fitur</span>
-        <span class="d-inline d-sm-none">Kirim Permintaan</span>
-    </button>
-
-    <!-- Tombol VIP -->
-    <a href="https://ping.co.id/chat/request-fitur-vip/"
-       class="btn btn-success d-inline-flex align-items-center gap-1"
-       target="_blank" rel="noopener noreferrer">
-        <i class="bx bx-star"></i>
-        <span class="d-none d-sm-inline">Request Jalur VIP</span>
-        <span class="d-inline d-sm-none">VIP</span>
-    </a>
-</div>
-
-
-    </div>
-</form>
-
-
-                                    <div class="row">
-                                        <div class="col-12 mt-4">
-                                            <table class="table table-striped border" id="landing-pages-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th style='min-width: 100px'>Judul</th>
-                                                        <th style='min-width: 150px'>Kategori</th>
-                                                        <th style='min-width: 200px'>Detail</th>
-                                                        <th style='min-width: 250px'>Screenshot</th>
-                                                        <th style='min-width: 150px'>Dibuat Pada</th>
-                                                        <th style='min-width: 150px'>Status</th>
-                                                        <th style='min-width: 100px'>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+                                        <div class="mt-2 d-flex flex-wrap unready d-none" style="gap: 5px;">
+                                            <div v-for="(image, index) in form.foto" :key="index"
+                                                class="image-preview" @click="openImage(image)"
+                                                style="width: 50px; height: 50px; overflow: hidden; cursor: pointer;">
+                                                <img :src="image.url" alt="Preview"
+                                                    style="width: 100%; height: 100%; object-fit: cover;">
+                                            </div>
                                         </div>
+
+                                        <div>
+                                            <input type="file" class="form-control" id="foto"
+                                                @change="handleFileUpload($event)" multiple>
+                                        </div>
+
+                                        <div class="d-flex flex-wrap gap-2 justify-content-start mt-3">
+                                            <!-- Tombol Submit -->
+                                            <button type="submit"
+                                                class="btn btn-warning d-inline-flex align-items-center gap-1">
+                                                <i class="bx bx-send"></i>
+                                                <span class="d-none d-sm-inline">Buat Permintaan Fitur</span>
+                                                <span class="d-inline d-sm-none">Kirim Permintaan</span>
+                                            </button>
+
+                                            <!-- Tombol VIP -->
+                                            <a href="https://ping.co.id/chat/request-fitur-vip/"
+                                                class="btn btn-success d-inline-flex align-items-center gap-1"
+                                                target="_blank" rel="noopener noreferrer">
+                                                <i class="bx bx-star"></i>
+                                                <span class="d-none d-sm-inline">Request Jalur VIP</span>
+                                                <span class="d-inline d-sm-none">VIP</span>
+                                            </a>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+
+
+                                <div class="row">
+                                    <div class="col-12 mt-4">
+                                        <table class="table table-striped border" id="landing-pages-table">
+                                            <thead>
+                                                <tr>
+                                                    <th style='min-width: 100px'>Judul</th>
+                                                    <th style='min-width: 150px'>Kategori</th>
+                                                    <th style='min-width: 200px'>Detail</th>
+                                                    <th style='min-width: 250px'>Screenshot</th>
+                                                    <th style='min-width: 150px'>Dibuat Pada</th>
+                                                    <th style='min-width: 150px'>Status</th>
+                                                    <th style='min-width: 100px'>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </main>
+            </div>
+
+        </div>
     </div>
 @endsection
 @section('js')
@@ -278,6 +267,18 @@
                     var table = $('#landing-pages-table').DataTable({
                         processing: true,
                         serverSide: true,
+                        "language": {
+                            search: ' ',
+                            sLengthMenu: '_MENU_',
+                            searchPlaceholder: "Search",
+                            sLengthMenu: 'Row Per Page _MENU_ Entries',
+                            info: "_START_ - _END_ of _TOTAL_ items",
+                            paginate: {
+                                next: '<i class="isax isax-arrow-right-1"></i>',
+                                previous: '<i class="isax isax-arrow-left"></i> '
+                            },
+                        },
+
                         dom: 'Blfrtip',
 
                         ajax: '{{ route('feature-request.datatable') }}',
