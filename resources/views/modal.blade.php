@@ -6,7 +6,7 @@
                     <div class="modal-content">
 
                         @csrf
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Transaksi Baru</h5>
                             
 
@@ -81,7 +81,7 @@
         <div class="modal fade" id="modal-lihat">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #743bff">
+                    <div class="modal-header" style="background-color: #006ecc">
                         <h5 class="modal-title" style="color:white;">Lihat Jurnal</h5>
                     </div>
                     <div class="modal-body">
@@ -104,7 +104,7 @@
                     <form id="form-add-category" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -196,7 +196,7 @@
         <div class="modal fade" id="modal-product-detail">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #743bff">
+                    <div class="modal-header" style="background-color: #006ecc">
                         <h5 class="modal-title" style="color:white;">Detail Product</h5>
                     </div>
                     <div class="modal-body">
@@ -219,7 +219,7 @@
                     <form id="form-upload-product" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
 
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Upload Data Product</h5>
                         </div>
                         <div class="modal-body">
@@ -281,7 +281,7 @@
                     <form id="form-add-supplier" method="POST">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Tambah Data Supplier</h5>
                         </div>
                         <div class="modal-body">
@@ -378,7 +378,7 @@
                 <form id="form-tambah-cabang">
                     <div class="modal-content">
                         @csrf
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Cabang Baru</h5>
                         </div>
                         <div class="modal-body">
@@ -420,7 +420,7 @@
                 <form id="form-tambah-staff">
                     <div class="modal-content">
                         @csrf
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Staff Baru</h5>
                         </div>
                         <div class="modal-body">
@@ -471,12 +471,12 @@
                             </div>
                             <div class="form-group mtop20">
                                 <label>Jam Masuk:</label>
-                                <input name="clock_in" type="time" id="clock_in"
+                                <input name="clock_in" type="time" id="clock_in" required
                                     class="form-control cust-control">
                             </div>
                             <div class="form-group mtop20">
                                 <label>Jam Pulang:</label>
-                                <input name="clock_out" type="time" id="clock_out"
+                                <input name="clock_out" type="time" id="clock_out" required
                                     class="form-control cust-control">
                             </div>
 
@@ -613,7 +613,7 @@
                     <form id="form-add-material" method="POST">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -733,7 +733,7 @@
                     <form id="form-upload-material" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
 
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Upload Data Bahan Baku</h5>
                         </div>
                         <div class="modal-body">
@@ -797,7 +797,7 @@
                     <form id="form-tambah" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -1072,7 +1072,7 @@
                     <form id="form-upload-product-purchase" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
 
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Upload Transaksi Pembelian Barang Jadi</h5>
                         </div>
                         <div class="modal-body">
@@ -1137,7 +1137,7 @@
                     <form id="form-tambah" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -1388,7 +1388,7 @@
                     <form id="form-upload-material-purchase" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
 
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Upload Transaksi Pembelian Bahan Baku</h5>
                         </div>
                         <div class="modal-body">
@@ -1457,7 +1457,7 @@
                     <form id="form-tambah" method="POST">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -1623,7 +1623,7 @@
                     <form id="form-tambah" method="POST">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -1784,7 +1784,7 @@
                     <form id="form-add-material" method="POST">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -2009,7 +2009,7 @@
                     <form id="form-tambah" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
                         <input type="hidden" id="id" name="id">
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -2333,7 +2333,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
 
-                    <div class="modal-header" style="background-color: #743bff">
+                    <div class="modal-header" style="background-color: #006ecc">
                         <h5 class="modal-title" style="color:white;">Daftar Produk Stock Opname</h5>
                     </div>
                     <div class="modal-body">
@@ -2361,7 +2361,7 @@
                 <div class="modal-content">
                     <form id="form-tambah" method="POST">
                         {{ csrf_field() }}
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;"></h5>
                         </div>
                         <div class="modal-body">
@@ -2396,7 +2396,7 @@
                     <form id="form-upload-opname" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }} {{ method_field('POST') }}
 
-                        <div class="modal-header" style="background-color: #743bff">
+                        <div class="modal-header" style="background-color: #006ecc">
                             <h5 class="modal-title" style="color:white;">Upload Data Stock Opname</h5>
                         </div>
                         <div class="modal-body">

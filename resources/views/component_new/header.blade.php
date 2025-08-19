@@ -7,11 +7,11 @@
 
         <!-- Logo -->
         <div class="header-left">
-            <a href="index.html" class="logo">
-                <img src="{{ asset('reskin') }}/assets/img/logo.svg" alt="Logo">
+            <a href="{{ url('/') }}" class="logo">
+               <img src="{{ asset('reskin/assets/img/logo.png') }}?v={{ time() }}" alt="Logo">
             </a>
-            <a href="index.html" class="dark-logo">
-                <img src="{{ asset('reskin') }}/assets/img/logo-white.svg" alt="Logo">
+            <a href="{{ url('/') }}" class="dark-logo">
+                <img src="{{ asset('reskin/assets/img/logo.png') }}?v={{ time() }}" alt="Logo">
             </a>
         </div>
 
@@ -24,7 +24,7 @@
             </span>
         </a>
 
-        <div class="header-user">
+        <div class="header-user" style="color:white;">
             <div class="nav user-menu nav-list">
                 <div class="me-auto d-flex align-items-center" id="header-search">
 
@@ -33,9 +33,9 @@
                     <!-- Breadcrumb -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-divide mb-0">
-                            <li class="breadcrumb-item d-flex align-items-center"><a href="index.html"><i
-                                        class="isax isax-home-2 me-1"></i>Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li class="breadcrumb-item d-flex align-items-center"><a href="{{ url('/') }}"><i
+                                        class="isax isax-home-2 me-1"></i>Dashboard</a></li>
+                            
                         </ol>
                     </nav>
 
@@ -47,7 +47,7 @@
                     <div class="notification_item me-2">
                         <a href="#" class="btn btn-menubar position-relative" id="notification_popup"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                            <i class="isax isax-notification-bing5"></i>
+                            <i style="color: white;" class="isax isax-notification-bing5"></i>
                             <span class="position-absolute badge bg-success border border-white"></span>
                         </a>
                         <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg" style="min-height: 300px;">

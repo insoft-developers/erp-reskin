@@ -2,7 +2,7 @@
     @csrf
 
     <div class="modal-content" id="modal-bayar-utang">
-        <div class="modal-header" style="background-color: #743bff;">
+        <div class="modal-header" style="background-color: #006ecc;">
             <h5 class="modal-title" style="color:white;">Bayar Utang {{ $data->name }}</h5>
         </div>
         <div class="modal-body">

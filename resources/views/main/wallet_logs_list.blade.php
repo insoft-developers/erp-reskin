@@ -23,28 +23,37 @@
                             <div class="card stretch-card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <p class="mb-0">Total Transaksi Withdrawal: </p>
-                                            <h3 class="display-6" id="sumOmset1">@currency($sum1)</h3>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end w-50">
-                                            <div class="me-3" style="min-width: 250px">
-                                                <select id="yearFilter1" class="form-select w-100" aria-label="Pilih Tahun">
-                                                    <option value="0">Tampilkan Semua Tahun</option>
-                                                    @foreach ($tahun as $thn)
-                                                        <option value="{{ $thn }}">{{ $thn }}</option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div>
+                                                    <p class="mb-0">Total Transaksi Withdrawal: </p>
+                                                    <h3 class="display-6" id="sumOmset1">@currency($sum1)</h3>
+                                                </div>
                                             </div>
-                                            <div style="min-width: 250px">
-                                                <select id="monthFilter1" class="form-select w-100" aria-label="Pilih Bulan"
-                                                    disabled>
-                                                    <option value="0">Tampilkan Semua Bulan</option>
-                                                    @foreach ($bulan as $key => $bln)
-                                                        <option value="{{ $key + 1 }}">{{ $bln }}</option>
-                                                    @endforeach
-                                                </select>
+
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-end w-50" style="float: right;">
+                                                    <div class="me-3" style="min-width: 250px">
+                                                        <select id="yearFilter1" class="form-select w-100"
+                                                            aria-label="Pilih Tahun">
+                                                            <option value="0">Tampilkan Semua Tahun</option>
+                                                            @foreach ($tahun as $thn)
+                                                                <option value="{{ $thn }}">{{ $thn }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div style="min-width: 250px">
+                                                        <select id="monthFilter1" class="form-select w-100"
+                                                            aria-label="Pilih Bulan" disabled>
+                                                            <option value="0">Tampilkan Semua Bulan</option>
+                                                            @foreach ($bulan as $key => $bln)
+                                                                <option value="{{ $key + 1 }}">{{ $bln }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -55,29 +64,38 @@
                             <div class="card stretch-card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <p class="mb-0">Total Transaksi Randu Wallet (Complete): </p>
-                                            <h3 class="display-6" id="sumOmset2">@currency($sum2)</h3>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end w-50">
-                                            <div class="me-3" style="min-width: 250px">
-                                                <select id="yearFilter2" class="form-select w-100" aria-label="Pilih Tahun">
-                                                    <option value="0">Tampilkan Semua Tahun</option>
-                                                    @foreach ($tahun as $thn)
-                                                        <option value="{{ $thn }}">{{ $thn }}</option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div>
+                                                    <p class="mb-0">Total Transaksi Randu Wallet (Complete): </p>
+                                                    <h3 class="display-6" id="sumOmset2">@currency($sum2)</h3>
+                                                </div>
                                             </div>
-                                            <div style="min-width: 250px">
-                                                <select id="monthFilter2" class="form-select w-100" aria-label="Pilih Bulan"
-                                                    disabled>
-                                                    <option value="0">Tampilkan Semua Bulan</option>
-                                                    @foreach ($bulan as $key => $bln)
-                                                        <option value="{{ $key + 1 }}">{{ $bln }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
+
+                                            <div class="col-12">
+
+                                                <div class="d-flex justify-content-end w-50" style="float: right;">
+                                                    <div class="me-3" style="min-width: 250px">
+                                                        <select id="yearFilter2" class="form-select w-100"
+                                                            aria-label="Pilih Tahun">
+                                                            <option value="0">Tampilkan Semua Tahun</option>
+                                                            @foreach ($tahun as $thn)
+                                                                <option value="{{ $thn }}">{{ $thn }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div style="min-width: 250px">
+                                                        <select id="monthFilter2" class="form-select w-100"
+                                                            aria-label="Pilih Bulan" disabled>
+                                                            <option value="0">Tampilkan Semua Bulan</option>
+                                                            @foreach ($bulan as $key => $bln)
+                                                                <option value="{{ $key + 1 }}">{{ $bln }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -88,31 +106,42 @@
                             <div class="card stretch-card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <p class="mb-0">Total Transaksi Randu Wallet (Process): </p>
-                                            <h3 class="display-6" id="sumOmset3">@currency($sum3)</h3>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div>
+                                                    <p class="mb-0">Total Transaksi Randu Wallet (Process): </p>
+                                                    <h3 class="display-6" id="sumOmset3">@currency($sum3)</h3>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-end w-50" style="float: right;">
+                                                    <div class="me-3" style="min-width: 250px">
+                                                        <select id="yearFilter3" class="form-select w-100"
+                                                            aria-label="Pilih Tahun">
+                                                            <option value="0">Tampilkan Semua Tahun</option>
+                                                            @foreach ($tahun as $thn)
+                                                                <option value="{{ $thn }}">{{ $thn }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div style="min-width: 250px">
+                                                        <select id="monthFilter3" class="form-select w-100"
+                                                            aria-label="Pilih Bulan" disabled>
+                                                            <option value="0">Tampilkan Semua Bulan</option>
+                                                            @foreach ($bulan as $key => $bln)
+                                                                <option value="{{ $key + 1 }}">{{ $bln }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
 
-                                        <div class="d-flex justify-content-end w-50">
-                                            <div class="me-3" style="min-width: 250px">
-                                                <select id="yearFilter3" class="form-select w-100" aria-label="Pilih Tahun">
-                                                    <option value="0">Tampilkan Semua Tahun</option>
-                                                    @foreach ($tahun as $thn)
-                                                        <option value="{{ $thn }}">{{ $thn }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div style="min-width: 250px">
-                                                <select id="monthFilter3" class="form-select w-100" aria-label="Pilih Bulan"
-                                                    disabled>
-                                                    <option value="0">Tampilkan Semua Bulan</option>
-                                                    @foreach ($bulan as $key => $bln)
-                                                        <option value="{{ $key + 1 }}">{{ $bln }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,30 +150,42 @@
                             <div class="card stretch-card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <p class="mb-0">Total Transaksi Randu Wallet (Waiting): </p>
-                                            <h3 class="display-6" id="sumOmset4">@currency($sum4)</h3>
-                                        </div>
 
-                                        <div class="d-flex justify-content-end w-50">
-                                            <div class="me-3" style="min-width: 250px">
-                                                <select id="yearFilter4" class="form-select w-100" aria-label="Pilih Tahun">
-                                                    <option value="0">Tampilkan Semua Tahun</option>
-                                                    @foreach ($tahun as $thn)
-                                                        <option value="{{ $thn }}">{{ $thn }}</option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div>
+                                                    <p class="mb-0">Total Transaksi Randu Wallet (Waiting): </p>
+                                                    <h3 class="display-6" id="sumOmset4">@currency($sum4)</h3>
+                                                </div>
                                             </div>
-                                            <div style="min-width: 250px">
-                                                <select id="monthFilter4" class="form-select w-100" aria-label="Pilih Bulan"
-                                                    disabled>
-                                                    <option value="0">Tampilkan Semua Bulan</option>
-                                                    @foreach ($bulan as $key => $bln)
-                                                        <option value="{{ $key + 1 }}">{{ $bln }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
+
+
+                                            <div class="col-12">
+                                                <div class="d-flex justify-content-end w-50" style="float: right;">
+                                                    <div class="me-3" style="min-width: 250px">
+                                                        <select id="yearFilter4" class="form-select w-100"
+                                                            aria-label="Pilih Tahun">
+                                                            <option value="0">Tampilkan Semua Tahun</option>
+                                                            @foreach ($tahun as $thn)
+                                                                <option value="{{ $thn }}">{{ $thn }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div style="min-width: 250px">
+                                                        <select id="monthFilter4" class="form-select w-100"
+                                                            aria-label="Pilih Bulan" disabled>
+                                                            <option value="0">Tampilkan Semua Bulan</option>
+                                                            @foreach ($bulan as $key => $bln)
+                                                                <option value="{{ $key + 1 }}">{{ $bln }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -155,12 +196,12 @@
                         <div class="card-header">
                             <h5 class="card-title">Riwayat Transaksi</h5>
                             <div class="d-flex gap-2" style="float: right;">
-                                <button type="button" class="btn bg-warning-gradient btn-warning btn-effect" data-bs-toggle="modal"
-                                    data-bs-target="#modal-withdraw">
+                                <button type="button" class="btn bg-warning-gradient btn-warning btn-effect"
+                                    data-bs-toggle="modal" data-bs-target="#modal-withdraw">
                                     Withdraw
                                 </button>
-                                <button type="button" class="btn bg-success-gradient btn-success btn-effect" data-bs-toggle="modal"
-                                    data-bs-target="#modal-topup">
+                                <button type="button" class="btn bg-success-gradient btn-success btn-effect"
+                                    data-bs-toggle="modal" data-bs-target="#modal-topup">
                                     Topup
                                 </button>
                             </div>

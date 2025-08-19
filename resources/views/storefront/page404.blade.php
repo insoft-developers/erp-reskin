@@ -158,7 +158,7 @@
         <h1>404</h1>
         <h2>Halaman Tidak Ditemukan</h2>
         <p>Maaf, sepertinya halaman atau file yang kamu cari tidak dapat ditemukan atau telah dihapus.</p>
-        <a href="https://randu.co.id" class="btn">Kembali ke Dashboard Randu</a>
+        <a href="{{ url('/') }}" class="btn">Kembali ke Dashboard Ruang ERP</a>
     </div>
 </body>
 </html>

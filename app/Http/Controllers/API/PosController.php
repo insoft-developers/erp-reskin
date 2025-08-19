@@ -608,7 +608,7 @@ class PosController extends Controller
                 $payment[$key]['method'] = 'Payment Gateway';
                 $payment[$key]['selected'] = $value->selected === 'false' ? false : true;
                 $payment[$key]['code'] = 'randu-wallet';
-                $payment[$key]['description'] = 'Gunakan fasilitas Randu Wallet';
+                $payment[$key]['description'] = 'Gunakan fasilitas Wallet';
             }
 
             if ($value->method == 'Transfer') {

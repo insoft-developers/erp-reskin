@@ -1,4 +1,14 @@
 <style>
+
+    .logo-pakai {
+        width:162px;
+    }
+    .breadcrumb .breadcrumb-item a,
+    .breadcrumb .breadcrumb-item a i,
+    .breadcrumb .breadcrumb-item.active {
+        color: #fff !important;
+    }
+
     .table-nowrap td,
     .table-nowrap th {
         white-space: nowrap !important;
@@ -342,7 +352,7 @@
     }
 
     .card-header {
-        background-color: #743bff !important;
+        background-color: #006ecc !important;
 
     }
 

@@ -21082,7 +21082,8 @@ p:last-child {
 .header {
   height: 56px;
   z-index: 999;
-  background: var(--cf-topbar-bg);
+  /* background: var(--cf-topbar-bg); */
+  background: #006ecc;
   position: fixed;
   top: 0;
   right: 0;

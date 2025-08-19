@@ -17,10 +17,10 @@
                 <h6>Dashboard</h6>
             </div>
             <div class="d-flex my-xl-auto right-content align-items-center flex-wrap gap-2">
-                <div id="reportrange" class="reportrange-picker d-flex align-items-center">
+                {{-- <div style="" id="reportrange" class="reportrange-picker d-flex align-items-center">
                     <i class="isax isax-calendar text-gray-5 fs-14 me-1"></i><span class="reportrange-picker-field">16 Apr
                         25 - 16 Apr 25</span>
-                </div>
+                </div> --}}
                 <div class="dropdown">
                     <a class="btn btn-primary d-flex align-items-center justify-content-center dropdown-toggle"
                         data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
@@ -28,40 +28,36 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-start">
                         <li>
-                            <a href="add-invoice.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-document-text-1 me-2"></i>Invoice
+                            <a href="{{ url('journal_add') }}" class="dropdown-item d-flex align-items-center">
+                                <i class="isax isax-document-text-1 me-2"></i>Buat Jurnal
                             </a>
                         </li>
                         <li>
-                            <a href="expenses.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-money-send me-2"></i>Expense
+                            <a href="{{ url('pos/index') }}" class="dropdown-item d-flex align-items-center">
+                                <i class="isax isax-money-send me-2"></i>Transaksi POS
                             </a>
                         </li>
                         <li>
-                            <a href="add-credit-notes.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-money-add me-2"></i>Credit Notes
+                            <a href="{{ url('storefront/setting') }}" class="dropdown-item d-flex align-items-center">
+                                <i class="isax isax-money-add me-2"></i>Buat Toko Online
                             </a>
                         </li>
                         <li>
-                            <a href="add-debit-notes.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-money-recive me-2"></i>Debit Notes
+                            <a href="{{ url('invoice/invoice/create') }}" class="dropdown-item d-flex align-items-center">
+                                <i class="isax isax-money-recive me-2"></i>Buat Invoice
                             </a>
                         </li>
                         <li>
-                            <a href="add-purchases-orders.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-document me-2"></i>Purchase Order
+                            <a href="{{ url('product/create') }}" class="dropdown-item d-flex align-items-center">
+                                <i class="isax isax-document me-2"></i>Tambah Produk
                             </a>
                         </li>
                         <li>
-                            <a href="add-quotation.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-document-download me-2"></i>Quotation
+                            <a href="{{ url('adjustment/create') }}" class="dropdown-item d-flex align-items-center">
+                                <i class="isax isax-document-download me-2"></i>Tambah Penyesuaian
                             </a>
                         </li>
-                        <li>
-                            <a href="add-delivery-challan.html" class="dropdown-item d-flex align-items-center">
-                                <i class="isax isax-document-forward me-2"></i>Delivery Challan
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
 
@@ -69,20 +65,18 @@
         </div>
         <!-- End Breadcrumb -->
 
-        <div class="bg-primary rounded welcome-wrap position-relative mb-3">
+        <div style="background:#006ecc" class="rounded welcome-wrap position-relative mb-3">
 
             <!-- start row -->
             <div class="row">
                 <div class="col-lg-8 col-md-9 col-sm-7">
                     <div>
-                        <h5 class="text-white mb-1">Good Morning, Jafna Cremson</h5>
-                        <p class="text-white mb-3">You have 15+ invoices saved to draft that has to send to
-                            customers</p>
+                        <h5 class="text-white mb-1">Selamat Datang, {{ session('name') }}</h5>
                         <div class="d-flex align-items-center flex-wrap gap-3">
                             <p class="d-flex align-items-center fs-13 text-white mb-0"><i
-                                    class="isax isax-calendar5 me-1"></i>Friday, 24 Mar 2025</p>
+                                    class="isax isax-calendar5 me-1"></i>{{ date('l, d F Y') }}</p>
                             <p class="d-flex align-items-center fs-13 text-white mb-0"><i
-                                    class="isax isax-clock5 me-1"></i>11:24 AM</p>
+                                    class="isax isax-clock5 me-1"></i>{{ date("H:i:s") }}</p>
                         </div>
                     </div>
                 </div><!-- end col -->

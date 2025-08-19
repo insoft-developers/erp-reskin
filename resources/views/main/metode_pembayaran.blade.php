@@ -211,13 +211,13 @@
                                     <div v-if="data.selected_pm === 2">
                                         <div class="mx-auto bg-white p-6 shadow-md border-2 border-dashed border-gray-400">
                                             <h2 class="text-xl font-semibold mb-4">Pembayaran dengan metode Payment Gateway
-                                                (Randu Wallet)</h2>
+                                                (Wallet)</h2>
                                             <p class="mb-4">Akan langsung membuka halaman pembayaran setelah klik “PROSES
                                                 TRANSAKSI“</p>
                                             <ul class="list-disc list-inside mb-4">
                                                 <li>Pastikan koneksi dalam keadaan stabil</li>
                                                 <li>Pastikan pembeli sudah siap untuk melakukan pembayaran</li>
-                                                <li>Saldo akan masuk ke akun Randu Wallet maksimal 1 sd 2x24 jam (maksimal)
+                                                <li>Saldo akan masuk ke akun Wallet maksimal 1 sd 2x24 jam (maksimal)
                                                     dan bisa langsung di cairkan ke rekening akun</li>
                                                 <li>Potongan 0,7% dari nominal transaksi untuk biaya administrasi</li>
                                                 <li>Pilihan metode pembayaran yang aktif:</li>
@@ -362,7 +362,7 @@
                                             <ul class="list-disc list-inside mb-4">
                                                 <li>Pastikan koneksi dalam keadaan stabil</li>
                                                 <li>Pastikan pembeli sudah siap untuk melakukan pembayaran</li>
-                                                <li>Saldo akan masuk ke akun Randu Wallet maksimal 1 sd 2x24 jam (maksimal)
+                                                <li>Saldo akan masuk ke akun Wallet maksimal 1 sd 2x24 jam (maksimal)
                                                     dan bisa langsung di cairkan ke rekening akun</li>
                                                 <li>Potongan 0,7% dari nominal transaksi untuk biaya administrasi</li>
                                             </ul>

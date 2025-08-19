@@ -77,17 +77,17 @@
 
         <!-- Start Logo -->
         <div class="sidebar-logo">
-            <a href="index.html" class="logo logo-normal">
-                <img src="{{ asset('reskin') }}/assets/img/logo.svg" alt="Logo">
+            <a href="{{ url('/') }}" class="logo logo-normal">
+                <img class="logo-pakai" src="{{ asset('reskin') }}/assets/img/logo.png" alt="Logo">
             </a>
-            <a href="index.html" class="logo-small">
-                <img src="{{ asset('reskin') }}/assets/img/logo-small.svg" alt="Logo">
+            <a href="{{ url('/') }}" class="logo-small">
+                <img src="{{ asset('reskin') }}/assets/img/logo-icon.png" alt="Logo">
             </a>
-            <a href="index.html" class="dark-logo">
-                <img src="{{ asset('reskin') }}/assets/img/logo-white.svg" alt="Logo">
+            <a href="{{ url('/') }}" class="dark-logo">
+                <img src="{{ asset('reskin') }}/assets/img/logo.png" alt="Logo">
             </a>
-            <a href="index.html" class="dark-small">
-                <img src="{{ asset('reskin') }}/assets/img/logo-small-white.svg" alt="Logo">
+            <a href="{{ url('/') }}" class="dark-small">
+                <img src="{{ asset('reskin') }}/assets/img/logo-icon.png" alt="Logo">
             </a>
 
             <!-- Sidebar Hover Menu Toggle Button -->
@@ -351,11 +351,7 @@
                     <ul>
 
                         <li class="menu-title"><span>Keuangan</span></li>
-                        <li>
-                            <a href="#">
-                                <i class="isax isax-money5"></i><span>Ringkasan Keuangan</span>
-                            </a>
-                        </li>
+                        
                         <li>
                             <a class="{{ $segment === 'payment-method-setting' ? 'active' : '' }}" href="{{ url('payment-method-setting') }}">
                                 <i class="isax isax-money5"></i><span>Kas dan Rekening<br> Bank</span>
@@ -546,7 +542,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="#">Bantuan dan Tutorial</a></li>
+                                <li><a href="https://help.ruangerp.com" target="_blank">Bantuan dan Tutorial</a></li>
                                 <li class="{{ $segment ==='premium' ? 'active' : '' }}"><a href="{{ url('premium') }}">Paket Langganan</a>
                                 </li>
                                 <li><a class="{{ $segment === 'feature-request' ? 'active' : '' }}" href="{{ url('feature-request') }}">Permintaan Fitur Baru</a>

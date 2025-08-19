@@ -20,7 +20,7 @@
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                     <i class="feather-plus bg-dark"></i>
                                 </a> --}}
-                                <button onclick="add_item()" class="btn btn-sm btn-primary btn-insoft"><i
+                                <button style="float: right;" onclick="add_item()" class="btn btn-sm btn-primary btn-insoft"><i
                                         class="fa fa-plus"></i> Tambah
                                     AKun</button>
 
