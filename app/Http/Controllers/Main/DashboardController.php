@@ -18,6 +18,8 @@ use App\Models\Journal;
 use App\Models\JournalList;
 use App\Models\MaterialPurchase;
 use App\Models\MdAdjustment;
+use App\Models\MdClient;
+use App\Models\MdCustomer;
 use App\Models\MdExpense;
 use App\Models\MlAccumulatedDepreciation;
 use App\Models\MlAdminGeneralFee;
@@ -62,7 +64,6 @@ class DashboardController extends Controller
             'transaction_date' => 'required',
             'transaction_name' => 'required',
         ];
-
 
         if ($request->hasFile('image')) {
             $rules['image'] = 'max:3072';
@@ -224,9 +225,8 @@ class DashboardController extends Controller
 
     public function journal_table(Request $request)
     {
-        
         $input = $request->all();
-        
+
         $awal = $input['tahun'] . '-' . $input['bulan'] . '-01';
         $tanggal_akhir = cal_days_in_month(CAL_GREGORIAN, $input['bulan'], $input['tahun']);
         $akhir = $input['tahun'] . '-' . $input['bulan'] . '-' . $tanggal_akhir;
@@ -249,16 +249,18 @@ class DashboardController extends Controller
             $query->where('transaction_name', 'like', '%' . $input['cari'] . '%');
         }
 
-        if($input['inbalance'] =='inbalance') {
-            $query->whereHas('journal_list', function ($query) {
-                $query->selectRaw('SUM(debet) as total_debet');
-            })->withSum('journal_list as total_debet', 'debet')
-            ->whereHas('journal_list', function ($query) {
-                $query->selectRaw('SUM(credit) as total_credit');
-            })->withSum('journal_list as total_credit', 'credit')
-            ->havingRaw('total_debet != total_credit');
+        if ($input['inbalance'] == 'inbalance') {
+            $query
+                ->whereHas('journal_list', function ($query) {
+                    $query->selectRaw('SUM(debet) as total_debet');
+                })
+                ->withSum('journal_list as total_debet', 'debet')
+                ->whereHas('journal_list', function ($query) {
+                    $query->selectRaw('SUM(credit) as total_credit');
+                })
+                ->withSum('journal_list as total_credit', 'credit')
+                ->havingRaw('total_debet != total_credit');
         }
-
 
         $data = $query->get();
         return Datatables::of($data)
@@ -276,7 +278,6 @@ class DashboardController extends Controller
                 return '<center><div class="date-box" style="background:' . $data->color_date . '">' . date('d', $data->created) . '</div></center>';
             })
             ->addColumn('total_balance', function ($data) {
-               
                 $debit = $data->journal_list->sum('debet');
                 $kredit = $data->journal_list->sum('credit');
 
@@ -285,7 +286,6 @@ class DashboardController extends Controller
                 } else {
                     return '<div sytle="text-align:right;"><span title="jurnal tidak balance" style="cursor:pointer;color:red;"><strong>Rp. ' . number_format($data->total_balance) . '</strong></span></div>';
                 }
-                
             })
             ->addColumn('action', function ($data) {
                 if (str_contains($data->transaction_name, 'Saldo Awal')) {
@@ -301,9 +301,49 @@ class DashboardController extends Controller
     public function index()
     {
         $view = 'dashboard';
-        return view('main.dashboard_new', compact('view'));
-    }
 
+        $counts = Invoice::selectRaw(
+            "
+        COUNT(CASE WHEN is_quotation = 0 THEN 1 END) as invoice_count,
+        COUNT(CASE WHEN is_quotation = 1 THEN 1 END) as quotation_count,
+        SUM(CASE WHEN due_date < NOW() AND is_quotation = 0 THEN grand_total ELSE 0 END) as overdue_total
+    ",
+        )
+            ->where('user_id', $this->user_id_manage(session('id')))
+            ->first();
+
+        $invoices = (int) $counts->invoice_count;
+        $quotations = (int) $counts->quotation_count;
+        $overdue_total = (float) $counts->overdue_total;
+
+        $baseQuery = MdClient::where('user_id', $this->user_id_manage(session('id')));
+
+        // total customer
+        $customers = (clone $baseQuery)->count();
+
+        // semua customer
+        $all_customers = (clone $baseQuery)->get();
+
+        // 5 customer pertama
+        $list_customers = (clone $baseQuery)->limit(5)->get();
+
+        $penjualans = Penjualan::where('user_id', $this->user_id_manage(session('id')))
+            ->selectRaw('SUM(paid) as totalAll')
+            ->selectRaw('SUM(CASE WHEN payment_status != 1 THEN paid ELSE 0 END) as totalNotPaid')
+            ->first();
+
+        $penjualan_all = $penjualans->totalAll; // total semua penjualan
+        $penjualan_not_paid = $penjualans->totalNotPaid;
+
+        $purchase_goods = ProductPurchase::where('userid', $this->user_id_manage(session('id')))->sum('total_purchase');
+        $purchase_materials = MaterialPurchase::where('userid', $this->user_id_manage(session('id')))->sum('total_purchase');
+
+        $total_purchases = $purchase_goods + $purchase_materials;
+
+        $expenses = MdExpense::where('user_id', $this->user_id_manage(session('id')))->sum('amount');
+
+        return view('main.dashboard_new', compact('view', 'invoices', 'quotations', 'customers', 'all_customers', 'list_customers', 'overdue_total', 'penjualan_all', 'penjualan_not_paid', 'total_purchases', 'expenses'));
+    }
 
     public function journal_list()
     {
@@ -425,13 +465,10 @@ class DashboardController extends Controller
             'tahun' => date('Y', strtotime($request->tanggal_transaksi)),
         ];
 
-       
-       
-
         return response()->json([
             'success' => true,
             'message' => 'success',
-            'periode' => $session_data
+            'periode' => $session_data,
         ]);
     }
 
@@ -1096,19 +1133,15 @@ class DashboardController extends Controller
                     $me = Invoice::findorFail($komponen_id);
                     $me->sync_status = 0;
                     $me->save();
-                } 
-                elseif ($judul == 'konversi') {
+                } elseif ($judul == 'konversi') {
                     $me = Converse::findorFail($komponen_id);
                     $me->sync_status = 0;
                     $me->save();
-                }
-                elseif ($judul == 'opname') {
+                } elseif ($judul == 'opname') {
                     $me = StockOpname::findorFail($komponen_id);
                     $me->sync_status = 0;
                     $me->save();
-                } 
-                
-                elseif ($judul == 'manufacturing') {
+                } elseif ($judul == 'manufacturing') {
                     $me = ProductManufacture::findorFail($komponen_id);
                     $me->sync_status = 0;
                     $me->save();
@@ -1125,14 +1158,10 @@ class DashboardController extends Controller
                 ->where('userid', $this->user_id_manage(session('id')))
                 ->delete();
 
-            $row_delete_journallist = DB::table('ml_journal_list')
-                ->where('journal_id', $input['id'])
-                ->get();
+            $row_delete_journallist = DB::table('ml_journal_list')->where('journal_id', $input['id'])->get();
 
             foreach ($row_delete_journallist as $rd) {
-                DB::table('ml_journal_list')
-                    ->where('journal_id', $rd->journal_id)
-                    ->delete();
+                DB::table('ml_journal_list')->where('journal_id', $rd->journal_id)->delete();
             }
 
             return response()->json([
@@ -1151,9 +1180,7 @@ class DashboardController extends Controller
     {
         $input = $request->all();
 
-        $row = DB::table('ml_journal')
-            ->where('id', $input['transaction_id'])
-            ->first();
+        $row = DB::table('ml_journal')->where('id', $input['transaction_id'])->first();
 
         $rules = [
             'akun.*' => 'required',
@@ -1222,9 +1249,7 @@ class DashboardController extends Controller
         ];
 
         // First update data to journal
-        DB::table('ml_journal')
-            ->where('id', $input['transaction_id'])
-            ->update($data_journal);
+        DB::table('ml_journal')->where('id', $input['transaction_id'])->update($data_journal);
 
         $journal_id = $input['transaction_id'];
 
@@ -1392,8 +1417,6 @@ class DashboardController extends Controller
 
     protected function get_asset_data_name($asset_data_id, $account_code_id)
     {
-        
-        
         if ($account_code_id == 1) {
             $data = MlCurrentAsset::where('userid', $this->user_id_manage(session('id')))
                 ->where('id', $asset_data_id)

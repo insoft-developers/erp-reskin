@@ -38,6 +38,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
+    <style>
+        .login-logo {
+            width: 200px;
+            padding-top: 50px;
+            margin-bottom: -22px;
+        }
+    </style>
+
 </head>
 
 <body class="bg-white">
@@ -57,14 +65,15 @@
                             @csrf
                             <div class="d-flex flex-column justify-content-lg-center p-4 p-lg-0 pb-0 flex-fill">
                                 <div class=" mx-auto mb-5 text-center">
-                                    <img src="{{ asset('reskin') }}/assets/img/logo.svg" class="img-fluid"
+                                    <img src="{{ asset('reskin') }}/assets/img/logo.png" class="img-fluid login-logo"
                                         alt="Logo">
                                 </div>
                                 <div class="card border-0 p-lg-3 shadow-lg">
                                     <div class="card-body">
                                         <div class="text-center mb-3">
                                             <h5 class="mb-2">Log In</h5>
-                                            <p class="mb-0">Silahkan masukkan username dan password anda untuk mulai menggunakan aplikasi</p>
+                                            <p class="mb-0">Silahkan masukkan username dan password anda untuk mulai
+                                                menggunakan aplikasi</p>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
@@ -77,9 +86,9 @@
                                                     name="email" required placeholder="masukkan email"
                                                     autocomplete="off">
                                             </div>
-                                            
+
                                         </div>
-                                        
+
                                         <div class="mb-3">
                                             <label class="form-label">Password</label>
                                             <div class="pass-group input-group">
@@ -91,13 +100,14 @@
                                                     class="pass-inputs form-control border-start-0 ps-0"
                                                     placeholder="****************" autocomplete="off" required>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mb-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check form-check-md mb-0">
                                                     <input class="form-check-input" id="remember_me" type="checkbox">
-                                                    <label for="remember_me" class="form-check-label mt-0">Ingat saya</label>
+                                                    <label for="remember_me" class="form-check-label mt-0">Ingat
+                                                        saya</label>
                                                 </div>
                                             </div>
                                             <div class="text-end">
@@ -105,7 +115,8 @@
                                             </div>
                                         </div>
                                         <div class="mb-1">
-                                            <button id="btn-login-submit" type="submit" class="btn bg-primary-gradient text-white w-100">Sign
+                                            <button id="btn-login-submit" type="submit"
+                                                class="btn bg-primary-gradient text-white w-100">Sign
                                                 In</button>
                                         </div>
                                         <div class="login-or">
@@ -146,7 +157,6 @@
 
 
     <script>
-
         function loading() {
             $("#btn-login-submit").text("Processing....");
             $("#btn-login-submit").attr("disabled", true);
@@ -185,10 +195,10 @@
 
                     } else {
                         window.location.href = data.redirect;
-                        
+
                     }
                 })
-                
+
         });
     </script>
 

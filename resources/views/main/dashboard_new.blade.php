@@ -90,7 +90,7 @@
 
         <!-- start row -->
         <div class="row">
-            <div class="col-md-4 d-flex">
+            <div class="col-md-6 d-flex">
                 <div class="card flex-fill">
                     <div class="card-body">
                         <div class="mb-3">
@@ -106,7 +106,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 text-truncate">Invoices</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">1,041</h6>
+                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">{{ number_format($invoices) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -117,8 +117,8 @@
                                         <i class="isax isax-profile-2user fs-20"></i>
                                     </span>
                                     <div>
-                                        <p class="mb-1 text-truncate">Customers</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">3,462</h6>
+                                        <p class="mb-1 text-truncate">Clients</p>
+                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">{{ number_format($customers) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 text-truncate">Amount Due</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">$1,642</h6>
+                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">{{ number_format($overdue_total) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 text-truncate">Quotations</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">2,150</h6>
+                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">{{ number_format($quotations) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->
-            <div class="col-md-4 d-flex">
+            <div class="col-md-6 d-flex">
                 <div class="card flex-fill">
                     <div class="card-body">
                         <div class="mb-3">
@@ -166,7 +166,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 text-truncate">Total Sales</p>
-                                        <h6 class="fs-16 fw-semibold mb-0">$40,569</h6>
+                                        <h6 class="fs-16 fw-semibold mb-0">{{ number_format($penjualan_all) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 text-truncate">Purchase</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">$1,54,220</h6>
+                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">{{ number_format($total_purchases) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 mb-0">Expenses</p>
-                                        <h6 class="fs-16 fw-semibold text-truncate">$10,041</h6>
+                                        <h6 class="fs-16 fw-semibold text-truncate">{{ number_format($expenses) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@
                                     </span>
                                     <div>
                                         <p class="mb-1 text-truncate">Credits</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">$12,150</h6>
+                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">{{ number_format($penjualan_not_paid) }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -210,67 +210,7 @@
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->
-            <div class="col-md-4 d-flex">
-                <div class="card flex-fill">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <h6 class="d-flex align-items-center mb-1"><i
-                                    class="isax isax-chart-success5 text-default me-2"></i>Invoice Statistics
-                            </h6>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-xl-6">
-                                <div class="d-flex align-items-center">
-                                    <span
-                                        class="avatar avatar-44 avatar-rounded bg-primary-subtle text-primary flex-shrink-0 me-2">
-                                        <i class="isax isax-document fs-20"></i>
-                                    </span>
-                                    <div>
-                                        <p class="mb-1 text-truncate">Invoiced</p>
-                                        <h6 class="fs-16 fw-semibold mb-0">$21,132</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="d-flex align-items-center me-2">
-                                    <span
-                                        class="avatar avatar-44 avatar-rounded bg-success-subtle text-success-emphasis flex-shrink-0 me-2">
-                                        <i class="isax isax-document-forward fs-20"></i>
-                                    </span>
-                                    <div>
-                                        <p class="mb-1 text-truncate">Received</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">$10,763</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="d-flex align-items-center">
-                                    <span
-                                        class="avatar avatar-44 avatar-rounded bg-warning-subtle text-warning-emphasis flex-shrink-0 me-2">
-                                        <i class="isax isax-document-previous fs-20"></i>
-                                    </span>
-                                    <div>
-                                        <p class="mb-1 text-truncate">Outstanding</p>
-                                        <h6 class="fs-16 fw-semibold mb-0 text-truncate">$8041</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="d-flex align-items-center me-2">
-                                    <span
-                                        class="avatar avatar-44 avatar-rounded bg-info-subtle text-info-emphasis flex-shrink-0 me-2">
-                                        <i class="isax isax-dislike fs-20"></i>
-                                    </span>
-                                    <div>
-                                        <p class="mb-1 text-truncate">Overdue</p>
-                                        <h6 class="fs-16 fw-semibold text-truncate mb-0">$41,811.2</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end card body -->
-                </div> <!-- end card -->
-            </div> <!-- end col -->
+           
         </div>
         <!-- end row -->
 
@@ -383,11 +323,12 @@
                 <div class="card flex-fill">
                     <div class="card-body">
                         <div class="mb-3">
-                            <h6 class="mb-1">Customers</h6>
+                            <h6 class="mb-1">Clients</h6>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-nowrap table-borderless custom-table">
                                 <tbody>
+                                    @foreach($list_customers as $cl)
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
@@ -398,13 +339,13 @@
                                                 </a>
                                                 <div>
                                                     <h6 class="fs-14 fw-medium mb-1"><a
-                                                            href="customer-details.html">Emily Clark</a></h6>
-                                                    <p class="fs-13">No of Invoices : 45</p>
+                                                            href="customer-details.html">{{ $cl->name }}</a></h6>
+                                                    <p class="fs-13">{{ $cl->phone }}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="mb-1">Outstanding </p>
+                                            <p class="mb-1">{{ $cl->email }} </p>
                                             <h6 class="fs-14 fw-semibold">$3589</h6>
                                         </td>
                                         <td>
@@ -420,142 +361,12 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-lg rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-01.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-1"><a
-                                                            href="customer-details.html">John Smith</a></h6>
-                                                    <p class="fs-13">No of Invoices : 16</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Outstanding </p>
-                                            <h6 class="fs-14 fw-semibold">$5426</h6>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center justify-content-end gap-2">
-                                                <a href="add-invoice.html" class="btn btn-icon btn-sm btn-light"
-                                                    data-bs-toggle="tooltip" data-bs-title="New Invoice"><i
-                                                        class="isax isax-add-circle"></i></a>
-                                                <div data-bs-toggle="tooltip" data-bs-title="Add Ledger">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-light"
-                                                        data-bs-toggle="modal" data-bs-target="#add_ledger"><i
-                                                            class="isax isax-document-text-1"></i></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-lg rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-38.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-1"><a
-                                                            href="customer-details.html">Olivia Harris</a>
-                                                    </h6>
-                                                    <p class="fs-13">No of Invoices : 23</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Outstanding </p>
-                                            <h6 class="fs-14 fw-semibold">$1493</h6>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center justify-content-end gap-2">
-                                                <a href="add-invoice.html" class="btn btn-icon btn-sm btn-light"
-                                                    data-bs-toggle="tooltip" data-bs-title="New Invoice"><i
-                                                        class="isax isax-add-circle"></i></a>
-                                                <div data-bs-toggle="tooltip" data-bs-title="Add Ledger">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-light"
-                                                        data-bs-toggle="modal" data-bs-target="#add_ledger"><i
-                                                            class="isax isax-document-text-1"></i></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-lg rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-12.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-1"><a
-                                                            href="customer-details.html">William Parker</a>
-                                                    </h6>
-                                                    <p class="fs-13">No of Invoices : 58</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Outstanding </p>
-                                            <h6 class="fs-14 fw-semibold">$7854</h6>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center justify-content-end gap-2">
-                                                <a href="add-invoice.html" class="btn btn-icon btn-sm btn-light"
-                                                    data-bs-toggle="tooltip" data-bs-title="New Invoice"><i
-                                                        class="isax isax-add-circle"></i></a>
-                                                <div data-bs-toggle="tooltip" data-bs-title="Add Ledger">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-light"
-                                                        data-bs-toggle="modal" data-bs-target="#add_ledger"><i
-                                                            class="isax isax-document-text-1"></i></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-lg rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-02.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-1"><a
-                                                            href="customer-details.html">Charlotte Brown</a>
-                                                    </h6>
-                                                    <p class="fs-13">No of Invoices : 09</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Outstanding </p>
-                                            <h6 class="fs-14 fw-semibold">$4989</h6>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center justify-content-end gap-2">
-                                                <a href="add-invoice.html" class="btn btn-icon btn-sm btn-light"
-                                                    data-bs-toggle="tooltip" data-bs-title="New Invoice"><i
-                                                        class="isax isax-add-circle"></i></a>
-                                                <div data-bs-toggle="tooltip" data-bs-title="Add Ledger">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-light"
-                                                        data-bs-toggle="modal" data-bs-target="#add_ledger"><i
-                                                            class="isax isax-document-text-1"></i></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <a href="customers.html" class="btn btn-light btn-lg w-100 text-decoration-underline mt-3">All
-                            Customers</a>
+                        <a href="{{ url('invoice/client') }}" class="btn btn-light btn-lg w-100 text-decoration-underline mt-3">All
+                            Clients</a>
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->

@@ -38,6 +38,14 @@
     {{-- SWEETALERT --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    <style>
+        .login-logo {
+            width: 200px;
+            padding-top: 50px;
+            margin-bottom: -22px;
+        }
+    </style>
+
 
 </head>
 
@@ -60,7 +68,7 @@
                             @csrf
                             <div class="d-flex flex-column justify-content-lg-center p-4 p-lg-0 pt-lg-4 pb-0 flex-fill">
                                 <div class="mx-auto mb-5 text-center">
-                                    <img src="{{ asset('reskin') }}/assets/img/logo.svg" class="img-fluid"
+                                    <img src="{{ asset('reskin') }}/assets/img/logo.png" class="img-fluid login-logo"
                                         alt="Logo">
                                 </div>
                                 <div class="card border-0 p-lg-3 shadow-lg rounded-2">
@@ -177,8 +185,8 @@
                                             <label class="form-label">Kategori Usaha</label>
                                             <div class="input-group">
 
-                                                <select id="category" name="category" id="whatsapp" autocomplete="off"
-                                                    class="form-control border-start-0 ps-0">
+                                                <select id="category" name="category" id="whatsapp"
+                                                    autocomplete="off" class="form-control border-start-0 ps-0">
                                                     <option value="" selected disabled>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Piih</option>
                                                     @foreach ($category as $cat)
@@ -278,7 +286,8 @@
                                         <div class="d-flex align-items-center justify-content-between mb-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check form-check-md mb-0">
-                                                    <input required class="form-check-input" id="tos" name="tos" type="checkbox">
+                                                    <input required class="form-check-input" id="tos"
+                                                        name="tos" type="checkbox">
                                                     <label for="tos" class="form-check-label mt-0">Dengan
                                                         mendaftar, saya menyetujui Syarat dan Ketentuan Pengguna dari
                                                         PT. Reskin Indonesia.</label>
@@ -328,13 +337,12 @@
     <script src="{{ asset('reskin') }}/assets/js/script.js"></script>
 
     <script>
-
         function loading() {
             $("#btn-submit-daftar").text("Processing....");
             $("#btn-submit-daftar").attr("disabled", true);
         }
 
-        function unloading() {  
+        function unloading() {
             $("#btn-submit-daftar").text("Daftar");
             $("#btn-submit-daftar").removeAttr("disabled");
         }
@@ -381,8 +389,8 @@
                     unloading();
                     console.log(data);
                     if (!data.status) {
-                        
-                         Swal.fire({
+
+                        Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
                             html: data.message
@@ -398,7 +406,7 @@
                         // });
                     }
                 })
-               
+
         });
     </script>
 
