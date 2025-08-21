@@ -80,12 +80,12 @@
     <script>
         if ($('#chart_sales').length > 0) {
             var options = {
-                series: [35, 40, 25], // Percentages for each section
+                series: {!! $json_a !!}, // Percentages for each section
                 chart: {
                     type: 'donut',
                     height: 300,
                 },
-                labels: ['Dell XPS 13', 'Nike T-shirt', 'Apple iPhone 15'], // Labels for the data
+                labels: {!! $labs !!}, // Labels for the data
                 colors: ['#F38BBB', '#5297FE', '#7DCEA0'], // Colors from the image
                 plotOptions: {
                     pie: {

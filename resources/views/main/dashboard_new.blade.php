@@ -514,18 +514,37 @@
                 </div> <!-- end card -->
             </div> <!-- end col -->
             <div class="col-md-6 col-xl-4 d-flex flex-column">
-                
+                {{-- {{ dd($top_products) }} --}}
                 <div class="card d-flex">
                     <div class="card-body flex-fill">
                         <h6 class="mb-3">Top Sales Statistics</h6>
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-1 mb-3">
+                             @php
+                                $colors = ['text-pink','text-secondary','text-success'];
+                                $total_quantity = 0;
+                                $labels = [];
+
+                            @endphp
+                            @foreach($top_products as $index => $top)
+                            @php
+                                $total_quantity = $total_quantity + $top->total_qty;
+                                array_push($labels, $top->product_name);
+                            @endphp
                             <p class="d-flex align-items-center fs-13 text-dark mb-0"><i
-                                    class="fa-solid fa-circle fs-8 me-1 text-pink"></i>Dell XPS 13</p>
-                            <p class="d-flex align-items-center fs-13 text-dark mb-0"><i
-                                    class="fa-solid fa-circle fs-8 me-1 text-secondary"></i>Nike T-shirt</p>
-                            <p class="d-flex align-items-center fs-13 text-dark mb-0"><i
-                                    class="fa-solid fa-circle fs-8 me-1 text-success"></i>Apple iPhone 15</p>
+                                    class="fa-solid fa-circle fs-8 me-1 {{ $colors[$index] }}"></i>{{ $top->product_name }}</p>
+
+                            @endforeach
+                            @php
+                                $labs = json_encode($labels);
+                                $a1 = $top_products[0]->total_qty / $total_quantity * 100;
+                                $a2 = $top_products[1]->total_qty / $total_quantity * 100;
+                                $a3 = $top_products[2]->total_qty / $total_quantity * 100;
+
+                                $arr_a = [$a1, $a2, $a3];
+                                $json_a = json_encode($arr_a);
+                            @endphp
                         </div>
+                           
                         <div id="chart_sales"></div>
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
