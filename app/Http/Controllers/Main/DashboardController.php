@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Converse;
 use App\Models\Debt;
 use App\Models\DebtPaymentHistory;
+use App\Models\InterProduct;
 use App\Models\InterPurchase;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Journal;
 use App\Models\JournalList;
+use App\Models\Material;
 use App\Models\MaterialPurchase;
 use App\Models\MdAdjustment;
 use App\Models\MdClient;
@@ -35,12 +37,14 @@ use App\Models\MlSellingCost;
 use App\Models\MlShorttermDebt;
 use App\Models\MtPengeluaranOutlet;
 use App\Models\Penjualan;
+use App\Models\Product;
 use App\Models\ProductManufacture;
 use App\Models\ProductPurchase;
 use App\Models\Receivable;
 use App\Models\ReceivablePaymentHistory;
 use App\Models\Shrinkage;
 use App\Models\StockOpname;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -335,6 +339,11 @@ class DashboardController extends Controller
         $penjualan_all = $penjualans->totalAll; // total semua penjualan
         $penjualan_not_paid = $penjualans->totalNotPaid;
 
+        $penjualan_8 = Penjualan::where('user_id', $this->user_id_manage(session('id')))
+            ->orderBy('custom_date', 'desc')
+            ->limit(8)
+            ->get();
+
         $purchase_goods = ProductPurchase::where('userid', $this->user_id_manage(session('id')))->sum('total_purchase');
         $purchase_materials = MaterialPurchase::where('userid', $this->user_id_manage(session('id')))->sum('total_purchase');
 
@@ -342,7 +351,53 @@ class DashboardController extends Controller
 
         $expenses = MdExpense::where('user_id', $this->user_id_manage(session('id')))->sum('amount');
 
-        return view('main.dashboard_new', compact('view', 'invoices', 'quotations', 'customers', 'all_customers', 'list_customers', 'overdue_total', 'penjualan_all', 'penjualan_not_paid', 'total_purchases', 'expenses'));
+        $products = Product::where('user_id', $this->user_id_manage(session('id')))->count();
+        $inters = InterProduct::where('userid', $this->user_id_manage(session('id')))->count();
+        $materials = Material::where('userid', $this->user_id_manage(session('id')))->count();
+
+        $year = date('Y');
+
+        // Total semua penjualan
+        $sales = Penjualan::selectRaw('MONTH(custom_date) as bulan, SUM(paid) as total')->whereYear('custom_date', $year)->groupBy('bulan')->pluck('total', 'bulan');
+
+        // Penjualan dengan status != 0 (anggap sudah dibayar)
+        $sales_received = Penjualan::selectRaw('MONTH(custom_date) as bulan, SUM(paid) as total')->whereYear('custom_date', $year)->where('payment_status', '!=', 1)->groupBy('bulan')->pluck('total', 'bulan');
+
+        // Susun array 1–12 bulan
+        $data_sale = [];
+        $data_sale_received = [];
+
+        for ($i = 1; $i <= 12; $i++) {
+            $data_sale[] = $sales[$i] ?? 0;
+            $data_sale_received[] = $sales_received[$i] ?? 0;
+        }
+
+        // Encode ke JSON biar gampang dipakai di JS
+        $data_sales = json_encode($data_sale);
+        $data_sales_received = json_encode($data_sale_received);
+
+        $recent = Penjualan::where('user_id', $this->user_id_manage(session('id')))
+            ->whereBetween('custom_date', [Carbon::yesterday()->startOfDay(), Carbon::today()->endOfDay()])
+            ->orderBy('custom_date', 'desc')
+            ->get()
+            ->groupBy(function ($item) {
+                if (\Carbon\Carbon::parse($item->custom_date)->isToday()) {
+                    return 'today';
+                } elseif (\Carbon\Carbon::parse($item->custom_date)->isYesterday()) {
+                    return 'yesterday';
+                }
+                return 'other';
+            })
+            ->map(function ($group) {
+                return $group->take(5); // ambil maksimal 2 per grup
+            });
+
+
+        $q_list = Invoice::where('user_id', $this->user_id_manage(session('id')))
+            ->where('is_quotation', 1)
+            ->get();
+
+        return view('main.dashboard_new', compact('view', 'invoices', 'quotations', 'customers', 'all_customers', 'list_customers', 'overdue_total', 'penjualan_all', 'penjualan_not_paid', 'total_purchases', 'expenses', 'products', 'inters', 'materials', 'year', 'data_sales', 'data_sales_received', 'penjualan_8','recent', 'q_list'));
     }
 
     public function journal_list()

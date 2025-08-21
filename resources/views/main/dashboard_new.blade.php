@@ -223,8 +223,8 @@
                             <div>
                                 <p class="mb-1">Total Products</p>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="fs-16 fw-semibold me-2">897</h6>
-                                    <span class="badge badge-sm badge-soft-success">+45<i
+                                    <h6 class="fs-16 fw-semibold me-2">{{ number_format($products) }}</h6>
+                                    <span class="badge badge-sm badge-soft-success"><i
                                             class="isax isax-arrow-up-15 ms-1"></i></span>
                                 </div>
                             </div>
@@ -232,8 +232,8 @@
                                 <i class="isax isax-document-text fs-16"></i>
                             </span>
                         </div>
-                        <a href="inventory.html" class="fw-medium text-decoration-underline">View
-                            Inventory</a>
+                        <a href="{{ url('product') }}" class="fw-medium text-decoration-underline">View
+                            All Product</a>
                     </div> <!-- end card body -->
                     <div class="position-absolute end-0 bottom-0 z-n1">
                         <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-01.svg" alt="img">
@@ -245,10 +245,10 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
                             <div>
-                                <p class="mb-1">Total Sales</p>
+                                <p class="mb-1">Total Product 1/2 Jadi</p>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="fs-16 fw-semibold me-2">645</h6>
-                                    <span class="badge badge-sm badge-soft-success">+45<i
+                                    <h6 class="fs-16 fw-semibold me-2">{{ $inters }}</h6>
+                                    <span class="badge badge-sm badge-soft-success"><i
                                             class="isax isax-arrow-up-15 ms-1"></i></span>
                                 </div>
                             </div>
@@ -256,8 +256,8 @@
                                 <i class="isax isax-document-text fs-16"></i>
                             </span>
                         </div>
-                        <a href="invoices.html" class="fw-medium text-decoration-underline">View
-                            Invoices</a>
+                        <a href="{{ url('inter_product') }}" class="fw-medium text-decoration-underline">View
+                            All Product 1/2 Jadi</a>
                     </div> <!-- end card body -->
                     <div class="position-absolute end-0 bottom-0 z-n1">
                         <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-02.svg" alt="img">
@@ -269,10 +269,10 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
                             <div>
-                                <p class="mb-1">Total Quotations</p>
+                                <p class="mb-1">Total Material</p>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="fs-16 fw-semibold me-2">128</h6>
-                                    <span class="badge badge-sm badge-soft-success">+45<i
+                                    <h6 class="fs-16 fw-semibold me-2">{{ $materials }}</h6>
+                                    <span class="badge badge-sm badge-soft-success"><i
                                             class="isax isax-arrow-up-15 ms-1"></i></span>
                                 </div>
                             </div>
@@ -280,7 +280,7 @@
                                 <i class="isax isax-document-text fs-16"></i>
                             </span>
                         </div>
-                        <a href="quotations.html" class="fw-medium text-decoration-underline">View All</a>
+                        <a href="{{ url('main_material') }}" class="fw-medium text-decoration-underline">View All Material</a>
                     </div> <!-- end card body -->
                     <div class="position-absolute end-0 bottom-0 z-n1">
                         <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-03.svg" alt="img">
@@ -300,10 +300,10 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
                             <div>
-                                <p class="mb-1">Total Revenue</p>
+                                <p class="mb-1">Total Sales</p>
                                 <div class="d-flex align-items-center">
-                                    <h6 class="fs-16 fw-semibold me-2">897</h6>
-                                    <span class="badge badge-sm badge-soft-success">+45<i
+                                    <h6 class="fs-16 fw-semibold me-2">{{ number_format($penjualan_all) }}</h6>
+                                    <span class="badge badge-sm badge-soft-success"><i
                                             class="isax isax-arrow-up-15 ms-1"></i></span>
                                 </div>
                             </div>
@@ -315,7 +315,8 @@
                                         class="fa-solid fa-circle text-primary fs-12 me-1"></i>Outstanding</p>
                             </div>
                         </div>
-                        <div id="revenue_chart"></div>
+                        <div id="revenue_charts"></div>
+                       
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->
@@ -332,33 +333,24 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
+                                                <a href="javascript:void(0);"
                                                     class="avatar avatar-lg rounded-circle me-2 flex-shrink-0">
                                                     <img src="{{ asset('reskin') }}/assets/img/users/user-06.jpg"
                                                         class="rounded-circle" alt="img">
                                                 </a>
                                                 <div>
                                                     <h6 class="fs-14 fw-medium mb-1"><a
-                                                            href="customer-details.html">{{ $cl->name }}</a></h6>
-                                                    <p class="fs-13">{{ $cl->phone }}</p>
+                                                            href="javascript:void(0);">{{ $cl->name }}</a></h6>
+                                                    
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <p class="mb-1">{{ $cl->email }} </p>
-                                            <h6 class="fs-14 fw-semibold">$3589</h6>
+                                            
                                         </td>
                                         <td>
-                                            <div class="d-flex align-items-center justify-content-end gap-2">
-                                                <a href="add-invoice.html" class="btn btn-icon btn-sm btn-light"
-                                                    data-bs-toggle="tooltip" data-bs-title="New Invoice"><i
-                                                        class="isax isax-add-circle"></i></a>
-                                                <div data-bs-toggle="tooltip" data-bs-title="Add Ledger">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-light"
-                                                        data-bs-toggle="modal" data-bs-target="#add_ledger"><i
-                                                            class="isax isax-document-text-1"></i></a>
-                                                </div>
-                                            </div>
+                                           <p class="fs-13">{{ $cl->phone }}</p>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -379,8 +371,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap mb-3">
-                            <h6 class="mb-1">Invoices</h6>
-                            <a href="invoices.html" class="btn btn-primary mb-1">View all Invoices</a>
+                            <h6 class="mb-1">Sales</h6>
+                            <a href="{{ url('manajemen-pesanan') }}" class="btn btn-primary mb-1">View all Sales</a>
                         </div>
                         <div class="table-responsive no-filter no-pagination">
                             <table class="table table-nowrap border mb-0">
@@ -391,199 +383,32 @@
                                         <th>Created On</th>
                                         <th>Amount</th>
                                         <th>Paid</th>
-                                        <th>Payment Mode</th>
-                                        <th>Due Date</th>
+                                        <th>Payment Method</th>
+                                        <th>Note</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    @foreach($penjualan_8 as $p8)
                                     <tr>
                                         <td>
-                                            <a href="invoice-details.html" class="link-default">INV00025</a>
+                                            <a href="javascript:void(0);" class="link-default">{{ $p8->reference }}</a>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-22.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
                                                 <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">Emily Clark</a></h6>
+                                                    <h6 class="fs-14 fw-medium mb-0">
+                                                        <a href="javascript:void(0);">{{ $p8->customer_id == null ? $p8->cust_name : $p8->customer->name }}</a></h6>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>22 Feb 2025</td>
-                                        <td class="text-dark">$10,000</td>
-                                        <td>$5,000</td>
-                                        <td class="text-dark">Cash</td>
-                                        <td>04 Mar 2025</td>
+                                        <td>{{ date('d M Y', strtotime($p8->created_at)) }}</td>
+                                        <td class="text-dark">Rp. {{ number_format($p8->order_total) }}</td>
+                                        <td>Rp. {{ number_format($p8->paid) }}</td>
+                                        <td class="text-dark">{{ $p8->payment_method === 'randu-wallet' ? 'wallet' : $p8->payment_method }}</td>
+                                        <td><?= $p8->detail ;?></td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00024</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-07.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">John Carter</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>07 Feb 2025</td>
-                                        <td class="text-dark">$25,750</td>
-                                        <td>$5,000</td>
-                                        <td class="text-dark">Check</td>
-                                        <td>20 Feb 2025</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00023</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-16.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">Sophia White</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>09 Dec 2024</td>
-                                        <td class="text-dark">$1,20,500</td>
-                                        <td>$60,000</td>
-                                        <td class="text-dark">Check</td>
-                                        <td>12 Nov 2024</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00022</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-08.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">Michael Johnson</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>30 Nov 2024</td>
-                                        <td class="text-dark">$7,50,300</td>
-                                        <td>$60,000</td>
-                                        <td class="text-dark">Check</td>
-                                        <td>25 Oct 2024</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00016</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-15.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">Daniel Martinez</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>12 Oct 2024</td>
-                                        <td class="text-dark">$9,99,999</td>
-                                        <td>$4,00,000</td>
-                                        <td class="text-dark">Cash</td>
-                                        <td>18 Oct 2024</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00015</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-27.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">Charlotte Brown</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>05 Oct 2024</td>
-                                        <td class="text-dark">$87,650</td>
-                                        <td>$40,000</td>
-                                        <td class="text-dark">Check</td>
-                                        <td>22 Sep 2024</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00014</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-14.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">William Parker</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>09 Sep 2024</td>
-                                        <td class="text-dark">$69,420</td>
-                                        <td>$30,000</td>
-                                        <td class="text-dark">Cash</td>
-                                        <td>15 Sep 2024</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="invoice-details.html" class="link-default">INV00013</a>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <a href="customer-details.html"
-                                                    class="avatar avatar-sm rounded-circle me-2 flex-shrink-0">
-                                                    <img src="{{ asset('reskin') }}/assets/img/users/user-25.jpg"
-                                                        class="rounded-circle" alt="img">
-                                                </a>
-                                                <div>
-                                                    <h6 class="fs-14 fw-medium mb-0"><a
-                                                            href="customer-details.html">Mia Thompson</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>02 Sep 2024</td>
-                                        <td class="text-dark">$33,210</td>
-                                        <td>$15,000</td>
-                                        <td class="text-dark">Check</td>
-                                        <td>20 Aug 2024</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -602,6 +427,8 @@
                             <h6 class="mb-1">Recent Transactions</h6>
                         </div>
                         <h6 class="fs-14 fw-semibold mb-3">Today</h6>
+
+                        @foreach ($recent['today'] ?? [] as $p)
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <div class="d-flex align-items-center">
                                 <a href="javascript:void(0);" class="avatar avatar-md flex-shrink-0 me-2">
@@ -609,35 +436,23 @@
                                         class="rounded-circle" alt="img">
                                 </a>
                                 <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">Andrew
-                                            James</a></h6>
-                                    <p class="fs-13"><a href="invoice-details.html"
-                                            class="link-default">#INV45478</a></p>
+                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">{{ $p->customer_id == null ? $p->cust_name : $p->customer->name }}</a></h6>
+                                    <p class="fs-13"><a href="javascript:void(0);"
+                                            class="link-default">#{{ $p->reference }}</a></p>
                                 </div>
                             </div>
                             <div class="text-end">
-                                <span class="badge badge-lg badge-soft-success">+ $989.15</span>
+                                <span class="badge badge-lg badge-soft-success">{{ number_format($p->paid) }}</span>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center">
-                                <a href="javascript:void(0);" class="avatar avatar-md flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/icons/transaction-02.svg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">John
-                                            Carter</a></h6>
-                                    <p class="fs-13"><a href="invoice-details.html"
-                                            class="link-default">#INV45477</a></p>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge badge-lg badge-soft-danger">- $300.12</span>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                         <hr>
                         <h6 class="fs-14 fw-semibold mb-3">Yesterday</h6>
+
+                        @foreach ($recent['yesterday'] ?? [] as $p)
+
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <div class="d-flex align-items-center">
                                 <a href="javascript:void(0);" class="avatar avatar-md flex-shrink-0 me-2">
@@ -645,50 +460,18 @@
                                         class="rounded-circle" alt="img">
                                 </a>
                                 <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">Sophia
-                                            White</a></h6>
-                                    <p class="fs-13"><a href="invoice-details.html"
-                                            class="link-default">#INV45476</a></p>
+                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">{{ $p->customer_id == null ? $p->cust_name : $p->customer->name }}</a></h6>
+                                    <p class="fs-13"><a href="javascript:void(0);"
+                                            class="link-default">#{{ $p->reference }}</a></p>
                                 </div>
                             </div>
                             <div class="text-end">
-                                <span class="badge badge-lg badge-soft-success"> + $669</span>
+                                <span class="badge badge-lg badge-soft-success">{{ number_format($p->paid) }}</span>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center">
-                                <a href="javascript:void(0);" class="avatar avatar-md flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/icons/transaction-02.svg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">Daniel
-                                            Martinez</a></h6>
-                                    <p class="fs-13"><a href="invoice-details.html"
-                                            class="link-default">#INV45475</a></p>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge badge-lg badge-soft-success"> + $474.22</span>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center">
-                                <a href="javascript:void(0);" class="avatar avatar-md flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/icons/transaction-01.svg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">Amelia
-                                            Robinson</a></h6>
-                                    <p class="fs-13"><a href="invoice-details.html"
-                                            class="link-default">#INV45474</a></p>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge badge-lg badge-soft-success"> + $339.79</span>
-                            </div>
-                        </div>
+
+                        @endforeach
+                       
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->
@@ -699,121 +482,39 @@
                         <div class="mb-3">
                             <h6 class="mb-1">Quotations</h6>
                         </div>
+
+                        @foreach($q_list as $qlist)
                         <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
                             <div class="d-flex align-items-center">
-                                <a href="customer-details.html" class="avatar avatar-lg flex-shrink-0 me-2">
+                                <a href="javascript:void(0);" class="avatar avatar-lg flex-shrink-0 me-2">
                                     <img src="{{ asset('reskin') }}/assets/img/users/user-02.jpg"
                                         class="rounded-circle" alt="img">
                                 </a>
                                 <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="customer-details.html">Emily
-                                            Clark</a></h6>
-                                    <p class="fs-13">QU0014</p>
+                                    <h6 class="fs-14 fw-semibold mb-1"><a href="javascript:void(0);">{{ $qlist->name }}</a></h6>
+                                    <p class="fs-13">{{ $qlist->invoice_number }}</p>
                                 </div>
                             </div>
                             <div class="text-end">
+                                @if($qlist->status === 1)
                                 <span
-                                    class="badge badge-sm badge-soft-success d-inline-flex align-items-center mb-1">Accepted<i
+                                    class="badge badge-sm badge-soft-success d-inline-flex align-items-center mb-1">Paid<i
                                         class="isax isax-tick-circle ms-1"></i></span>
-                                <p class="fs-13">25 Mar 2025</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
-                            <div class="d-flex align-items-center">
-                                <a href="customer-details.html" class="avatar avatar-lg flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/users/user-07.jpg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="customer-details.html">David
-                                            Anderson</a></h6>
-                                    <p class="fs-13">QU0147</p>
-                                </div>
-                            </div>
-                            <div class="text-end">
+
+                                @else
                                 <span
-                                    class="badge badge-sm badge-soft-info d-inline-flex align-items-center mb-1">Sent<i
-                                        class="isax isax-arrow-right-24 ms-1"></i></span>
-                                <p class="fs-13">12 Feb 2025</p>
+                                    class="badge badge-sm badge-soft-danger d-inline-flex align-items-center mb-1">Not Paid<i
+                                        class="isax isax-delete-circle ms-1"></i></span>
+                                @endif
+                                <p class="fs-13">{{ date('d M Y', strtotime($qlist->due_date)) }}</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
-                            <div class="d-flex align-items-center">
-                                <a href="customer-details.html" class="avatar avatar-lg flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/users/user-16.jpg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="customer-details.html">Sophia
-                                            White</a></h6>
-                                    <p class="fs-13">QU1947</p>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <span
-                                    class="badge badge-sm badge-soft-light d-inline-flex align-items-center text-dark mb-1">Expired<i
-                                        class="isax isax-timer-pause ms-1"></i></span>
-                                <p class="fs-13">08 Mar 2025</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
-                            <div class="d-flex align-items-center">
-                                <a href="customer-details.html" class="avatar avatar-lg flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/users/user-08.jpg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="customer-details.html">Michael
-                                            Johnson</a></h6>
-                                    <p class="fs-13">QU2842</p>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <span
-                                    class="badge badge-sm badge-soft-danger d-inline-flex align-items-center mb-1">Declined<i
-                                        class="isax isax-close-circle ms-1"></i></span>
-                                <p class="fs-13">31 Jan 2025</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <a href="customer-details.html" class="avatar avatar-lg flex-shrink-0 me-2">
-                                    <img src="{{ asset('reskin') }}/assets/img/users/user-22.jpg"
-                                        class="rounded-circle" alt="img">
-                                </a>
-                                <div>
-                                    <h6 class="fs-14 fw-semibold mb-1"><a href="customer-details.html">Emily
-                                            Clark</a></h6>
-                                    <p class="fs-13">QU7868</p>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <span
-                                    class="badge badge-sm badge-soft-success d-inline-flex align-items-center mb-1">Accepted<i
-                                        class="isax isax-tick-circle ms-1"></i></span>
-                                <p class="fs-13">18 Jan 2025</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->
             <div class="col-md-6 col-xl-4 d-flex flex-column">
-                <div class="card d-flex">
-                    <div class="card-body flex-fill">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div>
-                                <p class="mb-1">Total Income on Invoice</p>
-                                <h6 class="fs-16 fw-semibold">$98,545</h6>
-                            </div>
-                            <div>
-                                <h6 class="fs-14 fw-semibold mb-1">30.2 <i
-                                        class="isax isax-arrow-circle-up4 text-success"></i></h6>
-                                <p class="fs-13">Vs Last Week</p>
-                            </div>
-                        </div>
-                    </div> <!-- end card body -->
-                    <div id="invoice_income"></div>
-                </div> <!-- end card -->
+                
                 <div class="card d-flex">
                     <div class="card-body flex-fill">
                         <h6 class="mb-3">Top Sales Statistics</h6>
@@ -825,7 +526,7 @@
                             <p class="d-flex align-items-center fs-13 text-dark mb-0"><i
                                     class="fa-solid fa-circle fs-8 me-1 text-success"></i>Apple iPhone 15</p>
                         </div>
-                        <div id="total_sales"></div>
+                        <div id="chart_sales"></div>
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
             </div> <!-- end col -->
