@@ -56,7 +56,7 @@
                 </div>
                 <div class="content" style="background: whitesmoke;margin-bottom:20px;padding-bottom:20px;">
                     <div class="grid grid-cols-3 gap-[10px]">
-                        <div
+                        {{-- <div
                             class="col-span-1 px-3 rounded-[10px] h-[100px] text-white font-bold items-center flex flex-col lg:flex-row justify-center lg:justify-between bg-gradient-to-r from-amber-500 to-amber-800">
                             <div class="hidden lg:block md:text-[17px] xl:text-[20px] md:leading-[20px] xl:leading-[23px]">
                                 Total<br /> Transaksi</div>
@@ -77,11 +77,48 @@
                             class="col-span-1 px-3 rounded-[10px] h-[100px] text-white font-bold items-center flex flex-col lg:flex-row justify-center lg:justify-between bg-gradient-to-r from-rose-500 to-rose-800">
                             <div class="md:text-[17px] xl:text-[20px] md:leading-[20px] xl:leading-[23px]">Kembalian</div>
                             <div class="text-[15px]">@{{ `Rp ${new Intl.NumberFormat().format(data.value.total_customer_payment ? data.value.total_customer_payment - data.storage.paid : 0)}` }}</div>
+                        </div> --}}
+
+                        <div class="card bg-light shadow-none flex-fill w-100 rounded-3">
+                            <div class="card-body p-3">
+                                <div class="avatar avatar-xl bg-white rounded-3 mb-3">
+                                    <img src="{{ asset('reskin') }}/assets/img/icons/info-icon-01.svg" alt="img"
+                                        class="rounded-3 img-fluid w-auto h-auto">
+                                </div>
+                                <p class="mb-1 text-gray-9 text-truncate">Total Transaksi</p>
+                                <h6 class="mb-1 fs-16 fw-semibold">@{{ `Rp ${new Intl.NumberFormat().format(data.storage.paid)}` }}</h6>
+                               
+                            </div><!-- end card body -->
                         </div>
+
+                        <div class="card bg-light shadow-none flex-fill w-100 rounded-3">
+                            <div class="card-body p-3">
+                                <div class="avatar avatar-xl bg-white rounded-3 mb-3">
+                                    <img src="{{ asset('reskin') }}/assets/img/icons/info-icon-02.svg" alt="img"
+                                        class="rounded-3 img-fluid w-auto h-auto">
+                                </div>
+                                <p class="mb-1 text-gray-9 text-truncate">Total Pembayaran</p>
+                                <h6 class="mb-1 fs-16 fw-semibold">@{{ `Rp ${new Intl.NumberFormat().format(data.value.total_customer_payment)}` }}</h6>
+                               
+                            </div><!-- end card body -->
+                        </div>
+
+                        <div class="card bg-light shadow-none flex-fill w-100 rounded-3">
+                            <div class="card-body p-3">
+                                <div class="avatar avatar-xl bg-white rounded-3 mb-3">
+                                    <img src="{{ asset('reskin') }}/assets/img/icons/info-icon-03.svg" alt="img"
+                                        class="rounded-3 img-fluid w-auto h-auto">
+                                </div>
+                                <p class="mb-1 text-gray-9 text-truncate">Kembalian</p>
+                                <h6 class="mb-1 fs-16 fw-semibold">@{{ `Rp ${new Intl.NumberFormat().format(data.value.total_customer_payment ? data.value.total_customer_payment - data.storage.paid : 0)}` }}</h6>
+                               
+                            </div><!-- end card body -->
+                        </div>
+
                     </div>
                     <div class="grid grid-cols-3 gap-[10px] mt-[16px]">
-                        <div class="hidden md:block col-span-1">
-                            <div class="flex flex-col gap-[10px] bg-[#1086e3] p-4 rounded-[10px]">
+                        <div class="hidden md:block col-span-12">
+                            <div class="flex flex-row gap-[10px] bg-[#1086e3] p-4 rounded-[10px]">
                                 <div v-for="(item, index) in data.payment_methods" :key="index"
                                     :class="{
                                         'w-full cursor-pointer transitions-all duration-200 h-[100px] flex flex-col justify-center items-center text-white px-3 rounded-[10px] text-[18px] hover:bg-[#0f6bb6]': true,
@@ -91,13 +128,13 @@
                                         'hidden': item.selected === false
                                     }"
                                     @click="methods.selectSidebar(item)">
-                                    <div class="md:text-[16px] xl:text-[23px] text-center font-bold">@{{ item.method }}
+                                    <div class="md:text-[14px] xl:text-[14px] text-center font-bold">@{{ item.method }}
                                     </div>
-                                    <div class="md:text-[12px] xl:text-[15px] text-center">@{{ item.description }}</div>
+                                    <div class="md:text-[12px] xl:text-[15px] text-center"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-3 md:col-span-2">
+                        <div class="col-span-3 md:col-span-12">
                             <div class="card h-full">
                                 <div class="card-body relative">
                                     <div class="block md:hidden">
@@ -141,8 +178,7 @@
                                                 :class="{
                                                     'border-2 col-span-1 cursor-pointer hover:bg-gray-100 transitions-all duration-200 h-[60px] shadow shadow-sm font-medium text-[16px] -tracking-[2%] text-black rounded-[12px] flex items-center justify-center': true,
                                                     'border-blue-400': data.value.tunai.selected_type === 'Uang Pas'
-                                                }"
-                                            >
+                                                }">
                                                 Uang Pas
                                             </div>
                                             <div @click="() => {
@@ -152,8 +188,7 @@
                                                 :class="{
                                                     'border-2 col-span-1 cursor-pointer hover:bg-gray-100 transitions-all duration-200 h-[60px] shadow shadow-sm font-medium text-[16px] -tracking-[2%] text-black rounded-[12px] flex items-center justify-center': true,
                                                     'border-blue-400': data.value.tunai.selected_type === 'Jumlah Lain'
-                                                }"
-                                            >
+                                                }">
                                                 Jumlah Lain
                                             </div>
                                             <div @click="() => {
@@ -163,8 +198,7 @@
                                                 :class="{
                                                     'border-2 col-span-1 cursor-pointer hover:bg-gray-100 transitions-all duration-200 h-[60px] shadow shadow-sm font-medium text-[16px] -tracking-[2%] text-black rounded-[12px] flex items-center justify-center': true,
                                                     'border-blue-400': data.value.tunai.selected_type === 'Input Manual'
-                                                }"
-                                            >
+                                                }">
                                                 Input Manual
                                             </div>
                                             <div class="col-span-3" v-if="data.value.tunai.selected_type === 'Jumlah Lain'">
@@ -374,7 +408,8 @@
                                         <a href="/pos/index"
                                             class="flex-grow py-3 text-[16px] text-white font-bold rounded-[16px] bg-red-400 hover:bg-red-600 flex transitions-all duration-200 items-center justify-center">
                                             <i class="fas fa-chevron-left me-2"></i> Kembali Ke POS </a>
-                                        <button :disabled="data.paymentProgress" type="button" @click="methods.onProcess"
+                                        <button :disabled="data.paymentProgress" type="button"
+                                            @click="methods.onProcess"
                                             class="flex-grow py-3 text-[16px] text-white font-bold rounded-[16px] bg-emerald-400 hover:bg-emerald-600 flex transitions-all duration-200 items-center justify-center">
                                             Proses Transaksi <i v-if="data.paymentProgress"
                                                 class="fas fa-spinner fa-spin ms-2"></i><i v-else

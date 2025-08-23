@@ -199,7 +199,7 @@
 
                     <li class="submenu">
                         <a href="javascript:void(0);" class="{{ $segment === 'crm' ? 'active subdrop' : '' }}">
-                            <i class="isax isax-profile-2user5"></i><span>Database <br>Pelanggan</span>
+                            <i class="isax isax-profile-2user5"></i><span>Pelanggan</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul>
@@ -301,7 +301,7 @@
 
                         <li class="submenu">
                             <a href="javascript:void(0);" class="{{ ($segment === 'product_purchase' || $segment === 'material_purchase' || $segment === 'main_supplier' ) ? 'active subdrop' : '' }}">
-                                <i class="isax isax-moneys5"></i><span>Pembelian Stok &<br>Bahan Baku</span>
+                                <i class="isax isax-moneys5"></i><span>Pembelian</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
@@ -317,7 +317,7 @@
 
                         <li class="submenu">
                             <a href="javascript:void(0);" class="{{ ($segment === 'inter_product' || $segment === 'main_material' || $segment === 'product_manufacture' || $segment === 'inter_purchase' ) ? 'active subdrop' : '' }}">
-                                <i class="isax isax-card-tick-15"></i><span>Aktifitas Produksi <br>(Manufaktur)</span>
+                                <i class="isax isax-card-tick-15"></i><span>Aktifitas Produksi</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
@@ -354,7 +354,7 @@
                         
                         <li>
                             <a class="{{ $segment === 'payment-method-setting' ? 'active' : '' }}" href="{{ url('payment-method-setting') }}">
-                                <i class="isax isax-money5"></i><span>Kas dan Rekening<br> Bank</span>
+                                <i class="isax isax-money5"></i><span>Kas dan Bank</span>
                             </a>
                         </li>
                         <li class="submenu">
@@ -404,7 +404,7 @@
                                     ($segment === 'laporan' && $segment2 === 'pajak') ? 'active subdrop' : ''
 
                                 }}">
-                                <i class="isax isax-chart-35"></i><span>Laporan Keuangan <br>dan Pajak</span>
+                                <i class="isax isax-chart-35"></i><span>Laporan Keuangan</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
@@ -438,7 +438,7 @@
 
                         <li class="submenu">
                             <a href="javascript:void(0);" class="{{ $segment === 'staff' ? 'active subdrop' : '' }}">
-                                <i class="isax isax-profile-2user5"></i><span>Kelola Cabang <br> dan Staff</span>
+                                <i class="isax isax-profile-2user5"></i><span>Cabang dan Staff</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
@@ -457,7 +457,7 @@
                                 ($segment === 'laporan' && $segment2 === 'absensi-by-date')) ? 'active subdrop' : ''
                             }}
                             ">
-                                <i class="isax isax-finger-scan5"></i><span>Absensi dan <br>Kinerja Tim</span>
+                                <i class="isax isax-finger-scan5"></i><span>Absensi dan Tim</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
@@ -473,7 +473,7 @@
 
                         <li class="submenu">
                             <a href="javascript:void(0);" class="{{ $segment === 'qr-code' || $segment === 'print-qr-code' ? 'active subdrop' : ''  }}">
-                                <i class="isax isax-scan-barcode5"></i><span>QR Code Pesanan<br> Meja</span>
+                                <i class="isax isax-scan-barcode5"></i><span>QR Code Meja</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>

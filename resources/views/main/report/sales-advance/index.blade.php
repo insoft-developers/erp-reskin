@@ -47,7 +47,8 @@
         .text-right {
             text-align: right;
         }
-        .fs-15{
+
+        .fs-15 {
             font-size: 16px !important;
         }
 
@@ -76,216 +77,424 @@
 @section('content')
     @if (!$userKey)
         <div class="page-wrapper" style="padding-bottom: 100px;">
-           
-               
-                <div class="content" style="background: whitesmoke;">
-                    <div class="row">
-                        <!-- [Leads] start -->
-                        <div class="col-xxl-12">
-                            <div class="card stretch stretch-full">
-                                <div class="card-header">
-                                    <h5 class="card-title">Penjualan Per Product</h5>
-                                </div>
-                                <div class="card-body custom-card-action p-3">
-                                    <div class="row mb-4">
-                                        <div class="col-xl-2">
-                                            <div class="input-group">
-                                                <select class="form-select" id="select_date" name="date">
-                                                    <option value="isToday">Hari ini</option>
-                                                    <option value="isYesterday">Kemarin</option>
-                                                    <option value="isThisMonth" selected>Bulan Ini</option>
-                                                    <option value="isLastMonth">Bulan Kemarin</option>
-                                                    <option value="isThisYear">Tahun Ini</option>
-                                                    <option value="isLastYear">Tahun Kemarin</option>
-                                                    <option value="isRangeDate">Custom Range</option>
-                                                </select>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-xl-2">
-                                            <div class="input-group">
-                                                <select class="form-select" id="select_staff" name="staff_id">
-                                                    <option value="">Semua Staf</option>
-                                                    @foreach ($staffs as $staff)
-                                                        <option value="{{ $staff->id }}">{{ $staff->fullname }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-xl-2">
-                                            <div class="input-group">
-                                                <select class="form-select" id="select_flag" name="flag_id">
-                                                    <option value="">Semua Flag</option>
-                                                    @foreach ($flags as $flag)
-                                                        <option value="{{ $flag->id }}">{{ $flag->flag }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+            <div class="content" style="background: whitesmoke;">
+                <div class="row">
+                    <!-- [Leads] start -->
+                    <div class="col-xxl-12">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Penjualan Per Product</h5>
+                            </div>
+                            <div class="card-body custom-card-action p-3">
+                                <div class="row mb-4">
+                                    <div class="col-xl-2">
+                                        <div class="input-group">
+                                            <select class="form-select" id="select_date" name="date">
+                                                <option value="isToday">Hari ini</option>
+                                                <option value="isYesterday">Kemarin</option>
+                                                <option value="isThisMonth" selected>Bulan Ini</option>
+                                                <option value="isLastMonth">Bulan Kemarin</option>
+                                                <option value="isThisYear">Tahun Ini</option>
+                                                <option value="isLastYear">Tahun Kemarin</option>
+                                                <option value="isRangeDate">Custom Range</option>
+                                            </select>
                                         </div>
+                                    </div>
 
-                                        <div class="col-xl-2">
-                                            <select id="payment_method" class="form-select">
-                                                <option value="">Semua Metode Pembayaran</option>
-                                                @foreach ($paymentMethods as $br)
-                                                    <option value="{{ $br }}">{{ $br }}</option>
+                                    <div class="col-xl-2">
+                                        <div class="input-group">
+                                            <select class="form-select" id="select_staff" name="staff_id">
+                                                <option value="">Semua Staf</option>
+                                                @foreach ($staffs as $staff)
+                                                    <option value="{{ $staff->id }}">{{ $staff->fullname }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
+                                    </div>
 
-                                        <div class="col-xl-2">
-                                            <select id="search-price-type" class="form-select col form-select-sm"
-                                                aria-controls="landing-pages-table">
-                                                <option value="">Semua Jenis Harga</option>
-                                                <option value="price">Default - Dine In</option>
-                                                <option value="price_ta">Takeaway - Delivery</option>
-                                                <option value="price_mp">Marketplace</option>
-                                                <option value="price_cus">Custom</option>
+                                    <div class="col-xl-2">
+                                        <div class="input-group">
+                                            <select class="form-select" id="select_flag" name="flag_id">
+                                                <option value="">Semua Flag</option>
+                                                @foreach ($flags as $flag)
+                                                    <option value="{{ $flag->id }}">{{ $flag->flag }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
-
-                                        <div class="col" id="start_date_div" hidden>
-                                            <input type="date" name="start_date" id="start_date" class="form-control"
-                                                placeholder="dd/mm/yyyy">
-                                        </div>
-                                        <div class="col" id="end_date_div" hidden>
-                                            <input type="date" name="end_date" id="end_date" class="form-control"
-                                                placeholder="dd/mm/yyyy">
-                                        </div>
                                     </div>
 
-                                    <div class="row my-4">
-                                        <div class="col-12">
-                                            <div style="display: flex; gap: 10px;">
-                                                <button type='submit' class='btn btn-primary' onclick="filter()"><i
-                                                        class="feather-filter"></i> Filter</button>
-                                                <button type="button" class="btn btn-success" id="export-btn"
-                                                    onclick="exportExcelData()"><i class="feather-download"></i> Export
-                                                    Xls</button>
-                                                <button type="button" class="btn btn-warning" id="export-btn"
-                                                    onclick="exportPdfData()"><i class="feather-download"></i> Export
-                                                    Pdf</button>
-                                            </div>
-                                        </div>
+                                    <div class="col-xl-2">
+                                        <select id="payment_method" class="form-select">
+                                            <option value="">Semua Metode Pembayaran</option>
+                                            @foreach ($paymentMethods as $br)
+                                                <option value="{{ $br }}">{{ $br }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid1"
+                                    <div class="col-xl-2">
+                                        <select id="search-price-type" class="form-select col form-select-sm"
+                                            aria-controls="landing-pages-table">
+                                            <option value="">Semua Jenis Harga</option>
+                                            <option value="price">Default - Dine In</option>
+                                            <option value="price_ta">Takeaway - Delivery</option>
+                                            <option value="price_mp">Marketplace</option>
+                                            <option value="price_cus">Custom</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col" id="start_date_div" hidden>
+                                        <input type="date" name="start_date" id="start_date" class="form-control"
+                                            placeholder="dd/mm/yyyy">
+                                    </div>
+                                    <div class="col" id="end_date_div" hidden>
+                                        <input type="date" name="end_date" id="end_date" class="form-control"
+                                            placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+
+                                <div class="row my-4">
+                                    <div class="col-12">
+                                        <div style="display: flex; gap: 10px;">
+                                            <button type='submit' class='btn btn-primary' onclick="filter()"><i
+                                                    class="feather-filter"></i> Filter</button>
+                                            <button type="button" class="btn btn-success" id="export-btn"
+                                                onclick="exportExcelData()"><i class="feather-download"></i> Export
+                                                Xls</button>
+                                            <button type="button" class="btn btn-warning" id="export-btn"
+                                                onclick="exportPdfData()"><i class="feather-download"></i> Export
+                                                Pdf</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid1"
                                                 style="background-color: #4CAF50 !important;">
                                                 <i class="bi bi-bag icon"></i>
                                                 <div class="text-right mt-4">
                                                     <div id="omset_penjualan">-</div>
-                                                    {{-- SUM COLUMN PAID --}}
+                                                   
                                                     <div class="fs-15">Omset Penjualan</div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid1"
-                                                style="background-color: #64B5F6 !important;">
-                                                <i class="bi bi-bag icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="jumlah_terjual">-</div>
-                                                    <div class="fs-15">Jumlah Terjual</div>
+                                            </div> --}}
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Omset Penjualan</p>
+                                                        <h6 class="fs-16 fw-semibold" id="omset_penjualan"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-success text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
                                                 </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Total Omset Penjualan</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-05.svg"
+                                                    alt="img">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid3"
-                                                style="background-color: #F44336 !important;">
-                                                <i class="bi bi-wallet2 icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="biaya">-</div>
-                                                    <div class="fs-15">Biaya Biaya</div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid1" style="background-color: #64B5F6 !important;">
+                                            <i class="bi bi-bag icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="jumlah_terjual">-</div>
+                                                <div class="fs-15">Jumlah Terjual</div>
+                                            </div>
+                                        </div> --}}
+
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Jumlah Terjual</p>
+                                                        <h6 class="fs-16 fw-semibold" id="jumlah_terjual"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-secondary text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
                                                 </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Total Jumlah Terjual</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-04.svg"
+                                                    alt="img">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid3"
-                                                style="background-color: #E57373 !important;">
-                                                <i class="bi bi-wallet2 icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="total_ongkir">-</div>
-                                                    {{-- SUM SHIPPING --}}
-                                                    <div class="fs-15">Total Ongkir (+)</div>
+
+
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid3"
+                                            style="background-color: #F44336 !important;">
+                                            <i class="bi bi-wallet2 icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="biaya">-</div>
+                                                <div class="fs-15">Biaya Biaya</div>
+                                            </div>
+                                        </div> --}}
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Biaya Biaya</p>
+                                                        <h6 class="fs-16 fw-semibold" id="biaya"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-danger text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
                                                 </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Total Semua Biaya</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-07.svg"
+                                                    alt="img">
                                             </div>
                                         </div>
-                                        {{-- <div class="col-md-4 mb-3">
-                                        <div class="dashboard-card bg-grid2"
-                                            style="background-color: #42A5F5 !important;">
+
+
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid3"
+                                            style="background-color: #E57373 !important;">
+                                            <i class="bi bi-wallet2 icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="total_ongkir">-</div>
+
+                                                <div class="fs-15">Total Ongkir (+)</div>
+                                            </div>
+                                        </div> --}}
+
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Ongkir</p>
+                                                        <h6 class="fs-16 fw-semibold" id="total_ongkir"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-warning text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
+                                                </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Total Ongkir</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-06.svg"
+                                                    alt="img">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid2"
+                                            style="background-color: orange  !important;">
                                             <i class="bi bi-cash-stack icon"></i>
                                             <div class="text-right mt-4">
                                                 <div id="total_harga_produk_terjual">-</div>
-                                                <div class="fs-15">Total Harga Produk Terjual</div>
+                                                <div class="fs-15">Total Pajak (+)</div>
                                             </div>
-                                        </div>
-                                    </div> --}}
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid2"
-                                                style="background-color: orange  !important;">
-                                                <i class="bi bi-cash-stack icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="total_harga_produk_terjual">-</div>
-                                                    <div class="fs-15">Total Pajak (+)</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid4"
-                                                style="background-color: #B39DDB !important;">
-                                                <i class="bi bi-bar-chart icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="total_diskon">-</div>
-                                                    {{-- SUM DISKON --}}
-                                                    <div class="fs-15">Total Diskon (-)</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div> --}}
 
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid4"
-                                                style="background-color: #7E57C2 !important;">
-                                                <i class="bi bi-bar-chart icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="hpp">-</div>
-                                                    <div class="fs-15">Harga Pokok Penjualan</div>
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Pajak</p>
+                                                        <h6 class="fs-16 fw-semibold" id="total_harga_produk_terjual"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-danger text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
                                                 </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Total Pajak</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-07.svg"
+                                                    alt="img">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid5"
-                                                style="background-color: #81C784 !important;">
-                                                <i class="bi bi-graph-up-arrow icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="laba_rugi_bersih">-</div>
-                                                    <div class="fs-15">Laba Rugi</div>
-                                                </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid4"
+                                            style="background-color: #B39DDB !important;">
+                                            <i class="bi bi-bar-chart icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="total_diskon">-</div>
+
+                                                <div class="fs-15">Total Diskon (-)</div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="dashboard-card bg-grid6"
-                                                style="background-color: #FFB74D !important;">
-                                                {{-- ICON X --}}
-                                                <i class="bi bi-x icon"></i>
-                                                <div class="text-right mt-4">
-                                                    <div id="roas">-</div>
-                                                    <div class="fs-15">ROAS</div>
+                                        </div> --}}
+
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Discount</p>
+                                                        <h6 class="fs-16 fw-semibold" id="total_diskon"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-warning text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
                                                 </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Total Discount</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-06.svg"
+                                                    alt="img">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div style="overflow-x: auto; max-width: 100%;">
-                                        {!! $dataTable->table(['width' => '100%', 'class' => 'table table-auto table-border']) !!}
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid4"
+                                            style="background-color: #7E57C2 !important;">
+                                            <i class="bi bi-bar-chart icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="hpp">-</div>
+                                                <div class="fs-15">Harga Pokok Penjualan</div>
+                                            </div>
+                                        </div> --}}
+
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">HPP</p>
+                                                        <h6 class="fs-16 fw-semibold" id="hpp"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-success text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
+                                                </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Harga Pokok Penjualan</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-05.svg"
+                                                    alt="img">
+                                            </div>
+                                        </div>
+
+
                                     </div>
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid5"
+                                            style="background-color: #81C784 !important;">
+                                            <i class="bi bi-graph-up-arrow icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="laba_rugi_bersih">-</div>
+                                                <div class="fs-15">Laba Rugi</div>
+                                            </div>
+                                        </div> --}}
+
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">Laba Rugi</p>
+                                                        <h6 class="fs-16 fw-semibold" id="laba_rugi_bersih"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-secondary text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
+                                                </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Perhitungan Laba Rugi</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-04.svg"
+                                                    alt="img">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        {{-- <div class="dashboard-card bg-grid6"
+                                            style="background-color: #FFB74D !important;">
+
+                                            <i class="bi bi-x icon"></i>
+                                            <div class="text-right mt-4">
+                                                <div id="roas">-</div>
+                                                <div class="fs-15">ROAS</div>
+                                            </div>
+                                        </div> --}}
+
+
+                                        <div class="card overflow-hidden z-1 flex-fill">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                    <div>
+                                                        <p class="mb-1">ROAS</p>
+                                                        <h6 class="fs-16 fw-semibold" id="roas"></h6>
+                                                    </div>
+                                                    <span class="avatar avatar-lg bg-danger text-white avatar-rounded">
+                                                        <i class="isax isax-receipt-item fs-16"></i>
+                                                    </span>
+                                                </div>
+                                                <p class="fs-13"><span
+                                                        class="text-success d-inline-flex align-items-center"><i
+                                                            class="isax isax-send me-1"></i></span> Return On As Spend</p>
+                                            </div> <!-- end card body -->
+                                            <div class="position-absolute end-0 bottom-0 z-n1">
+                                                <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-07.svg"
+                                                    alt="img">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div style="overflow-x: auto; max-width: 100%;">
+                                    {!! $dataTable->table(['width' => '100%', 'class' => 'table table-auto table-border']) !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
         </div>
     @else
         <div class="row">
