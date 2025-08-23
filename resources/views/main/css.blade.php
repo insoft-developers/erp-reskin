@@ -115,7 +115,7 @@
     }
 
     .m-header {
-        background: #2f467a !important;
+        background: #006ecc !important;
     }
 
     .logo-besar {

@@ -398,6 +398,9 @@ class DashboardController extends Controller
 
         $top_products = DB::table('penjualan as p')->join('penjualan_products as pp', 'pp.penjualan_id', '=', 'p.id')->join('md_products as mp', 'mp.id', '=', 'pp.product_id')->select('mp.id as product_id', 'mp.name as product_name', DB::raw('SUM(pp.quantity) as total_qty'), DB::raw('SUM(pp.total) as total_nominal'))->where('p.user_id', $this->user_id_manage(session('id')))->groupBy('mp.id', 'mp.name')->orderByDesc('total_qty')->limit(3)->get();
 
+        
+
+
         return view('main.dashboard_new', compact('view', 'invoices', 'quotations', 'customers', 'all_customers', 'list_customers', 'overdue_total', 'penjualan_all', 'penjualan_not_paid', 'total_purchases', 'expenses', 'products', 'inters', 'materials', 'year', 'data_sales', 'data_sales_received', 'penjualan_8', 'recent', 'q_list','top_products'));
     }
 
