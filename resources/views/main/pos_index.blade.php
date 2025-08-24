@@ -48,30 +48,12 @@
     <div id="app">
 
         <div class="page-wrapper">
-            <div class="content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item">POS (Point of Sales)</li>
-                            <li class="breadcrumb-item">Aplikasi Kasir POS</li>
-                        </ul>
-                    </div>
-                    <div class="page-header-right ms-auto"
-                        style="display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 10px; margin-bottom: 10px;">
-                        <button type="button" id="btn-close-shift" @click="methods.onCloseShiftClick"
+           {{-- <button type="button" id="btn-close-shift" @click="methods.onCloseShiftClick"
                             class="btn btn-sm text-white"
                             style="background-color: #dc3545; border: none; font-size: 14px; padding: 10px 20px; border-radius: 6px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                             TUTUP SHIFT
-                        </button>
-                    </div>
-
-
-
-                </div>
+                        </button> --}}
+               
                 <div class="content" style="background: whitesmoke;">
                     {{-- Content Header --}}
                     <div class="grid grid-cols-12 gap-2 mb-2">
@@ -99,11 +81,16 @@
                             <div class="flex bg-white gap-2 p-2 max-h-[65px]">
                                 <button type="button" @click="methods.onShowingShippingModal"
                                     class="flex-grow btn btn-outline-primary rounded-3 normal-case">
-                                    <span class="mdi mdi-truck text-[18px] mr-2"></span> Biaya Lain
+                                    Biaya Lain
                                 </button>
                                 <button type="button" @click="methods.onShowingVoucherModal"
                                     class="flex-grow btn btn-outline-primary rounded-3 normal-case">
-                                    <span class="mdi mdi-sale-outline text-[18px] mr-2"></span> Discount & Voucheer
+                                    Discount & Voucheer
+                                </button>
+
+                                <button type="button" @click="methods.onCloseShiftClick"
+                                    class="flex-grow btn btn-outline-danger rounded-3 normal-case">
+                                    Tutup Kasir
                                 </button>
                             </div>
                         </div>
@@ -422,7 +409,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
 
         <div>
@@ -696,7 +683,7 @@
                 <form @submit.prevent="methods.onSubmitVariantAddNote" class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 @{{ data.modal.product.name }} | @{{ data.modal.variantActive.varian_name }}
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -720,7 +707,7 @@
                 <form @submit.prevent="methods.onSubmitProductAddNote" class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 @{{ data.modal.product.name }}
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -744,7 +731,7 @@
                 <form @submit.prevent="methods.onSubmitShippingCost" class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 Tambahan / Ongkir
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -769,7 +756,7 @@
                 <form @submit.prevent="methods.onSubmitAddNewCustomer" class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 Tambah Pelanggan Baru
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -828,7 +815,7 @@
                 <form @submit.prevent="methods.onSubmitVoucher" class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 Pilih Voucher
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"

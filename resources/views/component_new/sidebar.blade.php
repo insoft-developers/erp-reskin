@@ -542,7 +542,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="https://help.ruangerp.com" target="_blank">Bantuan dan Tutorial</a></li>
+                                <li><a href="https://help.lihai.id" target="_blank">Bantuan dan Tutorial</a></li>
                                 <li class="{{ $segment ==='premium' ? 'active' : '' }}"><a href="{{ url('premium') }}">Paket Langganan</a>
                                 </li>
                                 <li><a class="{{ $segment === 'feature-request' ? 'active' : '' }}" href="{{ url('feature-request') }}">Permintaan Fitur Baru</a>

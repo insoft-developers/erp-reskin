@@ -1,8 +1,66 @@
 <style>
+    /* Styling umum untuk semua tabel */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(173, 216, 230, 0.2);
+        /* Biru muda transparan */
+        backdrop-filter: blur(6px);
+        /* Efek blur elegan */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        font-size: 14px;
+        color: #333;
+    }
+
+    /* Header tabel */
+    table thead {
+        background: rgba(0, 123, 255, 0.3);
+        /* Biru lebih pekat */
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    table thead th {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    /* Baris body tabel */
+    table tbody tr {
+        transition: background 0.3s ease;
+    }
+
+    table tbody tr:nth-child(even) {
+        background: rgba(173, 216, 230, 0.15);
+        /* Alternating row */
+    }
+
+    table tbody tr:hover {
+        background: rgba(0, 123, 255, 0.15);
+        /* Hover efek */
+    }
+
+    /* Sel tabel */
+    table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Footer tabel */
+    table tfoot {
+        background: rgba(0, 123, 255, 0.2);
+        font-weight: bold;
+    }
+
 
     .logo-pakai {
-        width:162px;
+        width: 162px;
     }
+
     .breadcrumb .breadcrumb-item a,
     .breadcrumb .breadcrumb-item a i,
     .breadcrumb .breadcrumb-item.active {
@@ -788,7 +846,4 @@
 
 
     }
-
-
-    
 </style>

@@ -2,7 +2,7 @@
     use Carbon\Carbon;
 @endphp
 <!-- Topbar Start -->
-<div class="header">
+<div class="header" style="background:#0c25df">
     <div class="main-header">
 
         <!-- Logo -->
