@@ -2,14 +2,14 @@
 @section('style')
     <style>
         /* #landing-pages-table_wrapper .dataTables_scroll {
-            overflow-y: auto;
-        } */
+                overflow-y: auto;
+            } */
 
         /* #landing-pages-table_wrapper .dataTables_scrollBody {
-            max-height: 500px;
-            
-            overflow-y: scroll;
-        } */
+                max-height: 500px;
+                
+                overflow-y: scroll;
+            } */
 
         #order-detail-table {
             border: 1px solid #000;
@@ -74,7 +74,8 @@
         .text-right {
             text-align: right;
         }
-        .fs-15{
+
+        .fs-15 {
             font-size: 14px !important;
         }
     </style>
@@ -82,8 +83,8 @@
 
 @section('content')
     <div class="page-wrapper">
-        
-            {{-- <div class="page-header">
+
+        {{-- <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
                         <h5 class="m-b-10"></h5>
@@ -110,233 +111,319 @@
                 </div>
             </div> --}}
 
-            <div class="content" style="background:whitesmoke;">
-                <div class="row">
-                    <div class="col-xxl-12">
-                        <div class="card stretch stretch-full">
-                            <div class="card-header">
-                                <h5 class="card-title">Manajemen Pesanan</h5>
-                                <div class="dropdown">
-                                    <button style="float: right;" id="action-button" disabled class="btn btn-secondary dropdown-toggle"
-                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Bulk Action
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" id="change-transaction-status">Ubah
-                                                Status Transaksi</a></li>
-                                        {{-- <li><a class="dropdown-item" href="#" id="change-payment-status">Ubah
+        <div class="content" style="background:whitesmoke;">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="card stretch stretch-full">
+                        <div class="card-header">
+                            <h5 class="card-title">Kelola Pesanan</h5>
+                            <div class="dropdown">
+                                <button style="float: right;" id="action-button" disabled
+                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Bulk Action
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" id="change-transaction-status">Ubah
+                                            Status Transaksi</a></li>
+                                    {{-- <li><a class="dropdown-item" href="#" id="change-payment-status">Ubah
                                                 Status Pembayaran</a></li> --}}
-                                        {{-- <li><a class="dropdown-item" href="#" id="change-payment-status">Ubah Status
+                                    {{-- <li><a class="dropdown-item" href="#" id="change-payment-status">Ubah Status
                                                 Pembayaran</a></li> --}}
-                                        <li><a class="dropdown-item" href="#" id="change-payment-method">Ubah Metode
-                                                Pembayaran</a></li>
-                                        <li><a class="dropdown-item" href="#" id="change-sync-status">Sync Jurnal</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <li><a class="dropdown-item" href="#" id="change-payment-method">Ubah Metode
+                                            Pembayaran</a></li>
+                                    <li><a class="dropdown-item" href="#" id="change-sync-status">Sync Jurnal</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="card-body custom-card-action p-3">
-                                @if (session('error'))
-                                    <div class="alert alert-danger">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
-                                @if (session('success'))
-                                    <div class="alert alert-success">
-                                        {{ session('success') }}
-                                    </div>
-                                @endif
+                        </div>
+                        <div class="card-body custom-card-action p-3">
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
 
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <div class="dashboard-card bg-grid1">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    {{-- <div class="dashboard-card bg-grid1">
                                             <i class="bi bi-basket icon"></i>
                                             <div class="text-right mt-4">
                                                 <div id="omset_penjualan">-</div>
-                                                {{-- SUM COLUMN PAID --}}
+                                            
                                                 <div class="fs-15">Omset Penjualan</div>
                                             </div>
+                                        </div> --}}
+
+                                    <div class="card overflow-hidden z-1 flex-fill">
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                <div>
+                                                    <p class="mb-1">Omset Penjualan</p>
+                                                    <h6 class="fs-16 fw-semibold" id="omset_penjualan"></h6>
+                                                </div>
+                                                <span class="avatar avatar-lg bg-primary text-white avatar-rounded">
+                                                    <i class="isax isax-receipt-item fs-16"></i>
+                                                </span>
+                                            </div>
+                                            <p class="fs-13"><span class="text-success d-inline-flex align-items-center"><i
+                                                        class="isax isax-send me-1"></i></span> Total Omset Penjulalan</p>
+                                        </div> <!-- end card body -->
+                                        <div class="position-absolute end-0 bottom-0 z-n1">
+                                            <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-04.svg" alt="img">
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="dashboard-card bg-grid2">
-                                            <i class="bi bi-cash-stack icon"></i>
-                                            <div class="text-right mt-4">
-                                                <div id="total_penjualan">-</div>
-                                                {{-- SUM ORDER TOTAL --}}
-                                                <div class="fs-15">Total Harga Produk Terjual</div>
-                                            </div>
+
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{-- <div class="dashboard-card bg-grid2">
+                                        <i class="bi bi-cash-stack icon"></i>
+                                        <div class="text-right mt-4">
+                                            <div id="total_penjualan">-</div>
+                                            
+                                            <div class="fs-15">Total Harga Produk Terjual</div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="dashboard-card bg-grid3">
-                                            <i class="bi bi-wallet2 icon"></i>
-                                            <div class="text-right mt-4">
-                                                <div id="total_ongkir">-</div>
-                                                {{-- SUM SHIPPING --}}
-                                                <div class="fs-15">Total Ongkir (+)</div>
+                                    </div> --}}
+
+                                    <div class="card overflow-hidden z-1 flex-fill">
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                <div>
+                                                    <p class="mb-1">Harga Produk</p>
+                                                    <h6 class="fs-16 fw-semibold" id="total_penjualan"></h6>
+                                                </div>
+                                                <span class="avatar avatar-lg bg-success text-white avatar-rounded">
+                                                    <i class="isax isax-receipt-item fs-16"></i>
+                                                </span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="dashboard-card bg-grid4">
-                                            <i class="bi bi-bar-chart icon"></i>
-                                            <div class="text-right mt-4">
-                                                <div id="total_diskon">-</div>
-                                                {{-- SUM DISKON --}}
-                                                <div class="fs-15">Total Diskon (-)</div>
-                                            </div>
+                                            <p class="fs-13"><span class="text-success d-inline-flex align-items-center"><i
+                                                        class="isax isax-send me-1"></i></span> Total Harga Produk Terjual</p>
+                                        </div> <!-- end card body -->
+                                        <div class="position-absolute end-0 bottom-0 z-n1">
+                                            <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-05.svg" alt="img">
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-3 mb-3">
+                                    {{-- <div class="dashboard-card bg-grid3">
+                                        <i class="bi bi-wallet2 icon"></i>
+                                        <div class="text-right mt-4">
+                                            <div id="total_ongkir">-</div>
+                                            <div class="fs-15">Total Ongkir (+)</div>
+                                        </div>
+                                    </div> --}}
 
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-md-2">
-                                        <select id="selectRange" class="form-select">
-                                            {{-- <option value="">Pilih Range Waktu</option> --}}
-                                            <option value="isToday">Hari Ini</option>
-                                            <option value="isYesterday">Kemarin</option>
-                                            {{-- <option value="isThisWeek">Minggu Ini</option>
+
+                                    <div class="card overflow-hidden z-1 flex-fill">
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                <div>
+                                                    <p class="mb-1">Ongkir</p>
+                                                    <h6 class="fs-16 fw-semibold" id="total_ongkir"></h6>
+                                                </div>
+                                                <span class="avatar avatar-lg bg-danger text-white avatar-rounded">
+                                                    <i class="isax isax-receipt-item fs-16"></i>
+                                                </span>
+                                            </div>
+                                            <p class="fs-13"><span class="text-success d-inline-flex align-items-center"><i
+                                                        class="isax isax-send me-1"></i></span> Total Ongkir</p>
+                                        </div> <!-- end card body -->
+                                        <div class="position-absolute end-0 bottom-0 z-n1">
+                                            <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-07.svg" alt="img">
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    {{-- <div class="dashboard-card bg-grid4">
+                                        <i class="bi bi-bar-chart icon"></i>
+                                        <div class="text-right mt-4">
+                                            <div id="total_diskon">-</div>
+                                            <div class="fs-15">Total Diskon (-)</div>
+                                        </div>
+                                    </div> --}}
+
+
+                                    <div class="card overflow-hidden z-1 flex-fill">
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between border-bottom mb-2 pb-2">
+                                                <div>
+                                                    <p class="mb-1">Discount</p>
+                                                    <h6 class="fs-16 fw-semibold" id="total_diskon"></h6>
+                                                </div>
+                                                <span class="avatar avatar-lg bg-warning text-white avatar-rounded">
+                                                    <i class="isax isax-receipt-item fs-16"></i>
+                                                </span>
+                                            </div>
+                                            <p class="fs-13"><span class="text-success d-inline-flex align-items-center"><i
+                                                        class="isax isax-send me-1"></i></span> Total Discount</p>
+                                        </div> <!-- end card body -->
+                                        <div class="position-absolute end-0 bottom-0 z-n1">
+                                            <img src="{{ asset('reskin') }}/assets/img/bg/card-bg-06.svg" alt="img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-md-2">
+                                    <select id="selectRange" class="form-select">
+                                        {{-- <option value="">Pilih Range Waktu</option> --}}
+                                        <option value="isToday">Hari Ini</option>
+                                        <option value="isYesterday">Kemarin</option>
+                                        {{-- <option value="isThisWeek">Minggu Ini</option>
                                             <option value="isLastWeek">Minggu Kemarin</option> --}}
-                                            <option value="isThisMonth">Bulan Ini</option>
-                                            <option value="isLastMonth">Bulan Kemarin</option>
-                                            <option value="isThisYear">Tahun Ini</option>
-                                            <option value="isLastYear">Tahun Kemarin</option>
-                                            <option value="isRangeDate">Range Tanggal</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="date" id="startDate" class="form-control" placeholder="dd/mm/yyyy"
-                                            disabled />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="date" id="endDate" class="form-control" placeholder="dd/mm/yyyy"
-                                            disabled />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select id="search-staff" class="form-select col form-select-sm"
-                                            aria-controls="landing-pages-table">
-                                            <option value="">Semua Staff</option>
-                                            @foreach ($staff as $st)
-                                                <option value="{{ $st->id }}">{{ $st->fullname }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select id="search-price-type" class="form-select col form-select-sm"
-                                            aria-controls="landing-pages-table">
-                                            <option value="">Semua Jenis Harga</option>
-                                            <option value="price">Default - Dine In</option>
-                                            <option value="price_ta">Takeaway - Delivery</option>
-                                            <option value="price_mp">Marketplace</option>
-                                            <option value="price_cus">Custom</option>
-                                        </select>
-                                    </div>
+                                        <option value="isThisMonth">Bulan Ini</option>
+                                        <option value="isLastMonth">Bulan Kemarin</option>
+                                        <option value="isThisYear">Tahun Ini</option>
+                                        <option value="isLastYear">Tahun Kemarin</option>
+                                        <option value="isRangeDate">Range Tanggal</option>
+                                    </select>
                                 </div>
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-md-2 d-none">
-                                        <select id="branch" class="form-select">
-                                            <option value="">Semua Cabang</option>
-                                            @foreach ($branch as $br)
-                                                <option value="{{ $br->id }}">{{ $br->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select id="flag" class="form-select">
-                                            <option value="">Pilih Flag</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select id="transaction_status" class="form-select">
-                                            <option value="">Semua Status Transaksi</option>
-                                            <option value="0">Pending</option>
-                                            <option value="1">Process</option>
-                                            <option value="2">Cooking/Packing</option>
-                                            <option value="3">Shipped</option>
-                                            <option value="4">Complete</option>
-                                            <option value="5">Canceled</option>
-                                            <option value="-2">Void</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select id="payment_status" class="form-select">
-                                            <option value="">Semua Status Pembayaran</option>
-                                            <option value="1">Paid</option>
-                                            {{-- <option value="0">UnPaid</option> --}}
-                                            <option value="-1">Refunded</option>
-                                            <option value="-2">Void</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select id="payment_method" class="form-select">
-                                            <option value="">Semua Metode Pembayaran</option>
-                                            @foreach ($paymentMethods as $br)
-                                                <option value="{{ $br }}">{{ $br }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button id="filterButton" type="submit" id="filterData"
-                                            class="btn btn-primary w-100">Filter</button>
-                                    </div>
+                                <div class="col-md-2">
+                                    <input type="date" id="startDate" class="form-control" placeholder="dd/mm/yyyy"
+                                        disabled />
                                 </div>
+                                <div class="col-md-2">
+                                    <input type="date" id="endDate" class="form-control" placeholder="dd/mm/yyyy"
+                                        disabled />
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="search-staff" class="form-select col form-select-sm"
+                                        aria-controls="landing-pages-table">
+                                        <option value="">Semua Staff</option>
+                                        @foreach ($staff as $st)
+                                            <option value="{{ $st->id }}">{{ $st->fullname }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="search-price-type" class="form-select col form-select-sm"
+                                        aria-controls="landing-pages-table">
+                                        <option value="">Semua Jenis Harga</option>
+                                        <option value="price">Default - Dine In</option>
+                                        <option value="price_ta">Takeaway - Delivery</option>
+                                        <option value="price_mp">Marketplace</option>
+                                        <option value="price_cus">Custom</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-md-2 d-none">
+                                    <select id="branch" class="form-select">
+                                        <option value="">Semua Cabang</option>
+                                        @foreach ($branch as $br)
+                                            <option value="{{ $br->id }}">{{ $br->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="flag" class="form-select">
+                                        <option value="">Pilih Flag</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="transaction_status" class="form-select">
+                                        <option value="">Semua Status Transaksi</option>
+                                        <option value="0">Pending</option>
+                                        <option value="1">Process</option>
+                                        <option value="2">Cooking/Packing</option>
+                                        <option value="3">Shipped</option>
+                                        <option value="4">Complete</option>
+                                        <option value="5">Canceled</option>
+                                        <option value="-2">Void</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="payment_status" class="form-select">
+                                        <option value="">Semua Status Pembayaran</option>
+                                        <option value="1">Paid</option>
+                                        {{-- <option value="0">UnPaid</option> --}}
+                                        <option value="-1">Refunded</option>
+                                        <option value="-2">Void</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="payment_method" class="form-select">
+                                        <option value="">Semua Metode Pembayaran</option>
+                                        @foreach ($paymentMethods as $br)
+                                            <option value="{{ $br }}">{{ $br }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="filterButton" type="submit" id="filterData"
+                                        class="btn btn-primary w-100">Filter</button>
+                                </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-4">
-                                        <div id="landing-pages-table_filter" class="dataTables_filter">
-                                            <label>
-                                                Pencarian Pesanan:
-                                            </label>
-                                            <div class="row gap-2">
-                                                <input type="search" id="search-key"
-                                                    class="form-control col form-control-sm"
-                                                    placeholder="Nama / Kode Transaksi / Produk"
-                                                    aria-controls="landing-pages-table">
-                                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <div id="landing-pages-table_filter" class="dataTables_filter">
+                                        <label>
+                                            Pencarian Pesanan:
+                                        </label>
+                                        <div class="row gap-2">
+                                            <input type="search" id="search-key"
+                                                class="form-control col form-control-sm"
+                                                placeholder="Nama / Kode Transaksi / Produk"
+                                                aria-controls="landing-pages-table">
                                         </div>
                                     </div>
                                 </div>
-                                <div style="min-width: 300px; overflow-y: auto" class="mt-3">
-                                    <table class="table table-striped border" id="landing-pages-table">
-                                        <thead>
-                                            <tr>
-                                                <th><input type="checkbox" id="select-all"></th>
-                                                {{-- <th>No</th> --}}
-                                                <th style='min-width: 150px; text-align: center;'>ACTION</th>
-                                                <th style='min-width: 150px; text-align: left;'>SYNC JURNAL</th>
-                                                <th style='min-width: 150px; text-align: left;'>PRICE TYPE</th>
-                                                <th style='min-width: 200px; text-align: left;'>TANGGAL / WAKTU</th>
-                                                <th style='min-width: 200px; text-align: left;'>KODE TRANSAKSI</th>
-                                                <th style='min-width: 200px; text-align: left;'>FLAG</th>
-                                                <th style='min-width: 400px; text-align: left;'>LIHAT PESANAN</th>
-                                                <th style='min-width: 250px; text-align: left;'>DATA KONSUMEN</th>
-                                                <th style='min-width: 150px; text-align: left;'>STATUS TRANSAKSI</th>
-                                                <th style='min-width: 150px; text-align: left;'>STATUS PEMBAYARAN</th>
-                                                <th style='min-width: 150px; text-align: left;'>DISKON (-)</th>
-                                                <th style='min-width: 150px; text-align: left;'>PAJAK (+)</th>
-                                                <th style='min-width: 150px; text-align: left;'>BIAYA KIRIM (+)</th>
-                                                <th style='min-width: 250px; text-align: left;'>SUB TOTAL PESANAN</th>
-                                                <th style='min-width: 250px; text-align: left;'>TOTAL PESANAN</th>
-                                                <th style='min-width: 150px; text-align: left;'>METODE BAYAR</th>
-                                                <th style='min-width: 150px; text-align: left;'>NOMOR MEJA</th>
-                                                <th style='min-width: 200px; text-align: left;'>NAMA CABANG</th>
-                                                <th style='min-width: 250px; text-align: left;'>NAMA STAFF</th>
-                                                <th style='min-width: 150px; text-align: left;'>PROCESSING</th>
-                                                <th style='min-width: 150px; text-align: left;'>FOLLOW UP</th>
-                                                <th style='min-width: 150px; text-align: left;'>UPSELLING</th>
-                                                <th style='min-width: 150px; text-align: left;'>CUSTOMER SERVICE</th>
+                            </div>
+                            <div style="min-width: 300px; overflow-y: auto" class="mt-3">
+                                <table class="table table-striped border" id="landing-pages-table">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" id="select-all"></th>
+                                            {{-- <th>No</th> --}}
+                                            <th style='min-width: 150px; text-align: center;'>ACTION</th>
+                                            <th style='min-width: 150px; text-align: left;'>SYNC JURNAL</th>
+                                            <th style='min-width: 150px; text-align: left;'>PRICE TYPE</th>
+                                            <th style='min-width: 200px; text-align: left;'>TANGGAL / WAKTU</th>
+                                            <th style='min-width: 200px; text-align: left;'>KODE TRANSAKSI</th>
+                                            <th style='min-width: 200px; text-align: left;'>FLAG</th>
+                                            <th style='min-width: 400px; text-align: left;'>LIHAT PESANAN</th>
+                                            <th style='min-width: 250px; text-align: left;'>DATA KONSUMEN</th>
+                                            <th style='min-width: 150px; text-align: left;'>STATUS TRANSAKSI</th>
+                                            <th style='min-width: 150px; text-align: left;'>STATUS PEMBAYARAN</th>
+                                            <th style='min-width: 150px; text-align: left;'>DISKON (-)</th>
+                                            <th style='min-width: 150px; text-align: left;'>PAJAK (+)</th>
+                                            <th style='min-width: 150px; text-align: left;'>BIAYA KIRIM (+)</th>
+                                            <th style='min-width: 250px; text-align: left;'>SUB TOTAL PESANAN</th>
+                                            <th style='min-width: 250px; text-align: left;'>TOTAL PESANAN</th>
+                                            <th style='min-width: 150px; text-align: left;'>METODE BAYAR</th>
+                                            <th style='min-width: 150px; text-align: left;'>NOMOR MEJA</th>
+                                            <th style='min-width: 200px; text-align: left;'>NAMA CABANG</th>
+                                            <th style='min-width: 250px; text-align: left;'>NAMA STAFF</th>
+                                            <th style='min-width: 150px; text-align: left;'>PROCESSING</th>
+                                            <th style='min-width: 150px; text-align: left;'>FOLLOW UP</th>
+                                            <th style='min-width: 150px; text-align: left;'>UPSELLING</th>
+                                            <th style='min-width: 150px; text-align: left;'>CUSTOMER SERVICE</th>
 
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        
+        </div>
+
     </div>
 
     <div class="modal fade" id="change-transaction-status-modal" tabindex="-1"

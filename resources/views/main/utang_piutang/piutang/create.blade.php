@@ -2,7 +2,7 @@
     @csrf
 
     <div class="modal-content">
-        <div class="modal-header" style="background-color: #743bff;">
+        <div class="modal-header" style="background-color: #006ecc;">
             <h5 class="modal-title" style="color:white;">Piutang Baru</h5>
         </div>
         <div class="modal-body">

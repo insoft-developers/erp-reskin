@@ -117,6 +117,7 @@
     @include('main.cust_js.product_manufacture_js')
     @include('main.cust_js.converse_js')
     @include('main.cust_js.opname_js')
+    @include('main.cust_js.dashboard_js')
 
 
 

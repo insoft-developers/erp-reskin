@@ -26,6 +26,14 @@
         .modal {
             background: rgba(0, 0, 0, 0.5);
         }
+
+        .bg-gradient-to-t {
+
+
+            border-radius: 2px !important;
+        }
+
+        
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css"
@@ -40,30 +48,12 @@
     <div id="app">
 
         <div class="page-wrapper">
-            <div class="content">
-                <!-- [ page-header ] start -->
-                <div class="page-header">
-                    <div class="page-header-left d-flex align-items-center">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10"></h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item">POS (Point of Sales)</li>
-                            <li class="breadcrumb-item">Aplikasi Kasir POS Versi Web</li>
-                        </ul>
-                    </div>
-                    <div class="page-header-right ms-auto"
-                        style="display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 10px; margin-bottom: 10px;">
-                        <button type="button" id="btn-close-shift" @click="methods.onCloseShiftClick"
+           {{-- <button type="button" id="btn-close-shift" @click="methods.onCloseShiftClick"
                             class="btn btn-sm text-white"
                             style="background-color: #dc3545; border: none; font-size: 14px; padding: 10px 20px; border-radius: 6px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                             TUTUP SHIFT
-                        </button>
-                    </div>
-
-
-
-                </div>
+                        </button> --}}
+               
                 <div class="content" style="background: whitesmoke;">
                     {{-- Content Header --}}
                     <div class="grid grid-cols-12 gap-2 mb-2">
@@ -75,7 +65,7 @@
                                 </button>
                                 <div class="input-group me-1">
                                     <select id="select2-pos" name="data" style="width: 100%">
-                                        <option value="">Ketik Nama Konsumen lalu Tekan Enter...</option>
+                                        <option value="">Ketik Nama Pelanggan lalu Tekan Enter...</option>
                                     </select>
                                 </div>
                                 <button type="button" @click="methods.onShowingAddNewCustomerModal"
@@ -91,11 +81,16 @@
                             <div class="flex bg-white gap-2 p-2 max-h-[65px]">
                                 <button type="button" @click="methods.onShowingShippingModal"
                                     class="flex-grow btn btn-outline-primary rounded-3 normal-case">
-                                    <span class="mdi mdi-truck text-[18px] mr-2"></span> Tambahan / Ongkir
+                                    Biaya Lain
                                 </button>
                                 <button type="button" @click="methods.onShowingVoucherModal"
                                     class="flex-grow btn btn-outline-primary rounded-3 normal-case">
-                                    <span class="mdi mdi-sale-outline text-[18px] mr-2"></span> Voucher / Diskon
+                                    Discount & Voucheer
+                                </button>
+
+                                <button type="button" @click="methods.onCloseShiftClick"
+                                    class="flex-grow btn btn-outline-danger rounded-3 normal-case">
+                                    Tutup Kasir
                                 </button>
                             </div>
                         </div>
@@ -111,11 +106,11 @@
                                 <div class="grid grid-cols-2">
                                     <div class="col-span-2 sm:col-span-1 mb-4 sm:mb-0 sm:my-auto">
                                         <div class="flex items-center">
-                                            <h6 class="mb-0">Kategori</h6>
+                                            <h6 class="mb-0">Category</h6>
                                             <i class="bi bi-chevron-compact-right fw-bold ms-1"></i>
                                             <span type="button" class="p-1 text-primary"
                                                 @click="methods.onShowingModalCategory" style="font-weight: bold">
-                                                <span class="kategoriText fs-6">Pilih Kategori</span>
+                                                <span class="kategoriText fs-6">Select Category</span>
                                             </span>
                                         </div>
                                     </div>
@@ -126,7 +121,7 @@
                                                 v-model="data.price_type" @change="methods.onChangePriceType">
                                                 <option value="price" selected>Default (Dine In)</option>
                                                 <option value="price_ta">Take Away</option>
-                                                <option value="price_mp">Marketplace (Shopee, GoFood, Tokopedia, Etc)
+                                                <option value="price_mp">Marketplace
                                                 </option>
                                                 <option value="price_cus">Custom Price</option>
                                             </select>
@@ -150,6 +145,8 @@
                             {{-- List Product --}}
                             <div class="container product-content hidden">
                                 <div class="grid grid-cols-12 mt-4 gap-2 products">
+
+
                                     <div v-for="(item) in data.products" :key="item.id"
                                         :class="{
                                             'col-span-6 md:col-span-4 xl:col-span-3': true,
@@ -157,18 +154,55 @@
                                                 .buffered_stock && !item.qty_allowed_to_sell
                                         }">
                                         <div @click="methods.onSelectProduct(item)"
-                                            class="bg-gradient-to-t from-sky-500 to-[#2F467A] rounded-3 text-center border rounded-3 border-info d-flex flex-column justify-content-center cursor-pointer h-[180px] hover:outline-red-400 hover:outline-2 hover:outline">
-                                            <h6 class="text-white mb-2 text-lg font-bold">@{{ item.name }}</h6>
+                                            class="bg-gradient-to-t from-sky-500 to-[#2F467A] rounded-3 text-center border rounded-3 border-info d-flex flex-column justify-content-center cursor-pointer h-[180px] hover:outline-red-400 hover:outline-2 hover:outline"
+                                            :style="{
+                                                backgroundImage: 'linear-gradient(rgba(47,70,122,0.85), rgba(47,70,122,0.75)), url(' +
+                                                    item.image_url + ')',
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center'
+                                            }">
+
+
+                                            <h6 class="text-white mb-2 text-lg font-bold">@{{ toTitleCase(item.name) }}
+                                            </h6>
                                             <h6 class="mb-0 text-lg text-yellow-200">Rp @{{ new Intl.NumberFormat().format(item.price) }}</h6>
                                             <div v-if="item.variant.length" class="text-emerald-300 mt-2 font-bold">
-                                                (Tersedia Variant)
+                                                (Variant Available)
                                             </div>
                                             <div v-if="item.buffered_stock" class="text-white mt-2">
-                                                Stock @{{ item.qty_allowed_to_sell }}
+                                                {{-- Stock @{{ item.qty_allowed_to_sell }} --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+
+                                {{-- <div class="card z-1 flex-fill products" style="margin-bottom: 30px;">
+                                    <div v-for="(item) in data.products" :key="item.id"
+                                        :class="{
+                                            'card-body col-span-6 md:col-span-4 xl:col-span-3': true,
+                                            'hidden': item
+                                                .buffered_stock && !item.qty_allowed_to_sell
+                                        }">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <div>
+                                                <p class="mb-1">Total Invoice</p>
+                                                <h6 class="fs-16 fw-semibold"> ₹250,000</h6>
+                                            </div>
+                                            <span class="avatar avatar-lg bg-primary text-white avatar-rounded">
+                                                <i class="isax isax-dollar-circle fs-24"></i>
+                                            </span>
+                                        </div>
+                                        <p class="fs-13"><span class="text-success d-inline-flex align-items-center"><i
+                                                    class="isax isax-send me-1"></i>5.62%</span> from last month</p>
+                                    </div><!-- end card body -->
+                                    <div class="position-absolute start-0 bottom-0 z-n1">
+                                        <img src="{{ asset('reskin') }}/assets/img/bg/income-report-1.svg" alt="img">
+                                    </div>
+                                </div> --}}
+
+
+
                             </div>
 
                             <!-- Pagination -->
@@ -375,7 +409,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
 
         <div>
@@ -608,8 +642,10 @@
                                     <div @click="!data.modal.product.variant.some(v => v.quantity > 0) ? methods.changeQuantityPerItemOnModalVariant('-') : null"
                                         :class="{
                                             'text-xl cursor-pointer': true,
-                                            'text-gray-100': !data.modal.product.quantity || data.modal.product.variant.some(v => v.quantity > 0),
-                                            'text-blue-400': data.modal.product.quantity && !data.modal.product.variant.some(v => v.quantity > 0),
+                                            'text-gray-100': !data.modal.product.quantity || data.modal.product.variant
+                                                .some(v => v.quantity > 0),
+                                            'text-blue-400': data.modal.product.quantity && !data.modal.product.variant
+                                                .some(v => v.quantity > 0),
                                             'cursor-not-allowed': data.modal.product.variant.some(v => v.quantity > 0)
                                         }">
                                         <span class="mdi mdi-minus-circle"></span>
@@ -647,7 +683,7 @@
                 <form @submit.prevent="methods.onSubmitVariantAddNote" class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 @{{ data.modal.product.name }} | @{{ data.modal.variantActive.varian_name }}
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -671,7 +707,7 @@
                 <form @submit.prevent="methods.onSubmitProductAddNote" class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 @{{ data.modal.product.name }}
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -695,7 +731,7 @@
                 <form @submit.prevent="methods.onSubmitShippingCost" class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 Tambahan / Ongkir
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -720,7 +756,7 @@
                 <form @submit.prevent="methods.onSubmitAddNewCustomer" class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 Tambah Pelanggan Baru
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -779,7 +815,7 @@
                 <form @submit.prevent="methods.onSubmitVoucher" class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">
+                            <h1 class="modal-title fs-15">
                                 Pilih Voucher
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -810,6 +846,9 @@
                     </div>
                 </form>
             </div>
+
+
+
         </div>
     </div>
 @endsection
@@ -1127,7 +1166,8 @@
 
                             if (total > totalDiscount) {
                                 const fixAmount = total - totalDiscount
-                                data.value.selisihPembulatan = `Rp ${new Intl.NumberFormat().format(fixAmount - roundToNearestThousand(fixAmount))}`
+                                data.value.selisihPembulatan =
+                                    `Rp ${new Intl.NumberFormat().format(fixAmount - roundToNearestThousand(fixAmount))}`
                                 return withRp ?
                                     `Rp ${new Intl.NumberFormat().format(roundToNearestThousand(fixAmount))}` :
                                     roundToNearestThousand(fixAmount)
@@ -1135,7 +1175,8 @@
                                 return withRp ? 'Rp 0' : 0
                             }
                         } else {
-                            data.value.selisihPembulatan = `Rp ${new Intl.NumberFormat().format(total - roundToNearestThousand(total))}`
+                            data.value.selisihPembulatan =
+                                `Rp ${new Intl.NumberFormat().format(total - roundToNearestThousand(total))}`
                             return withRp ?
                                 `Rp ${new Intl.NumberFormat().format(roundToNearestThousand(total))}` :
                                 roundToNearestThousand(total)
@@ -1286,6 +1327,7 @@
                             $('#btn-close-shift').removeClass('hidden')
                         }
                     },
+
                     getProducts: (page = 1, search = '', price_type = '') => {
                         return new Promise((resolve) => {
                             axios.get('/v1/product', {
@@ -1296,6 +1338,7 @@
                                     category_id: data.category_id
                                 }
                             }).then(res => {
+                                console.log(res);
                                 if (!data.temps.scanMode) {
                                     data.products = res.data.data.data;
                                     data.pagination.current_page = res.data.pagination
@@ -1307,6 +1350,7 @@
                                         .total_items;
                                     $('.product-content').removeClass('hidden');
                                     $('.checkout-section').removeClass('hidden');
+
                                 } else {
                                     if (res.data.data.data.length > 0) {
                                         methods.onSelectProduct(res.data.data.data[0])
@@ -2160,12 +2204,23 @@
                     });
                 })
 
+                const toTitleCase = (str) => {
+                    if (!str) return '';
+                    return str
+                        .toLowerCase()
+                        .split(' ')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
+                };
+
                 return {
                     data,
                     methods,
-                    searchInput
+                    searchInput,
+                    toTitleCase
                 };
             }
         }).mount('#app');
     </script>
 @endsection
+
